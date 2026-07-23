@@ -3,8 +3,8 @@
 @theme {
   --color-navy: #1e2a4a;
   --color-navy-dark: #151e35;
-  --color-gold: #e2a33f;
-  --color-gold-light: #f0c97a;
+  --color-gold: #c98a2e;
+  --color-gold-light: #e2a33f;
   --color-burgundy: #830721;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 }
@@ -14,4 +14,48 @@ body {
   min-height: 100vh;
   background-color: #ffffff;
   color: #333;
+}
+
+/* Scroll-triggered entrance animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: fadeUp 0.6s ease-out forwards;
+  animation-play-state: paused;
+}
+
+.animate-on-scroll.is-visible {
+  animation-play-state: running;
+}
+
+/* Stagger children animations */
+.animate-on-scroll.delay-1 { animation-delay: 0.1s; }
+.animate-on-scroll.delay-2 { animation-delay: 0.2s; }
+.animate-on-scroll.delay-3 { animation-delay: 0.3s; }
+.animate-on-scroll.delay-4 { animation-delay: 0.4s; }
+
+/* Page transition */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.3s ease-out;
 }
