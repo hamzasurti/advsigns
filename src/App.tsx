@@ -33,7 +33,7 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <ScrollToTop />

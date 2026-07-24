@@ -36,10 +36,30 @@ const services = [
   },
 ];
 
+const details = [
+  {
+    title: "Lobby signs in Los Angeles",
+    body: "First impressions start in the lobby. We fabricate dimensional letters, logos, and reception signs using brushed aluminum, acrylic, PVC, and mixed-media materials. Whether you need pin-mounted standoff letters or flush-mounted cut vinyl, we design and install lobby signage for offices, medical buildings, and retail spaces across Los Angeles, the San Fernando Valley, and Ventura County.",
+  },
+  {
+    title: "Vehicle wraps in the San Fernando Valley",
+    body: "Turn every vehicle into a mobile billboard. We provide full wraps, partial wraps, and fleet graphics using 3M and Avery premium cast vinyl with laminate protection. Our wraps are designed, printed, and installed in our Chatsworth facility. We serve businesses throughout Los Angeles County, from single vehicles to full fleet programs of 15+ units.",
+  },
+  {
+    title: "Wall graphics and murals",
+    body: "Transform any interior space with custom wall graphics, murals, and environmental branding. We print on adhesive vinyl, fabric, and specialty substrates for offices, retail stores, restaurants, and public spaces. From accent walls to full floor-to-ceiling installations, we handle design, production, and installation across Southern California.",
+  },
+  {
+    title: "Laser engraving in Chatsworth, CA",
+    body: "Precision laser engraving for awards, plaques, nameplates, and custom products. We engrave on wood, acrylic, glass, metal, and leather using our in-house laser equipment. Ideal for corporate awards, donor recognition walls, memorial plaques, and personalized gifts. Fast turnaround from our Chatsworth shop.",
+  },
+];
+
 export default function Services() {
   usePageMeta({
     title: "Commercial Sign Services",
-    description: "Lobby signs, vehicle wraps, wall graphics & laser engraving in Los Angeles and San Fernando Valley. Serving Southern California from Chatsworth, CA.",
+    description:
+      "Lobby signs, vehicle wraps, wall graphics & laser engraving in Los Angeles and San Fernando Valley. Serving Southern California from Chatsworth, CA.",
   });
 
   const serviceData = useMemo(() => ({
@@ -60,46 +80,59 @@ export default function Services() {
   useStructuredData("commercial-service", serviceData);
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            Commercial Sign Services in Los Angeles
-          </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-4">
-            Professional signage for businesses, retail spaces, and commercial properties. From elegant lobby signs to eye-catching vehicle wraps.
+      <section className="relative bg-blue-deep text-paper overflow-hidden">
+        <img
+          src="/assets/hero/vehicle-wraps.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-deep/75 to-blue-deep/95" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-16 md:pt-44 md:pb-20">
+          <p className="text-sm font-semibold text-flare tracking-[0.14em] uppercase mb-4">
+            Commercial services
           </p>
-          <p className="text-gray-500 text-sm">
+          <h1 className="font-display font-bold tracking-tight leading-[0.95] text-[clamp(2.25rem,6vw,4.5rem)] max-w-4xl">
+            Commercial sign services in Los Angeles
+          </h1>
+          <p className="mt-6 max-w-2xl text-paper/75 text-lg leading-relaxed">
+            Professional signage for businesses, retail spaces, and commercial
+            properties, from elegant lobby signs to eye-catching vehicle
+            wraps.
+          </p>
+          <p className="mt-4 text-paper/60 text-sm">
             Looking for public works signage?{" "}
-            <Link to="/public-works" className="text-navy font-medium underline hover:text-gold">
-              Public Works
+            <Link to="/public-works" className="text-flare font-medium hover:underline">
+              See our public works division
             </Link>
+            .
           </p>
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8">
+      <section className="bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => (
-              <div
-                key={service.title}
-                className="rounded-xl overflow-hidden border hover:shadow-md transition-shadow group"
-              >
-                <div className="overflow-hidden">
+              <div key={service.title} className="group">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={service.image}
                     alt={service.alt}
-                    className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/85 to-transparent" />
+                  <h3 className="absolute bottom-4 left-5 font-display font-bold uppercase tracking-tight leading-none text-paper text-xl md:text-2xl">
+                    {service.title}
+                  </h3>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-lg text-navy mb-2">{service.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
-                </div>
+                <p className="mt-3 text-ink/70 text-sm leading-relaxed">
+                  {service.description}
+                </p>
               </div>
             ))}
           </div>
@@ -107,73 +140,44 @@ export default function Services() {
       </section>
 
       {/* Service Details */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 space-y-12">
-          <div>
-            <h2 className="text-xl font-bold text-navy mb-3">Lobby Signs in Los Angeles</h2>
-            <p className="text-gray-600 leading-relaxed">
-              First impressions start in the lobby. We fabricate dimensional letters, logos, and
-              reception signs using brushed aluminum, acrylic, PVC, and mixed-media materials.
-              Whether you need pin-mounted standoff letters or flush-mounted cut vinyl, we design
-              and install lobby signage for offices, medical buildings, and retail spaces across
-              Los Angeles, the San Fernando Valley, and Ventura County.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-navy mb-3">Vehicle Wraps in the San Fernando Valley</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Turn every vehicle into a mobile billboard. We provide full wraps, partial wraps,
-              and fleet graphics using 3M and Avery premium cast vinyl with laminate protection.
-              Our wraps are designed, printed, and installed in our Chatsworth facility. We serve
-              businesses throughout Los Angeles County, from single vehicles to full fleet programs
-              of 15+ units.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-navy mb-3">Wall Graphics &amp; Murals</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Transform any interior space with custom wall graphics, murals, and environmental
-              branding. We print on adhesive vinyl, fabric, and specialty substrates for offices,
-              retail stores, restaurants, and public spaces. From accent walls to full floor-to-ceiling
-              installations, we handle design, production, and installation across Southern California.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-navy mb-3">Laser Engraving in Chatsworth, CA</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Precision laser engraving for awards, plaques, nameplates, and custom products.
-              We engrave on wood, acrylic, glass, metal, and leather using our in-house laser
-              equipment. Ideal for corporate awards, donor recognition walls, memorial plaques,
-              and personalized gifts. Fast turnaround from our Chatsworth shop.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-navy mb-3">Custom &amp; Special Projects</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Not every project fits a standard category. We take on custom signage challenges —
-              oversized banners, trade show displays, wayfinding systems, channel letters, and
-              one-of-a-kind installations. If it involves a sign, banner, or graphic, we can
-              build it. <Link to="/public-works" className="text-navy font-medium underline hover:text-gold">Public works signage</Link> is
-              handled through our dedicated public works division.
-            </p>
-          </div>
+      <section className="bg-sand">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 space-y-12">
+          {details.map((d) => (
+            <div key={d.title}>
+              <h2 className="font-display font-bold uppercase tracking-tight text-blue-strong text-2xl md:text-3xl leading-none mb-3">
+                {d.title}
+              </h2>
+              <p className="text-ink/70 leading-relaxed max-w-2xl">{d.body}</p>
+            </div>
+          ))}
+          <p className="text-ink/70 leading-relaxed max-w-2xl">
+            Not every project fits a standard category. We take on custom signage
+            challenges: oversized banners, trade-show displays, wayfinding
+            systems, channel letters, and one-of-a-kind installations.{" "}
+            <Link to="/public-works" className="text-blue-strong font-medium underline hover:text-flare">
+              Public works signage
+            </Link>{" "}
+            is handled through our dedicated public works division.
+          </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-12 border-t">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <p className="text-gray-600 mb-4">Ready to get started on your sign project?</p>
-          <div className="flex flex-wrap justify-center gap-4">
+      <section className="bg-paper border-t border-ink/10">
+        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+          <h2 className="font-display font-bold tracking-tight text-ink text-2xl md:text-3xl mb-6">
+            Ready to start your sign project?
+          </h2>
+          <div className="flex flex-wrap justify-center gap-3">
             <Link
               to="/contact"
-              className="bg-gold text-navy-dark px-8 py-3 rounded-md font-semibold hover:bg-gold-light transition-colors"
+              className="bg-flare text-paper px-8 py-3.5 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors"
             >
-              Get a Free Quote
+              Get a free quote
             </Link>
             <a
               href="tel:818-346-2142"
-              className="bg-navy text-white px-8 py-3 rounded-md font-semibold hover:bg-navy-dark transition-colors"
+              className="border border-blue text-blue-strong px-8 py-3.5 font-display font-semibold tracking-normal text-base hover:bg-blue hover:text-paper transition-colors"
             >
               Call 818-346-2142
             </a>

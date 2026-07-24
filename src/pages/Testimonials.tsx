@@ -41,31 +41,36 @@ export default function Testimonials() {
       : testimonials.filter((t) => t.projectType === activeFilter);
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">
-            Sign Company Reviews
+      <section className="bg-sand">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-14 text-center">
+          <p className="text-sm font-semibold text-blue-strong tracking-[0.14em] uppercase mb-4">
+            Reviews
+          </p>
+          <h1 className="font-display font-bold tracking-tight leading-[0.95] text-ink text-[clamp(2.25rem,6vw,4.5rem)]">
+            Sign company reviews
           </h1>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Hear from the contractors, agencies, and business owners we've worked with.
+          <p className="mt-5 text-ink/70 text-lg max-w-2xl mx-auto">
+            Hear from the contractors, agencies, and business owners we&rsquo;ve
+            worked with.
           </p>
         </div>
       </section>
 
       {/* Filter */}
-      <section className="py-6 border-b">
+      <section className="bg-paper py-6 border-b border-ink/10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-2">
             {filterOptions.map((option) => (
               <button
                 key={option}
                 onClick={() => setActiveFilter(option)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                aria-pressed={activeFilter === option}
+                className={`px-5 py-2 font-display font-bold uppercase tracking-wide text-sm transition-colors ${
                   activeFilter === option
-                    ? "bg-navy text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                    ? "bg-blue-strong text-paper"
+                    : "bg-sand text-ink/70 hover:bg-sand-deep hover:text-ink"
                 }`}
               >
                 {option}
@@ -76,33 +81,35 @@ export default function Testimonials() {
       </section>
 
       {/* Testimonials Grid */}
-      <section className="py-16">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="bg-paper">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
           {filtered.length === 0 || filtered[0].name.startsWith("[") ? (
             <div className="text-center py-16">
-              <p className="text-gray-500 text-lg mb-2">Client testimonials coming soon.</p>
-              <p className="text-gray-400 text-sm">
+              <p className="font-display font-bold uppercase tracking-tight text-ink text-xl mb-2">
+                No reviews in this category yet.
+              </p>
+              <p className="text-ink/55 text-sm">
                 Contact us for references from past public works and commercial projects.
               </p>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {filtered.map((testimonial) => (
-                <div
-                  key={testimonial.id}
-                  className="border rounded-xl p-8"
-                >
-                  <p className="text-gray-700 leading-relaxed mb-6 italic">
-                    "{testimonial.quote}"
+                <div key={testimonial.id} className="border border-ink/10 bg-paper p-8">
+                  <p className="text-ink/80 leading-relaxed mb-6">
+                    <span className="font-display text-flare text-3xl align-[-0.15em] mr-1">&ldquo;</span>
+                    {testimonial.quote}
+                    <span className="font-display text-flare text-3xl align-[-0.35em] ml-1">&rdquo;</span>
                   </p>
-                  <div className="flex items-center justify-between pt-4 border-t">
+                  <div className="flex items-center justify-between gap-4 pt-4 border-t border-ink/10">
                     <div>
-                      <p className="font-bold text-navy">{testimonial.name}</p>
-                      <p className="text-sm text-gray-500">
-                        {testimonial.title}, {testimonial.company}
+                      <p className="font-display font-bold uppercase tracking-tight text-blue-strong">{testimonial.name}</p>
+                      <p className="text-sm text-ink/55">
+                        {testimonial.title}
+                        {testimonial.company ? `, ${testimonial.company}` : ""}
                       </p>
                     </div>
-                    <span className="text-xs text-gray-400">
+                    <span className="shrink-0 text-xs tracking-[0.1em] uppercase text-ink/40">
                       {testimonial.projectType}
                     </span>
                   </div>
@@ -113,15 +120,14 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Simple CTA */}
-      <section className="py-12 border-t">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <p className="text-gray-600 mb-4">Ready to start your project?</p>
-          <Link
-            to="/contact"
-            className="bg-navy text-white px-8 py-3 rounded-md font-semibold hover:bg-navy-dark transition-colors"
-          >
-            Contact Us
+      {/* CTA */}
+      <section className="bg-sand border-t border-ink/10">
+        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
+          <h2 className="font-display font-bold tracking-tight text-ink text-2xl md:text-3xl mb-6">
+            Ready to start your project?
+          </h2>
+          <Link to="/contact" className="inline-block bg-flare text-paper px-8 py-3.5 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors">
+            Get a free quote
           </Link>
         </div>
       </section>

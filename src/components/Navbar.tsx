@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 
 const navLinks = [
   { label: "Public Works", to: "/public-works" },
@@ -22,23 +22,25 @@ export default function Navbar() {
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+  const linkBase =
+    "font-display font-semibold tracking-normal text-base transition-colors";
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-      <div className="border-t-4 border-navy" />
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-paper border-b border-ink/10 shadow-sm">
+      <div className="h-1 bg-blue-strong" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
             <img
-              src="/assets/logo.png"
+              src="/assets/logo-wordmark.png"
               alt="Advanced Sign & Banner"
-              className="h-12"
+              className="h-11 sm:h-14 w-auto"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-9">
             {navLinks.map((link) =>
               link.children ? (
                 <div
@@ -48,23 +50,31 @@ export default function Navbar() {
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
                   <button
-                    className={`inline-flex items-center gap-1 text-sm font-medium transition-colors ${
+                    aria-haspopup="true"
+                    aria-expanded={dropdownOpen}
+                    onClick={() => setDropdownOpen((o) => !o)}
+                    className={`inline-flex items-center gap-1 ${linkBase} ${
                       isActive(link.to) || link.children.some((c) => isActive(c.to))
-                        ? "text-gold"
-                        : "text-gray-700 hover:text-navy"
+                        ? "text-blue-strong"
+                        : "text-ink/70 hover:text-blue-strong"
                     }`}
                   >
                     {link.label}
-                    <ChevronDown size={14} className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown
+                      size={16}
+                      className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
+                    />
                   </button>
                   {dropdownOpen && (
-                    <div className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border py-2 min-w-[160px]">
+                    <div className="absolute top-full left-0 mt-2 bg-paper border border-ink/10 shadow-lg py-2 min-w-[180px]">
                       {link.children.map((child) => (
                         <Link
                           key={child.to}
                           to={child.to}
-                          className={`block px-4 py-2 text-sm transition-colors ${
-                            isActive(child.to) ? "text-gold bg-gold/5" : "text-gray-700 hover:bg-gray-50 hover:text-navy"
+                          className={`block px-5 py-2.5 font-display font-semibold text-base transition-colors ${
+                            isActive(child.to)
+                              ? "text-blue-strong bg-sand"
+                              : "text-ink/70 hover:bg-sand hover:text-blue-strong"
                           }`}
                         >
                           {child.label}
@@ -77,47 +87,52 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive(link.to) ? "text-gold" : "text-gray-700 hover:text-navy"
+                  className={`${linkBase} ${
+                    isActive(link.to) ? "text-blue-strong" : "text-ink/70 hover:text-blue-strong"
                   }`}
                 >
                   {link.label}
                 </Link>
               )
             )}
+            <a
+              href="tel:818-346-2142"
+              className="hidden xl:inline-flex items-center gap-2 font-display font-semibold tracking-normal text-base text-blue-strong hover:text-blue transition-colors"
+            >
+              <Phone size={17} />
+              818-346-2142
+            </a>
             <Link
               to="/contact"
-              className={`px-6 py-2.5 rounded-md text-sm font-medium transition-colors ${
-                isActive("/contact")
-                  ? "bg-gold text-navy-dark"
-                  : "bg-navy text-white hover:bg-navy-dark"
-              }`}
+              className="bg-flare text-paper px-6 py-3 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors"
             >
-              Contact Us
+              Get a quote
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-ink"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t">
-          <div className="px-4 py-4 space-y-3">
+        <div className="lg:hidden bg-paper border-t border-ink/10">
+          <div className="px-4 py-5 space-y-1">
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.to}>
                   <Link
                     to={link.to}
-                    className={`block text-sm font-medium py-2 ${
-                      isActive(link.to) ? "text-gold" : "text-gray-700"
+                    className={`block font-display font-semibold tracking-normal text-base py-2.5 ${
+                      isActive(link.to) ? "text-blue-strong" : "text-ink/80"
                     }`}
                     onClick={() => setMobileOpen(false)}
                   >
@@ -129,8 +144,8 @@ export default function Navbar() {
                       <Link
                         key={child.to}
                         to={child.to}
-                        className={`block text-sm font-medium py-2 pl-4 ${
-                          isActive(child.to) ? "text-gold" : "text-gray-500"
+                        className={`block font-display font-semibold text-base py-2 pl-5 ${
+                          isActive(child.to) ? "text-blue-strong" : "text-ink/55"
                         }`}
                         onClick={() => setMobileOpen(false)}
                       >
@@ -142,8 +157,8 @@ export default function Navbar() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className={`block text-sm font-medium py-2 ${
-                    isActive(link.to) ? "text-gold" : "text-gray-700"
+                  className={`block font-display font-semibold tracking-normal text-base py-2.5 ${
+                    isActive(link.to) ? "text-blue-strong" : "text-ink/80"
                   }`}
                   onClick={() => setMobileOpen(false)}
                 >
@@ -151,17 +166,22 @@ export default function Navbar() {
                 </Link>
               )
             )}
-            <Link
-              to="/contact"
-              className={`block px-6 py-2.5 rounded-md text-sm font-medium text-center ${
-                isActive("/contact")
-                  ? "bg-gold text-navy-dark"
-                  : "bg-navy text-white"
-              }`}
-              onClick={() => setMobileOpen(false)}
-            >
-              Contact Us
-            </Link>
+            <div className="pt-3 flex flex-col gap-3">
+              <a
+                href="tel:818-346-2142"
+                className="inline-flex items-center gap-2 font-display font-semibold tracking-normal text-base text-blue-strong"
+              >
+                <Phone size={17} />
+                818-346-2142
+              </a>
+              <Link
+                to="/contact"
+                className="bg-flare text-paper px-6 py-3 font-display font-semibold tracking-normal text-base text-center hover:bg-flare-strong transition-colors"
+                onClick={() => setMobileOpen(false)}
+              >
+                Get a quote
+              </Link>
+            </div>
           </div>
         </div>
       )}

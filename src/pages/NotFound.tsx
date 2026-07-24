@@ -17,24 +17,20 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="pt-20 min-h-[70vh] flex items-center justify-center">
+    <div className="bg-paper min-h-[80vh] flex items-center justify-center pt-24">
       <div className="max-w-md mx-auto px-4 text-center">
-        <p className="text-8xl font-bold text-gray-200 mb-4">404</p>
-        <h1 className="text-3xl font-bold text-navy mb-4">Page Not Found</h1>
-        <p className="text-gray-600 mb-8">
-          The page you're looking for doesn't exist or has been moved.
+        <p className="font-display font-bold text-blue-strong/20 text-[9rem] leading-none">404</p>
+        <h1 className="font-display font-bold tracking-tight text-ink text-3xl mb-4">
+          Page not found
+        </h1>
+        <p className="text-ink/65 mb-8">
+          The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            to="/"
-            className="bg-navy text-white px-6 py-3 rounded-md font-semibold hover:bg-navy-dark transition-colors"
-          >
+        <div className="flex flex-wrap justify-center gap-3">
+          <Link to="/" className="bg-flare text-paper px-7 py-3 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors">
             Go Home
           </Link>
-          <Link
-            to="/contact"
-            className="bg-gray-100 text-navy px-6 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors"
-          >
+          <Link to="/contact" className="border border-blue text-blue-strong px-7 py-3 font-display font-semibold tracking-normal text-base hover:bg-blue hover:text-paper transition-colors">
             Contact Us
           </Link>
         </div>

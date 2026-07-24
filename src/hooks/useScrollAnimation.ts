@@ -2,7 +2,20 @@ import { useEffect } from "react";
 
 export default function useScrollAnimation() {
   useEffect(() => {
+    const root = document.documentElement;
+    // Mark JS as ready so the CSS only hides reveal targets when scripting works.
+    // Without JS the elements stay visible (no blank sections).
+    root.classList.add("js-ready");
+
     const elements = document.querySelectorAll(".animate-on-scroll");
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) {
+      elements.forEach((el) => el.classList.add("is-visible"));
+      return;
+    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -18,5 +31,5 @@ export default function useScrollAnimation() {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  });
+  }, []);
 }
