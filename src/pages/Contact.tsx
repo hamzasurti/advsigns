@@ -197,7 +197,7 @@ export default function Contact() {
       <section className="h-80">
         <iframe
           title="Advanced Sign & Banner Location"
-          src="https://www.google.com/maps/embed/v1/place?key=REMOVED-MAPS-KEY&q=21354+Nordhoff+St+Suite+111,+Chatsworth,+CA+91311&zoom=15"
+          src="https://maps.google.com/maps?q=21354+Nordhoff+St+Suite+111,+Chatsworth,+CA+91311&z=15&output=embed"
           className="w-full h-full border-0"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
