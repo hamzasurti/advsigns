@@ -10,6 +10,13 @@ import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
+import Construction from "./pages/signs/Construction";
+import Building from "./pages/signs/Building";
+import Ada from "./pages/signs/Ada";
+import Lobby from "./pages/signs/Lobby";
+import VehicleWraps from "./pages/signs/VehicleWraps";
+import WallGraphics from "./pages/signs/WallGraphics";
+import LaserEngraving from "./pages/signs/LaserEngraving";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -25,6 +32,13 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/signs/construction" element={<Construction />} />
+        <Route path="/signs/building" element={<Building />} />
+        <Route path="/signs/ada" element={<Ada />} />
+        <Route path="/signs/lobby" element={<Lobby />} />
+        <Route path="/signs/vehicle-wraps" element={<VehicleWraps />} />
+        <Route path="/signs/wall-graphics" element={<WallGraphics />} />
+        <Route path="/signs/laser-engraving" element={<LaserEngraving />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
@@ -34,10 +48,13 @@ function AnimatedRoutes() {
 function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL.replace(/\/$/, "")}>
+      <a href="#main" className="btn btn-mark sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]">
+        Skip to content
+      </a>
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <ScrollToTop />
-        <main className="flex-grow">
+        <main id="main" className="flex-grow">
           <AnimatedRoutes />
         </main>
         <Footer />

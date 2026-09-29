@@ -28,6 +28,13 @@ const ROUTES = [
   "/contact",
   "/portfolio",
   "/testimonials",
+  "/signs/construction",
+  "/signs/building",
+  "/signs/ada",
+  "/signs/lobby",
+  "/signs/vehicle-wraps",
+  "/signs/wall-graphics",
+  "/signs/laser-engraving",
 ];
 
 const MIME_TYPES = {

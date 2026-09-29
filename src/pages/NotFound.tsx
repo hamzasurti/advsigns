@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import usePageMeta from "../hooks/usePageMeta";
+import Arrow from "../components/Arrow";
 
 export default function NotFound() {
   usePageMeta({
@@ -17,24 +18,27 @@ export default function NotFound() {
   }, []);
 
   return (
-    <div className="bg-paper min-h-[80vh] flex items-center justify-center pt-24">
-      <div className="max-w-md mx-auto px-4 text-center">
-        <p className="font-display font-bold text-blue-strong/20 text-[9rem] leading-none">404</p>
-        <h1 className="font-display font-bold tracking-tight text-ink text-3xl mb-4">
-          Page not found
-        </h1>
-        <p className="text-ink/65 mb-8">
-          The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
-        </p>
-        <div className="flex flex-wrap justify-center gap-3">
-          <Link to="/" className="bg-flare text-paper px-7 py-3 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors">
-            Go Home
-          </Link>
-          <Link to="/contact" className="border border-blue text-blue-strong px-7 py-3 font-display font-semibold tracking-normal text-base hover:bg-blue hover:text-paper transition-colors">
-            Contact Us
-          </Link>
+    <section className="mat on-mat min-h-[78vh] grid items-center">
+      <div className="wrap py-[var(--s13)]">
+        <div className="split-5-8 items-center">
+          <div>
+            <p className="label text-hivis">Error 404</p>
+            <h1 className="display display-2 mt-5">This sign hasn&rsquo;t been made yet</h1>
+            <p className="lead mt-5 text-on-mat">
+              The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
+            </p>
+            <div className="flex flex-wrap gap-3 mt-8">
+              <Link to="/" className="btn btn-mark">Go home <Arrow /></Link>
+              <Link to="/contact" className="btn btn-line">Contact us</Link>
+            </div>
+          </div>
+          <div className="crop text-on-mat" aria-hidden="true">
+            <div className="ratio-wide bg-paper grid place-items-center">
+              <span className="label text-ink-soft">Blank, 4 ft x 8 ft</span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

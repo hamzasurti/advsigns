@@ -1,17 +1,47 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import testimonials from "../data/testimonials";
+import testimonials, { type Testimonial } from "../data/testimonials";
 import usePageMeta from "../hooks/usePageMeta";
 import useStructuredData from "../hooks/useStructuredData";
+import useScrollAnimation from "../hooks/useScrollAnimation";
+import PageHead from "../components/PageHead";
+import Arrow from "../components/Arrow";
+import { business } from "../content/site";
 
-const filterOptions = ["All", "Public Works", "Commercial", "Vehicle Wraps"] as const;
-type Filter = (typeof filterOptions)[number];
+/* The review, with its pull quote run over in marker. */
+function Marked({ t }: { t: Testimonial }) {
+  if (!t.pull || !t.quote.includes(t.pull)) return <>{t.quote}</>;
+  const [before, after] = t.quote.split(t.pull);
+  return (
+    <>
+      {before}
+      <mark className="hl">{t.pull}</mark>
+      {after}
+    </>
+  );
+}
+
+function Byline({ t }: { t: Testimonial }) {
+  return (
+    <footer className="mt-5 flex items-baseline justify-between gap-4 border-t border-ink/25 pt-3">
+      <p>
+        <span className="font-bold">{t.name}</span>
+        <span className="block text-sm text-ink-soft">
+          {t.title}
+          {t.company ? `, ${t.company}` : ""}
+        </span>
+      </p>
+      <span className="label text-ink-soft shrink-0">No. {String(t.id).padStart(2, "0")}</span>
+    </footer>
+  );
+}
 
 export default function Testimonials() {
   usePageMeta({
     title: "Client Reviews",
     description: "Reviews from LA and Southern California clients of Advanced Sign & Banner. GCs and business owners share their sign project experiences.",
   });
+  useScrollAnimation();
 
   const reviewData = useMemo(() => ({
     "@type": "LocalBusiness",
@@ -33,102 +63,45 @@ export default function Testimonials() {
   }), []);
   useStructuredData("reviews", reviewData);
 
-  const [activeFilter, setActiveFilter] = useState<Filter>("All");
-
-  const filtered =
-    activeFilter === "All"
-      ? testimonials
-      : testimonials.filter((t) => t.projectType === activeFilter);
+  const [lead, ...rest] = testimonials;
 
   return (
     <div>
-      {/* Hero */}
-      <section className="bg-sand">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-14 text-center">
-          <p className="text-sm font-semibold text-blue-strong tracking-[0.14em] uppercase mb-4">
-            Reviews
-          </p>
-          <h1 className="font-display font-bold tracking-tight leading-[0.95] text-ink text-[clamp(2.25rem,6vw,4.5rem)]">
-            Sign company reviews
-          </h1>
-          <p className="mt-5 text-ink/70 text-lg max-w-2xl mx-auto">
-            Hear from the contractors, agencies, and business owners we&rsquo;ve
-            worked with.
-          </p>
+      <PageHead
+        tone="paper-2"
+        eyebrow={`${testimonials.length} reviews`}
+        lead="Hear from the contractors, agencies, and business owners we&rsquo;ve worked with."
+      >
+        <h1 className="display display-1">Sign company reviews</h1>
+      </PageHead>
+
+      <section className="on-paper bg-hivis">
+        <div className="wrap py-[var(--s13)]">
+          <blockquote className="animate-on-scroll">
+            <p className="display display-2 !leading-[1.04] max-w-[24ch]">&ldquo;{lead.pull}&rdquo;</p>
+            <p className="measure mt-8">{lead.quote}</p>
+            <Byline t={lead} />
+          </blockquote>
         </div>
       </section>
 
-      {/* Filter */}
-      <section className="bg-paper py-6 border-b border-ink/10">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-wrap justify-center gap-2">
-            {filterOptions.map((option) => (
-              <button
-                key={option}
-                onClick={() => setActiveFilter(option)}
-                aria-pressed={activeFilter === option}
-                className={`px-5 py-2 font-display font-bold uppercase tracking-wide text-sm transition-colors ${
-                  activeFilter === option
-                    ? "bg-blue-strong text-paper"
-                    : "bg-sand text-ink/70 hover:bg-sand-deep hover:text-ink"
-                }`}
-              >
-                {option}
-              </button>
+      <section className="on-paper">
+        <div className="wrap py-[var(--s15)]">
+          <div className="md:columns-2 gap-x-16">
+            {rest.map((t) => (
+              <blockquote key={t.id} className="break-inside-avoid pb-12 animate-on-scroll">
+                <p>
+                  <Marked t={t} />
+                </p>
+                <Byline t={t} />
+              </blockquote>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Testimonials Grid */}
-      <section className="bg-paper">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          {filtered.length === 0 || filtered[0].name.startsWith("[") ? (
-            <div className="text-center py-16">
-              <p className="font-display font-bold uppercase tracking-tight text-ink text-xl mb-2">
-                No reviews in this category yet.
-              </p>
-              <p className="text-ink/55 text-sm">
-                Contact us for references from past public works and commercial projects.
-              </p>
-            </div>
-          ) : (
-            <div className="grid md:grid-cols-2 gap-6">
-              {filtered.map((testimonial) => (
-                <div key={testimonial.id} className="border border-ink/10 bg-paper p-8">
-                  <p className="text-ink/80 leading-relaxed mb-6">
-                    <span className="font-display text-flare text-3xl align-[-0.15em] mr-1">&ldquo;</span>
-                    {testimonial.quote}
-                    <span className="font-display text-flare text-3xl align-[-0.35em] ml-1">&rdquo;</span>
-                  </p>
-                  <div className="flex items-center justify-between gap-4 pt-4 border-t border-ink/10">
-                    <div>
-                      <p className="font-display font-bold uppercase tracking-tight text-blue-strong">{testimonial.name}</p>
-                      <p className="text-sm text-ink/55">
-                        {testimonial.title}
-                        {testimonial.company ? `, ${testimonial.company}` : ""}
-                      </p>
-                    </div>
-                    <span className="shrink-0 text-xs tracking-[0.1em] uppercase text-ink/40">
-                      {testimonial.projectType}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-sand border-t border-ink/10">
-        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <h2 className="font-display font-bold tracking-tight text-ink text-2xl md:text-3xl mb-6">
-            Ready to start your project?
-          </h2>
-          <Link to="/contact" className="inline-block bg-flare text-paper px-8 py-3.5 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors">
-            Get a free quote
-          </Link>
+          <div className="flex flex-wrap gap-3 mt-4">
+            <Link to="/contact" className="btn btn-mark">Get a free quote <Arrow /></Link>
+            <a href={business.phoneHref} className="btn btn-line">Call 818-346-2142</a>
+          </div>
         </div>
       </section>
     </div>

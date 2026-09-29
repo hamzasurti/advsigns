@@ -1,190 +1,91 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
-
-const navLinks = [
-  { label: "Public Works", to: "/public-works" },
-  { label: "Services", to: "/services" },
-  { label: "Portfolio", to: "/portfolio" },
-  {
-    label: "About",
-    to: "/about",
-    children: [
-      { label: "About Us", to: "/about" },
-      { label: "Testimonials", to: "/testimonials" },
-    ],
-  },
-];
+import { Link, NavLink } from "react-router-dom";
+import Logo from "./Logo";
+import Arrow from "./Arrow";
+import { business, navLinks } from "../content/site";
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const location = useLocation();
-
-  const isActive = (path: string) => location.pathname === path;
-  const linkBase =
-    "font-display font-semibold tracking-normal text-base transition-colors";
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-paper border-b border-ink/10 shadow-sm">
-      <div className="h-1 bg-blue-strong" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-24">
-          {/* Logo */}
-          <Link to="/" className="flex-shrink-0">
-            <img
-              src="/assets/logo-wordmark.png"
-              alt="Advanced Sign & Banner"
-              className="h-11 sm:h-14 w-auto"
-            />
+    <header className="on-paper sticky top-0 z-50 bg-paper text-ink">
+      <div className="wrap flex items-center justify-between gap-6 h-[72px]">
+        <Link to="/" onClick={close} aria-label="Advanced Sign & Banner, home" className="block shrink-0">
+          <Logo className="h-10 sm:h-11" />
+        </Link>
+
+        <nav aria-label="Main" className="hidden lg:flex items-center gap-7 xl:gap-9 isolate">
+          {navLinks.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={({ isActive }) => `label nav-link ${isActive ? "is-active" : ""}`}
+            >
+              {link.label}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="hidden lg:flex items-center gap-6">
+          <a href={business.phoneHref} className="label hidden xl:inline link !text-ink !no-underline">
+            818-346-2142
+          </a>
+          <Link to="/contact" className="btn btn-mark">
+            Get a quote <Arrow />
           </Link>
-
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-9">
-            {navLinks.map((link) =>
-              link.children ? (
-                <div
-                  key={link.to}
-                  className="relative"
-                  onMouseEnter={() => setDropdownOpen(true)}
-                  onMouseLeave={() => setDropdownOpen(false)}
-                >
-                  <button
-                    aria-haspopup="true"
-                    aria-expanded={dropdownOpen}
-                    onClick={() => setDropdownOpen((o) => !o)}
-                    className={`inline-flex items-center gap-1 ${linkBase} ${
-                      isActive(link.to) || link.children.some((c) => isActive(c.to))
-                        ? "text-blue-strong"
-                        : "text-ink/70 hover:text-blue-strong"
-                    }`}
-                  >
-                    {link.label}
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform ${dropdownOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  {dropdownOpen && (
-                    <div className="absolute top-full left-0 mt-2 bg-paper border border-ink/10 shadow-lg py-2 min-w-[180px]">
-                      {link.children.map((child) => (
-                        <Link
-                          key={child.to}
-                          to={child.to}
-                          className={`block px-5 py-2.5 font-display font-semibold text-base transition-colors ${
-                            isActive(child.to)
-                              ? "text-blue-strong bg-sand"
-                              : "text-ink/70 hover:bg-sand hover:text-blue-strong"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`${linkBase} ${
-                    isActive(link.to) ? "text-blue-strong" : "text-ink/70 hover:text-blue-strong"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-            <a
-              href="tel:818-346-2142"
-              className="hidden xl:inline-flex items-center gap-2 font-display font-semibold tracking-normal text-base text-blue-strong hover:text-blue transition-colors"
-            >
-              <Phone size={17} />
-              818-346-2142
-            </a>
-            <Link
-              to="/contact"
-              className="bg-flare text-paper px-6 py-3 font-display font-semibold tracking-normal text-base hover:bg-flare-strong transition-colors"
-            >
-              Get a quote
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-ink"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      {mobileOpen && (
-        <div className="lg:hidden bg-paper border-t border-ink/10">
-          <div className="px-4 py-5 space-y-1">
-            {navLinks.map((link) =>
-              link.children ? (
-                <div key={link.to}>
-                  <Link
-                    to={link.to}
-                    className={`block font-display font-semibold tracking-normal text-base py-2.5 ${
-                      isActive(link.to) ? "text-blue-strong" : "text-ink/80"
-                    }`}
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                  {link.children
-                    .filter((c) => c.to !== link.to)
-                    .map((child) => (
-                      <Link
-                        key={child.to}
-                        to={child.to}
-                        className={`block font-display font-semibold text-base py-2 pl-5 ${
-                          isActive(child.to) ? "text-blue-strong" : "text-ink/55"
-                        }`}
-                        onClick={() => setMobileOpen(false)}
-                      >
-                        {child.label}
-                      </Link>
-                    ))}
-                </div>
-              ) : (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`block font-display font-semibold tracking-normal text-base py-2.5 ${
-                    isActive(link.to) ? "text-blue-strong" : "text-ink/80"
-                  }`}
-                  onClick={() => setMobileOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-            <div className="pt-3 flex flex-col gap-3">
-              <a
-                href="tel:818-346-2142"
-                className="inline-flex items-center gap-2 font-display font-semibold tracking-normal text-base text-blue-strong"
+        <button
+          type="button"
+          className="lg:hidden label flex items-center gap-3 min-h-12 px-1"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+        >
+          {open ? "Close" : "Menu"}
+          <span aria-hidden="true" className="relative block w-6 h-3">
+            <span
+              className={`absolute left-0 right-0 top-0 h-[2px] bg-current transition-transform duration-300 ${
+                open ? "translate-y-[5px] rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute left-0 right-0 bottom-0 h-[2px] bg-current transition-transform duration-300 ${
+                open ? "-translate-y-[5px] -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
+      </div>
+      <div className="ruler border-t border-ink/15" aria-hidden="true" />
+
+      {open && (
+        <div id="mobile-menu" className="lg:hidden mat on-mat absolute inset-x-0 top-full h-[calc(100dvh-86px)] overflow-y-auto">
+          <nav aria-label="Mobile" className="wrap py-8 flex flex-col">
+            {navLinks.map((link, i) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={close}
+                className="rise display display-3 py-4 border-b border-paper/20 flex items-baseline gap-4"
+                style={{ animationDelay: `${i * 0.05}s` }}
               >
-                <Phone size={17} />
-                818-346-2142
-              </a>
-              <Link
-                to="/contact"
-                className="bg-flare text-paper px-6 py-3 font-display font-semibold tracking-normal text-base text-center hover:bg-flare-strong transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                Get a quote
+                <span className="label text-hivis">{String(i + 1).padStart(2, "0")}</span>
+                {link.label}
+              </NavLink>
+            ))}
+            <div className="mt-8 flex flex-col gap-4">
+              <Link to="/contact" onClick={close} className="btn btn-mark">
+                Get a quote <Arrow />
               </Link>
+              <a href={business.phoneHref} className="btn btn-line">
+                Call 818-346-2142
+              </a>
             </div>
-          </div>
+          </nav>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

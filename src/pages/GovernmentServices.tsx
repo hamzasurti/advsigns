@@ -1,46 +1,23 @@
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { Shield, ChevronDown, ChevronUp } from "lucide-react";
 import usePageMeta from "../hooks/usePageMeta";
 import useStructuredData from "../hooks/useStructuredData";
+import useScrollAnimation from "../hooks/useScrollAnimation";
+import PageHead from "../components/PageHead";
+import SectionHead from "../components/SectionHead";
+import Sheet from "../components/Sheet";
+import AdaSign from "../components/AdaSign";
+import Arrow from "../components/Arrow";
+import { business, counties, publicWorks } from "../content/site";
 
-const credentials = [
-  { label: "Certified", detail: "DBE, SBE, SABE, CBE" },
-  { label: "Prevailing wage", detail: "Certified payroll & DIR compliant" },
-  { label: "Licensed", detail: "CSLB C-45, DIR registered" },
-  { label: "Insured & bonded", detail: "COI available on request" },
-];
-
-const services = [
-  { title: "Construction Signs", description: "Weather-resistant signage for active construction sites and development projects.", image: "/assets/hero/construction-signage.jpg", alt: "Construction site signs for public works projects in Los Angeles" },
-  { title: "Building Signs", description: "Exterior and interior building signage that meets municipal codes and accessibility standards.", image: "/assets/hero/building-signs.jpg", alt: "Building identification signage for public facilities in Southern California" },
-  { title: "ADA Signage", description: "Fully compliant tactile signs with Grade 2 braille for public facilities.", image: "/assets/services/lobby-signs.jpg", alt: "ADA compliant tactile signs with Grade 2 braille for public buildings" },
-];
-
-const caseStudies = [
-  { id: 1, title: "LA County Courts, ADA Signage Package", meta: "2015 · Los Angeles County Superior Court", summary: "200+ ADA-compliant signs across multiple courthouses, delivered and installed within 90 days with zero defects and a first-review compliance pass.", metrics: ["200+ signs", "90 days", "Zero defects"] },
-  { id: 2, title: "LA Metro, Transit Station Signage", meta: "2010–2012 · Multiple Metro stations", summary: "Wayfinding and identification signage for multiple transit stations using transit-grade materials, installed around active station operations.", metrics: ["Multiple stations", "Transit-grade", "Consistent"] },
-  { id: 3, title: "Hollywood Burbank Airport, Terminal Renovation", meta: "2015 · Airport terminal", summary: "Interior and exterior signage meeting FAA and airport security requirements, installed during approved windows with zero disruption to operations.", metrics: ["FAA compliant", "Zero disruptions", "On schedule"] },
-];
-
-const serviceAreaCounties = [
-  "Los Angeles", "Ventura", "Orange", "San Bernardino", "Riverside", "Santa Barbara (south)",
-];
-
-const faqs = [
-  { q: "What certifications do you hold?", a: "DBE, SBE, SABE, CBE, Micro-SBE, and SB-PW, all current and verifiable through the issuing agencies. These prequalify us for public works bids across Southern California." },
-  { q: "Do you handle certified payroll for prevailing wage projects?", a: "Yes. We handle all certified payroll reporting, DIR registration requirements, and labor compliance documentation for public works projects." },
-  { q: "What is your ADA inspection pass rate?", a: "We maintain a first-inspection pass rate. Our signs meet ADA 2010 and California Title 24, with tactile characters and Grade 2 braille, and we review specs before fabrication." },
-  { q: "What areas do you serve?", a: "General contractors and public agencies across Los Angeles, Ventura, Orange, San Bernardino, Riverside, and southern Santa Barbara counties, from our shop in Chatsworth." },
-];
-
-const h2Class = "font-display font-bold tracking-tight text-ink text-2xl md:text-3xl";
+const signLinks = ["/signs/construction", "/signs/building", "/signs/ada"];
 
 export default function GovernmentServices() {
   usePageMeta({
     title: "Public Works Signs | Chatsworth",
     description: "DBE/SBE certified public works sign contractor in Chatsworth, CA. Construction signs, ADA signage & building signs. Prevailing wage. 818-346-2142.",
   });
+  useScrollAnimation();
 
   const serviceData = useMemo(() => ({
     "@type": "Service",
@@ -81,192 +58,151 @@ export default function GovernmentServices() {
   }), []);
   useStructuredData("public-works-faq", faqData);
 
-  const [expandedCase, setExpandedCase] = useState<number | null>(null);
-  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
-
   return (
     <div>
-      {/* Hero */}
-      <section className="relative bg-blue-deep text-paper overflow-hidden">
-        <img src="/assets/hero/construction-signage.jpg" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-deep/80 to-blue-deep/95" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-16 md:pt-44 md:pb-20 text-center">
-          <div className="inline-flex items-center gap-2 border border-white/25 px-4 py-2 text-sm text-paper mb-6">
-            <Shield size={16} className="text-flare" />
-            Certified public works sign contractor
-          </div>
-          <h1 className="font-display font-bold tracking-tight leading-[1.02] text-[clamp(2.25rem,6vw,4.25rem)]">
-            Public works signage
-          </h1>
-          <p className="mt-6 text-paper/75 text-lg max-w-2xl mx-auto">
-            Prequalified for your next bid: certified, prevailing-wage compliant,
-            and experienced with public-agency requirements since 1999.
-          </p>
-          <Link to="/contact" className="mt-8 inline-block bg-flare text-paper px-8 py-3.5 font-display font-semibold text-base hover:bg-flare-strong transition-colors">
-            Get a quote
-          </Link>
-        </div>
-      </section>
+      <PageHead
+        tone="mat"
+        eyebrow={publicWorks.badge}
+        lead={publicWorks.lead}
+        actions={
+          <>
+            <Link to="/contact" className="btn btn-mark">Get a quote <Arrow /></Link>
+            <a href={business.phoneHref} className="btn btn-line">Call 818-346-2142</a>
+          </>
+        }
+      >
+        <h1 className="display display-1">Public works signage</h1>
+      </PageHead>
 
-      {/* Credentials strip */}
-      <section className="bg-sand border-b border-ink/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <dl className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {credentials.map((c) => (
+      {/* Credentials, laid out like the title block on a drawing set */}
+      <section className="mat on-mat">
+        <div className="wrap pb-[var(--s13)]">
+          <dl className="tblock rule-mat bg-mat grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rise rise-4">
+            {publicWorks.credentials.map((c) => (
               <div key={c.label}>
-                <dt className="font-display font-semibold text-ink">{c.label}</dt>
-                <dd className="text-sm text-ink/60 mt-0.5">{c.detail}</dd>
+                <dt className="label text-hivis">{c.label}</dt>
+                <dd className="display display-4 mt-3">{c.detail}</dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-paper">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <h2 className={`${h2Class} mb-10`}>What we build for public works</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {services.map((service) => (
-              <div key={service.title} className="group">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img src={service.image} alt={service.alt} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-blue-deep/85 to-transparent" />
-                  <h3 className="absolute bottom-4 left-5 font-display font-semibold text-paper text-lg">{service.title}</h3>
-                </div>
-                <p className="mt-3 text-ink/70 text-sm leading-relaxed">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ADA Expertise */}
-      <section className="bg-sand">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <h2 className={`${h2Class} mb-3`}>ADA compliance, done right the first time</h2>
-          <p className="text-ink/70 leading-relaxed max-w-2xl mb-10">
-            ADA compliance is where sign subs get GCs in trouble. Our signs meet
-            ADA 2010 and California Title 24, with tactile characters and Grade 2
-            braille reviewed against spec before anything is fabricated.
-          </p>
-          <div className="grid sm:grid-cols-3 gap-8">
-            <div>
-              <p className="font-display font-semibold text-ink mb-1">First-inspection pass rate</p>
-              <p className="text-sm text-ink/65">Our signs pass ADA inspection on the first review, so there is no re-fabrication or schedule slip.</p>
-            </div>
-            <div>
-              <p className="font-display font-semibold text-ink mb-1">Spec review up front</p>
-              <p className="text-sm text-ink/65">We flag errors in the architectural specs before fabrication, not after installation.</p>
-            </div>
-            <div>
-              <p className="font-display font-semibold text-ink mb-1">We carry the risk</p>
-              <p className="text-sm text-ink/65">Non-compliant ADA signs are the GC&rsquo;s problem. We take that risk off your plate.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section className="bg-paper">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <h2 className={`${h2Class} mb-8`}>Selected projects</h2>
-          <div className="space-y-3">
-            {caseStudies.map((study) => (
-              <div key={study.id} className="border border-ink/10">
-                <button
-                  onClick={() => setExpandedCase(expandedCase === study.id ? null : study.id)}
-                  aria-expanded={expandedCase === study.id}
-                  className="w-full flex items-center justify-between gap-4 p-5 text-left hover:bg-sand transition-colors"
-                >
-                  <div>
-                    <h3 className="font-display font-semibold text-ink">{study.title}</h3>
-                    <p className="text-xs text-ink/45 mt-1">{study.meta}</p>
-                  </div>
-                  {expandedCase === study.id
-                    ? <ChevronUp size={18} className="text-blue-strong shrink-0" />
-                    : <ChevronDown size={18} className="text-ink/40 shrink-0" />}
-                </button>
-                {expandedCase === study.id && (
-                  <div className="px-5 pb-5 border-t border-ink/10 pt-4">
-                    <p className="text-sm text-ink/70 leading-relaxed">{study.summary}</p>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {study.metrics.map((metric) => (
-                        <span key={metric} className="text-xs bg-blue-strong/10 text-blue-strong px-2.5 py-1">{metric}</span>
-                      ))}
+      {/* What we build */}
+      <section className="on-paper">
+        <div className="wrap py-[var(--s15)]">
+          <SectionHead no="01" label="Scope" title={publicWorks.servicesHeading} />
+          <div className="grid md:grid-cols-3 gap-x-6 gap-y-12 mt-[var(--s5)]">
+            {publicWorks.services.map((s, i) => (
+              <Link key={s.title} to={signLinks[i]} className={`group block animate-on-scroll delay-${i + 1}`}>
+                <Sheet ratio="upright">
+                  {s.image ? (
+                    <img src={s.image} alt={s.alt} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.03]" />
+                  ) : (
+                    <div className="absolute inset-0 bg-mat text-paper p-3">
+                      <AdaSign />
                     </div>
-                  </div>
-                )}
-              </div>
+                  )}
+                </Sheet>
+                <div className="px-[14px] mt-3">
+                  <h3 className="display display-3 flex items-center justify-between gap-4">
+                    <span className="hl bg-[length:0_100%] group-hover:bg-[length:100%_100%] bg-no-repeat transition-[background-size] duration-500">
+                      {s.title}
+                    </span>
+                    <Arrow />
+                  </h3>
+                  <p className="mt-2 text-ink-soft">{s.description}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Compliance + Service area */}
-      <section className="bg-sand">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 grid md:grid-cols-2 gap-12">
-          <div>
-            <h2 className={`${h2Class} mb-3`}>Prevailing wage, handled</h2>
-            <p className="text-ink/70 leading-relaxed">
-              We are fully prevailing-wage compliant and handle certified payroll,
-              DIR reporting, and labor compliance documentation on every public
-              works project, so your team can focus on the schedule.
-            </p>
+      {/* ADA */}
+      <section className="on-paper bg-paper-2">
+        <div className="wrap py-[var(--s15)]">
+          <SectionHead no="02" label="Compliance" title={publicWorks.ada.heading}>
+            <p>{publicWorks.ada.lead}</p>
+          </SectionHead>
+          <ol className="grid md:grid-cols-3 gap-x-10 mt-[var(--s5)]">
+            {publicWorks.ada.points.map((p, i) => (
+              <li key={p.title} className={`border-t-2 border-ink pt-5 pb-8 animate-on-scroll delay-${i + 1}`}>
+                <span className="label text-green">{String.fromCharCode(65 + i)}</span>
+                <h3 className="display display-4 mt-3">{p.title}</h3>
+                <p className="mt-3 text-ink-soft">{p.body}</p>
+              </li>
+            ))}
+          </ol>
+          <Link to="/signs/ada" className="label inline-flex items-center gap-3 mt-4 border-b-2 border-ink pb-1 hover:gap-5 transition-[gap]">
+            How we build ADA signs <Arrow />
+          </Link>
+        </div>
+      </section>
+
+      {/* Selected projects */}
+      <section className="on-paper">
+        <div className="wrap py-[var(--s15)]">
+          <SectionHead no="03" label="References" title={publicWorks.caseStudiesHeading} />
+          <div className="mt-[var(--s5)] border-b border-ink/20">
+            {publicWorks.caseStudies.map((c) => (
+              <article key={c.id} className="grid lg:grid-cols-[8rem_5fr_6fr] gap-x-10 gap-y-3 border-t border-ink/20 py-8 animate-on-scroll">
+                <p className="display display-4 text-green">{c.year}</p>
+                <div>
+                  <h3 className="display display-4">{c.title}</h3>
+                  <p className="label text-ink-soft mt-2">{c.meta}</p>
+                </div>
+                <div>
+                  <p>{c.summary}</p>
+                  <ul className="flex flex-wrap gap-2 mt-4">
+                    {c.metrics.map((m) => (
+                      <li key={m} className="label bg-hivis px-2.5 py-1.5">{m}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
-          <div>
-            <h2 className={`${h2Class} mb-3`}>Service area</h2>
-            <p className="text-ink/70 leading-relaxed mb-4">
-              Based in Chatsworth, serving six Southern California counties:
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {serviceAreaCounties.map((county) => (
-                <span key={county} className="text-sm bg-paper border border-ink/10 text-ink/75 px-3 py-1.5">{county}</span>
-              ))}
+        </div>
+      </section>
+
+      {/* Prevailing wage + service area */}
+      <section className="mat on-mat">
+        <div className="wrap py-[var(--s15)]">
+          <div className="split-5-8 items-start">
+            <div className="animate-on-scroll">
+              <h2 className="display display-3">{publicWorks.wage.heading}</h2>
+              <p className="mt-5 text-on-mat">{publicWorks.wage.body}</p>
+            </div>
+            <div className="animate-on-scroll delay-1">
+              <h2 className="display display-3">{publicWorks.area.heading}</h2>
+              <p className="mt-5 text-on-mat">{publicWorks.area.body}</p>
+              <ul className="tblock rule-mat bg-mat grid-cols-2 sm:grid-cols-3 mt-6">
+                {counties.map((c) => (
+                  <li key={c} className="display display-4">{c}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="bg-paper">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <h2 className={`${h2Class} mb-8`}>Common questions</h2>
-          <div className="space-y-3">
-            {faqs.map((item, i) => (
-              <div key={i} className="border border-ink/10">
-                <button
-                  onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
-                  aria-expanded={expandedFaq === i}
-                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4 hover:bg-sand transition-colors"
-                >
-                  <span className="font-display font-semibold text-ink">{item.q}</span>
-                  <span className="text-blue-strong shrink-0 text-xl">{expandedFaq === i ? "−" : "+"}</span>
-                </button>
-                {expandedFaq === i && (
-                  <div className="px-6 pb-4">
-                    <p className="text-ink/70 text-sm leading-relaxed">{item.a}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-blue-deep text-paper">
-        <div className="max-w-3xl mx-auto px-4 py-16 text-center">
-          <h2 className="font-display font-bold tracking-tight text-2xl md:text-3xl mb-6">
-            Ready for your next public works project?
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link to="/contact" className="bg-flare text-paper px-8 py-3.5 font-display font-semibold text-base hover:bg-flare-strong transition-colors">
-              Get a free quote
-            </Link>
-            <a href="tel:818-346-2142" className="border border-white/40 text-paper px-8 py-3.5 font-display font-semibold text-base hover:bg-white/10 transition-colors">
-              Call 818-346-2142
-            </a>
+      <section className="on-paper">
+        <div className="wrap py-[var(--s15)]">
+          <div className="split-5-8 items-start">
+            <SectionHead no="04" label="Before you bid" title={publicWorks.faqHeading} />
+            <div className="border-b border-ink/20">
+              {publicWorks.faqs.map((f) => (
+                <details key={f.q} className="faq border-t border-ink/20">
+                  <summary>
+                    <span className="q display display-4 transition-colors">{f.q}</span>
+                    <span className="sign" aria-hidden="true" />
+                  </summary>
+                  <p className="measure pb-7 text-ink-soft">{f.a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>
