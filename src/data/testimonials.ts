@@ -5,6 +5,8 @@ export interface Testimonial {
   title: string;
   company: string;
   projectType: string;
+  /* A verbatim excerpt of `quote`, used as a pull quote and highlighted in the full review. */
+  pull?: string;
 }
 
 const testimonials: Testimonial[] = [
@@ -16,6 +18,8 @@ const testimonials: Testimonial[] = [
     title: "Customer",
     company: "Laguna Beach, CA",
     projectType: "Commercial",
+    pull:
+      "We had all the specs in at 12:15 and he had a proof to us by 12:30.",
   },
   {
     id: 2,
@@ -43,6 +47,8 @@ const testimonials: Testimonial[] = [
     title: "Developer",
     company: "",
     projectType: "Commercial",
+    pull:
+      "I am really impressed by the way they treated me and my little job as the big deal it was for me.",
   },
   {
     id: 5,
@@ -61,6 +67,8 @@ const testimonials: Testimonial[] = [
     title: "Customer",
     company: "Los Angeles, CA",
     projectType: "Commercial",
+    pull:
+      "dealing with a family owned business you know that they really care about doing a great job.",
   },
   {
     id: 7,
@@ -79,6 +87,8 @@ const testimonials: Testimonial[] = [
     title: "Customer",
     company: "West Hills, CA",
     projectType: "Commercial",
+    pull:
+      "They really came through for us in a crunch time! And with excellent quality too!!!",
   },
   {
     id: 9,
@@ -88,6 +98,8 @@ const testimonials: Testimonial[] = [
     title: "Business Owner",
     company: "North Hollywood, CA",
     projectType: "Commercial",
+    pull:
+      "He sent someone out to measure right away and gave me a very reasonable quote on the phone.",
   },
   {
     id: 10,
@@ -106,6 +118,8 @@ const testimonials: Testimonial[] = [
     title: "Long-term Client",
     company: "Shelley's Stereo Video",
     projectType: "Commercial",
+    pull:
+      "We been doing business with Advanced Sign and Banner for the last seven years",
   },
   {
     id: 12,
@@ -124,6 +138,8 @@ const testimonials: Testimonial[] = [
     title: "Customer",
     company: "Los Angeles, CA",
     projectType: "Commercial",
+    pull:
+      "I just drew a quick idea of what I wanted and gave him creative freedom to choose the font, border, etc.",
   },
 ];
 
