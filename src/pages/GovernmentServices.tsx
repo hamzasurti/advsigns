@@ -6,34 +6,34 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 import PageHead from "../components/PageHead";
 import SectionHead from "../components/SectionHead";
 import Sheet from "../components/Sheet";
-import AdaSign from "../components/AdaSign";
+import SignFigure from "../components/SignFigure";
 import Arrow from "../components/Arrow";
 import { business, publicWorks, focusOn } from "../content/site";
 
-const signLinks = ["/signs/construction", "/signs/building", "/signs/ada"];
+const signLinks = ["/signs/street", "/signs/building", "/signs/ada"];
 
 export default function GovernmentServices() {
   usePageMeta({
     title: "Public Works Signs | Chatsworth",
-    description: "DBE/SBE certified public works sign contractor in Chatsworth, CA. Construction signs, ADA signage & building signs. Prevailing wage. 818-346-2142.",
+    description: "SBE certified public works sign contractor in Chatsworth, CA. Street signs, ADA signage & building signs. Prevailing wage. 818-346-2142.",
   });
   useScrollAnimation();
 
   const serviceData = useMemo(() => ({
     "@type": "Service",
     "name": "Public Works Signage",
-    "description": "Construction signs, ADA signage, and building signs for public works and prevailing wage projects in Los Angeles County.",
+    "description": "Street signs, ADA signage, and building signs for public works and prevailing wage projects in Los Angeles County.",
     "url": "https://advsigns.net/public-works",
     "provider": { "@id": "https://advsigns.net/#business" },
     "areaServed": [
       { "@type": "AdministrativeArea", "name": "Los Angeles County, CA" },
     ],
-    "serviceType": ["Construction Signage", "ADA Compliant Signage", "Building Signs", "Braille Signs"],
+    "serviceType": ["Street Signage", "ADA Compliant Signage", "Building Signs", "Braille Signs"],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Public Works Sign Services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Construction Site Signs" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Street Signs" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ADA Compliant Signs with Grade 2 Braille" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Building Identification Signs" } },
       ],
@@ -91,9 +91,7 @@ export default function GovernmentServices() {
                   {s.image ? (
                     <img src={s.image} alt={s.alt} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.03]" style={{ objectPosition: focusOn(s.image) }} />
                   ) : (
-                    <div className="absolute inset-0 bg-mat text-paper p-3">
-                      <AdaSign />
-                    </div>
+                    <SignFigure slug={signLinks[i].split("/").pop()!} />
                   )}
                 </Sheet>
                 <div className="px-[14px] mt-3">

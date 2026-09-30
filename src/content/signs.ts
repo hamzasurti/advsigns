@@ -17,16 +17,16 @@ export interface Sign {
 }
 
 const [lobby, wraps, walls, laser] = commercial.services;
-const [construction, building, ada] = publicWorks.services;
+const [street, building, ada] = publicWorks.services;
 
 export const signs: Sign[] = [
   {
-    slug: "construction",
-    name: "Construction Signs",
+    slug: "street",
+    name: "Street Signs",
     division: "Public works",
-    image: "/assets/hero/construction-signage.jpg",
-    alt: construction.alt,
-    blurb: construction.description,
+    image: null,
+    alt: street.alt,
+    blurb: street.description,
   },
   {
     slug: "building",

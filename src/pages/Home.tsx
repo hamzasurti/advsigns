@@ -7,7 +7,7 @@ import useReel from "../hooks/useReel";
 import Sheet from "../components/Sheet";
 import SectionHead from "../components/SectionHead";
 import Arrow from "../components/Arrow";
-import AdaSign from "../components/AdaSign";
+import SignFigure from "../components/SignFigure";
 import Braille from "../components/Braille";
 import Rotator from "../components/Rotator";
 import { signs } from "../content/signs";
@@ -81,7 +81,7 @@ function SignIndex() {
                   <img src={s.image} alt="" loading="lazy" className="lg:hidden w-20 h-10 object-cover shrink-0" />
                 ) : (
                   <span className="lg:hidden w-20 h-10 shrink-0 bg-mat text-paper grid place-items-center">
-                    <Braille text="ada" size={5} />
+                    {s.slug === "ada" ? <Braille text="ada" size={5} /> : <span className="mini-blade !w-16 !h-6 !px-1.5 !text-[9px]">Nordhoff</span>}
                   </span>
                 )}
                 <span className="min-w-0">
@@ -100,9 +100,7 @@ function SignIndex() {
           {current.image ? (
             <img key={current.slug} src={current.image} alt={current.alt} className="swap" style={{ objectPosition: focusOn(current.image) }} />
           ) : (
-            <div key={current.slug} className="swap absolute inset-0 bg-mat text-paper">
-              <AdaSign />
-            </div>
+            <SignFigure key={current.slug} slug={current.slug} className="swap" />
           )}
         </Sheet>
       </div>
@@ -161,7 +159,7 @@ export default function Home() {
   usePageMeta({
     title: "Sign Company in Chatsworth, CA",
     description:
-      "Sign company in Chatsworth, CA since 1999. Construction signs, ADA signage, vehicle wraps & lobby signs. DBE/SBE certified. Call 818-346-2142.",
+      "Sign company in Chatsworth, CA since 1999. Street signs, ADA signage, vehicle wraps & lobby signs. SBE certified. Call 818-346-2142.",
   });
   useScrollAnimation();
 

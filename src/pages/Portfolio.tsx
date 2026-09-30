@@ -19,7 +19,7 @@ const filters: Filter[] = ["All", ...portfolioCategories];
 export default function Portfolio() {
   usePageMeta({
     title: "Sign Portfolio | LA Projects",
-    description: "Signage projects by Advanced Sign & Banner: construction signs, ADA signage, vehicle wraps and lobby signs. LA Metro, Burbank Airport & more.",
+    description: "Signage projects by Advanced Sign & Banner: street signs, ADA signage, vehicle wraps and lobby signs. LA Metro, Burbank Airport & more.",
   });
   useScrollAnimation();
 

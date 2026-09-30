@@ -32,19 +32,10 @@ export const navLinks = [
   { label: "Reviews", to: "/testimonials" },
 ];
 
-/*
-  The six codes are the ones the first version of this site listed. The owner's
-  own earlier site never listed certifications, so they are unverified.
-  TODO(owner): confirm each code is current, and the issuing agency for each;
-  the full name of SABE is not known, so it is left blank.
-*/
+/* SBE is the one certification the owner stands behind (2026-09-30).
+   TODO(owner): issuing agency and certificate number. */
 export const certifications = [
-  { code: "DBE", name: "Disadvantaged Business Enterprise" },
   { code: "SBE", name: "Small Business Enterprise" },
-  { code: "SABE", name: "" },
-  { code: "CBE", name: "Community Business Enterprise" },
-  { code: "Micro-SBE", name: "Micro Small Business Enterprise" },
-  { code: "SB-PW", name: "Small Business Public Works" },
 ];
 
 /*
@@ -71,7 +62,7 @@ export const homeIntro = {
   heading: "A family-owned sign shop in Chatsworth since 1999.",
   paragraphs: [
     "Advanced Sign & Banner is a full-service sign company in Chatsworth, California. Since 1999 we have designed, printed, and installed signs for general contractors, public agencies, and local businesses across Los Angeles County.",
-    "Our work spans construction signage, ADA signs, building letters, lobby signs, vehicle wraps, wall graphics, banners, and laser engraving. We are DBE, SBE, SABE, and CBE certified and take on prevailing-wage public works projects.",
+    "Our work spans street signage, ADA signs, building letters, lobby signs, vehicle wraps, wall graphics, banners, and laser engraving. We are SBE certified and take on prevailing-wage public works projects.",
   ],
 };
 
@@ -90,17 +81,17 @@ export const signTypes: {
   title: string;
   to: string;
   division: Division;
-  image: string;
+  image: string | null;
   alt: string;
   blurb: string;
 }[] = [
   {
-    title: "Construction Signs",
+    title: "Street Signs",
     to: "/public-works",
     division: "Public works",
-    image: "/assets/improved-v2/hero/construction-signage.jpg",
-    alt: "Large printed banner installed on a parking structure in Los Angeles",
-    blurb: "Weather-resistant signage for active construction sites and development projects.",
+    image: null,
+    alt: "Drawing of a street-name blade and a speed limit panel on one post",
+    blurb: "Street name blades, regulatory and parking signs, wayfinding and work-zone signs.",
   },
   {
     title: "Building Signs",
@@ -154,7 +145,7 @@ export const publicWorks = {
     "Certified, prevailing-wage compliant, and familiar with public-agency bid requirements.",
   /* TODO(owner): licence class and number, DIR registration, bonding and insurance are not stated anywhere yet. */
   credentials: [
-    { label: "Certified", detail: "DBE, SBE, SABE, CBE" },
+    { label: "Certified", detail: "SBE, Small Business Enterprise" },
     { label: "Prevailing wage", detail: "Certified payroll handled" },
     { label: "Licensed & insured", detail: "Details on request" },
     { label: "Established", detail: "1999, family-owned" },
@@ -162,10 +153,11 @@ export const publicWorks = {
   servicesHeading: "What we build for public works",
   services: [
     {
-      title: "Construction Signs",
-      description: "Weather-resistant signage for active construction sites and development projects.",
-      image: "/assets/improved-v2/hero/construction-signage.jpg",
-      alt: "Large printed banner installed on a parking structure in Los Angeles",
+      title: "Street Signs",
+      description: "Street name blades, regulatory and parking signs, wayfinding and work-zone signs for cities, agencies and job sites.",
+      /* TODO(owner): confirm which of these they make in-house and the sheeting grade used. */
+      image: null as string | null,
+      alt: "Drawing of a street-name blade and a speed limit panel on one post",
     },
     {
       title: "Building Signs",
@@ -236,7 +228,7 @@ export const publicWorks = {
   faqs: [
     {
       q: "What certifications do you hold?",
-      a: "DBE, SBE, SABE, CBE, Micro-SBE, and SB-PW. Ask us for current certificates when you bid.",
+      a: "SBE (Small Business Enterprise). Ask us for the current certificate when you bid.",
     },
     {
       q: "Do you handle certified payroll for prevailing wage projects?",
@@ -449,10 +441,10 @@ export const portfolioNotice =
 
 export const about = {
   image: "/assets/improved-v2/hero/construction-signage.jpg",
-  imageAlt: "Advanced Sign & Banner construction site signage project",
+  imageAlt: "Advanced Sign & Banner street signage project",
   paragraphs: [
     "Advanced Sign & Banner has been the go-to sign subcontractor for general contractors and businesses who demand excellence since 1999. Our portfolio includes LA Metro stations, Burbank Airport terminals, and Los Angeles County courthouses: projects where precision, compliance, and quality are non-negotiable.",
-    "From small businesses to large-scale public works projects, we bring the same expertise and craftsmanship to every job. We’re fully certified (DBE, SBE, SABE, CBE) and prevailing wage compliant.",
+    "From small businesses to large-scale public works projects, we bring the same expertise and craftsmanship to every job. We’re SBE certified and prevailing wage compliant.",
   ],
   /*
     Only what the owner's earlier site says. It gave no dates beyond 1999.
@@ -491,7 +483,7 @@ export const contact = {
   formHeading: "Request a quote",
   formLead: "Tell us about your project and we’ll get back to you with a quote.",
   projectTypes: [
-    "Construction Signage",
+    "Street Signage",
     "Building Signs",
     "ADA Signage",
     "Vehicle Wraps",

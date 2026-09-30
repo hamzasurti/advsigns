@@ -65,63 +65,45 @@
 }
 
 /* ================================================================== */
-/* Construction: fence screen, hazard tape, a posted project sign      */
+/* Street: a blade and a regulatory panel, lettered in Overpass        */
+/* (the open cut of Highway Gothic, the alphabet on the real signs)    */
 /* ================================================================== */
 
-.hazard {
-  height: 22px;
-  background: repeating-linear-gradient(
-    -45deg,
-    var(--color-mark) 0 22px,
-    var(--color-ink) 22px 44px
-  );
+.blade-blue { fill: oklch(0.42 0.13 258); }
+.blade-text {
+  font-family: "Overpass", "Archivo", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
-
-.m-site-hero {
-  position: relative;
-  background-color: var(--color-mat);
-  background-image:
-    linear-gradient(to right, oklch(0.16 0.03 147 / 0.55) 0 5px, transparent 5px),
-    repeating-linear-gradient(45deg, oklch(0 0 0 / 0.2) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(-45deg, oklch(1 0 0 / 0.06) 0 1px, transparent 1px 4px);
-  background-size: calc(var(--module) * 3) 100%, auto, auto;
-  color: var(--color-paper);
-}
-.rail {
-  height: 6px;
-  background: oklch(0.16 0.03 147 / 0.7);
-  box-shadow: 0 1px 0 oklch(1 0 0 / 0.12);
-}
-
-.jobsign {
-  --g: 20px;
-  position: relative;
-  background-color: var(--color-paper);
-  background-image:
-    radial-gradient(circle at var(--g) var(--g), var(--color-mat) 0 5px, var(--color-ink-soft) 5px 7px, transparent 7.5px),
-    radial-gradient(circle at calc(100% - var(--g)) var(--g), var(--color-mat) 0 5px, var(--color-ink-soft) 5px 7px, transparent 7.5px),
-    radial-gradient(circle at var(--g) calc(100% - var(--g)), var(--color-mat) 0 5px, var(--color-ink-soft) 5px 7px, transparent 7.5px),
-    radial-gradient(circle at calc(100% - var(--g)) calc(100% - var(--g)), var(--color-mat) 0 5px, var(--color-ink-soft) 5px 7px, transparent 7.5px);
-  color: var(--color-ink);
-  box-shadow: 0 18px 30px oklch(0.12 0.03 147 / 0.45);
-  animation: hang 0.9s var(--ease) both;
-}
-.jobsign::before,
-.jobsign::after {
-  content: "";
-  position: absolute;
-  top: -34px;
-  width: 3px;
-  height: 56px;
-  background: var(--color-ink);
-}
-.jobsign::before { left: calc(var(--g) - 1.5px); }
-.jobsign::after { right: calc(var(--g) - 1.5px); }
+.street-figure { animation: hang 0.9s var(--ease) both; }
 @keyframes hang {
-  from { opacity: 0; transform: translateY(-28px); }
+  from { opacity: 0; transform: translateY(-16px); }
   to   { opacity: 1; transform: none; }
 }
 
+/* Small drawings for the list of sign types. */
+.mini { height: 120px; display: grid; place-items: center; }
+.mini-blade {
+  width: 180px; height: 42px; padding-inline: 10px;
+  background: oklch(0.42 0.13 258); color: var(--color-paper);
+  box-shadow: inset 0 0 0 2px var(--color-paper), inset 0 0 0 3px oklch(0.42 0.13 258);
+  display: grid; align-items: center;
+  font: 700 22px/1 "Overpass", "Archivo", sans-serif; text-transform: uppercase;
+}
+.mini-reg {
+  width: 74px; height: 110px; padding: 8px 6px;
+  background: var(--color-paper); color: var(--color-ink);
+  box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 5px var(--color-ink);
+  display: grid; align-content: center; justify-items: center; gap: 2px;
+  font: 700 13px/1 "Overpass", "Archivo", sans-serif; text-transform: uppercase;
+}
+.mini-reg b { font-size: 34px; }
+.mini-panel {
+  width: 150px; background: var(--color-paper); color: var(--color-ink);
+  border: 3px solid var(--color-ink); padding: 12px;
+}
+.mini-post { display: flex; justify-content: space-between; padding-inline: 24px; }
+.mini-post span { display: block; width: 6px; height: 24px; background: var(--color-ink); }
 .diamond {
   width: 84px;
   height: 84px;

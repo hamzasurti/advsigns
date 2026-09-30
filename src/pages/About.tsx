@@ -12,7 +12,7 @@ const team = about.team.filter((m) => m.name.trim() !== "");
 export default function About() {
   usePageMeta({
     title: "About Us | Sign Company Since 1999",
-    description: "Family-owned sign company in Chatsworth, CA since 1999. Design, printing, fabrication and installation across Los Angeles County. DBE/SBE certified.",
+    description: "Family-owned sign company in Chatsworth, CA since 1999. Design, printing, fabrication and installation across Los Angeles County. SBE certified.",
   });
   useScrollAnimation();
 
@@ -43,8 +43,8 @@ export default function About() {
             <p className="lead animate-on-scroll">
               From small businesses to large-scale{" "}
               <Link to="/public-works" className="link">public works projects</Link>, we bring the same
-              expertise and craftsmanship to every job. We&rsquo;re fully certified (DBE, SBE, SABE, CBE)
-              and prevailing wage compliant.
+              expertise and craftsmanship to every job. We&rsquo;re SBE certified and prevailing
+              wage compliant.
             </p>
             <dl className="border-b border-ink/20 animate-on-scroll delay-1">
               {stats.map((s) => (

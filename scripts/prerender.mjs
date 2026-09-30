@@ -28,7 +28,7 @@ const ROUTES = [
   "/contact",
   "/portfolio",
   "/testimonials",
-  "/signs/construction",
+  "/signs/street",
   "/signs/building",
   "/signs/ada",
   "/signs/lobby",

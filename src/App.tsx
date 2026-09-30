@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
 import NotFound from "./pages/NotFound";
-import Construction from "./pages/signs/Construction";
+import Street from "./pages/signs/Street";
 import Building from "./pages/signs/Building";
 import Ada from "./pages/signs/Ada";
 import Lobby from "./pages/signs/Lobby";
@@ -32,7 +32,8 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/testimonials" element={<Testimonials />} />
-        <Route path="/signs/construction" element={<Construction />} />
+        <Route path="/signs/street" element={<Street />} />
+        <Route path="/signs/construction" element={<Navigate to="/signs/street" replace />} />
         <Route path="/signs/building" element={<Building />} />
         <Route path="/signs/ada" element={<Ada />} />
         <Route path="/signs/lobby" element={<Lobby />} />
