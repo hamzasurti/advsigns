@@ -5,11 +5,11 @@
   Advanced Sign & Banner — "on the mat"
   The site is laid out like work on a sign shop's cutting table: a deep green
   mat with an inch grid, sheets cut at the 4 x 8 proportion, crop marks,
-  dimension lines, and orange marker for anything that needs attention.
+  dimension lines, and brass for anything that needs attention.
 
   Type:   Archivo (expanded cut, for display and labels) +
           Atkinson Hyperlegible Next (body; drawn by the Braille Institute).
-  Color:  mat green, warm paper, marker orange. Violet is reserved for
+  Color:  mat green, warm paper, brass. Violet is reserved for
           focus rings only. No red, no pure black or white.
   Shape:  square-cut. No radius anywhere.
   Grid:   8px unit, 96px module, 13 modules wide, split 5 : 8.
@@ -32,9 +32,9 @@
   --color-on-mat:   oklch(0.857 0.034 115);   /* quiet text on the mat */
   --color-green:    oklch(0.443 0.106 144);   /* links + marks on paper */
 
-  /* Marker: the orange of a grease pencil or a rotary cutter, on a green mat */
-  --color-mark:    oklch(0.735 0.165 48);
-  --color-mark-2:  oklch(0.660 0.170 45);
+  /* Brass: the edge of a steel rule, the grommets on a banner */
+  --color-mark:    oklch(0.790 0.100 86);
+  --color-mark-2:  oklch(0.700 0.100 84);
 
   /* Focus only */
   --color-violet:    oklch(0.508 0.212 315);
