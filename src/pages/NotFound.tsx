@@ -9,11 +9,13 @@ export default function NotFound() {
     description: "The page you're looking for doesn't exist. Return to the Advanced Sign & Banner homepage.",
   });
 
+  /* Not indexed, so it should not claim a canonical URL either. */
   useEffect(() => {
     const meta = document.createElement("meta");
     meta.setAttribute("name", "robots");
     meta.setAttribute("content", "noindex");
     document.head.appendChild(meta);
+    document.querySelector('link[rel="canonical"]')?.remove();
     return () => { meta.remove(); };
   }, []);
 

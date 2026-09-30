@@ -1,1 +1,4 @@
+# Old paths, kept as real redirects for hosts that read this file.
+/signs/construction   /signs/street   301
+/government-services  /public-works   301
 /*    /index.html   200
