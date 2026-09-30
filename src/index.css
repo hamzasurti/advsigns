@@ -550,3 +550,77 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
   .js-ready .animate-on-scroll:not(.is-visible) { opacity: 1 !important; }
 }
 
+
+/* ------------------------------------------------------------------ */
+/* Colourways under review (?palette=name). Delete the losers.         */
+/* ------------------------------------------------------------------ */
+
+/* Blueprint: a drafting-blue mat, cream paper, brass for attention. */
+html[data-palette="blueprint"] {
+  --color-ink:      oklch(0.225 0.038 255);
+  --color-ink-soft: oklch(0.440 0.040 255);
+  --color-mat:      oklch(0.335 0.072 255);
+  --color-mat-2:    oklch(0.385 0.078 255);
+  --color-mat-line: oklch(0.470 0.082 252);
+  --color-on-mat:   oklch(0.860 0.022 240);
+  --color-green:    oklch(0.430 0.100 255);
+}
+
+/* Blueprint, one colour: the brass goes; a chalk blue marks instead. */
+html[data-palette="blueprint-chalk"] {
+  --color-paper:    oklch(0.972 0.006 230);
+  --color-paper-2:  oklch(0.940 0.010 230);
+  --color-paper-3:  oklch(0.885 0.014 230);
+  --color-ink:      oklch(0.225 0.038 255);
+  --color-ink-soft: oklch(0.440 0.040 255);
+  --color-mat:      oklch(0.335 0.072 255);
+  --color-mat-2:    oklch(0.385 0.078 255);
+  --color-mat-line: oklch(0.470 0.082 252);
+  --color-on-mat:   oklch(0.860 0.022 240);
+  --color-green:    oklch(0.430 0.100 255);
+  --color-mark:     oklch(0.840 0.055 232);
+  --color-mark-2:   oklch(0.740 0.070 232);
+}
+
+/* Slate: the blue nearly gone to grey; brass stays. Closest to the green. */
+html[data-palette="slate"] {
+  --color-paper:    oklch(0.972 0.006 230);
+  --color-paper-2:  oklch(0.940 0.010 230);
+  --color-paper-3:  oklch(0.885 0.014 230);
+  --color-ink:      oklch(0.225 0.030 255);
+  --color-ink-soft: oklch(0.440 0.032 255);
+  --color-mat:      oklch(0.355 0.038 250);
+  --color-mat-2:    oklch(0.400 0.042 250);
+  --color-mat-line: oklch(0.480 0.045 248);
+  --color-on-mat:   oklch(0.860 0.014 240);
+  --color-green:    oklch(0.430 0.080 250);
+}
+
+/* Prussian: deeper and darker, with a sand mark instead of brass. */
+html[data-palette="prussian"] {
+  --color-ink:      oklch(0.220 0.040 262);
+  --color-ink-soft: oklch(0.435 0.042 262);
+  --color-mat:      oklch(0.290 0.068 262);
+  --color-mat-2:    oklch(0.340 0.074 262);
+  --color-mat-line: oklch(0.430 0.078 258);
+  --color-on-mat:   oklch(0.850 0.020 250);
+  --color-green:    oklch(0.400 0.100 262);
+  --color-mark:     oklch(0.860 0.070 82);
+  --color-mark-2:   oklch(0.760 0.080 80);
+}
+
+/* Steel: blueprint mat with a sky mark, cool paper. The bluest option. */
+html[data-palette="steel"] {
+  --color-paper:    oklch(0.972 0.006 230);
+  --color-paper-2:  oklch(0.940 0.010 230);
+  --color-paper-3:  oklch(0.885 0.014 230);
+  --color-ink:      oklch(0.225 0.038 255);
+  --color-ink-soft: oklch(0.440 0.040 255);
+  --color-mat:      oklch(0.335 0.072 255);
+  --color-mat-2:    oklch(0.385 0.078 255);
+  --color-mat-line: oklch(0.470 0.082 252);
+  --color-on-mat:   oklch(0.860 0.022 240);
+  --color-green:    oklch(0.430 0.100 255);
+  --color-mark:     oklch(0.800 0.080 215);
+  --color-mark-2:   oklch(0.700 0.090 215);
+}

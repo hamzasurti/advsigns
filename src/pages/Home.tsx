@@ -169,8 +169,8 @@ export default function Home() {
       {/* ============================ HERO ============================ */}
       <section className="mat on-mat overflow-hidden">
         <div className="wrap pt-8 pb-[var(--s13)]">
-          <h1 className="display display-1 rise rise-1">
-            Sign company in Chatsworth, California
+          <h1 className="display display-2 max-w-[30ch] rise rise-1">
+            Building signs, ADA signage, banners and vehicle wraps, built and installed in-house.
           </h1>
 
           <div className="split-5-8 mt-[var(--s5)]">
