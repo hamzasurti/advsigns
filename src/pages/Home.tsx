@@ -9,6 +9,7 @@ import SectionHead from "../components/SectionHead";
 import Arrow from "../components/Arrow";
 import AdaSign from "../components/AdaSign";
 import Braille from "../components/Braille";
+import Rotator from "../components/Rotator";
 import { signs } from "../content/signs";
 import { clients, heroPoster, heroVideoCaption, heroVideos, homeIntro, focusOn } from "../content/site";
 
@@ -169,8 +170,11 @@ export default function Home() {
       {/* ============================ HERO ============================ */}
       <section className="mat on-mat overflow-hidden">
         <div className="wrap pt-8 pb-[var(--s13)]">
-          <h1 className="display display-2 max-w-[30ch] rise rise-1">
-            Building signs, ADA signage, banners and vehicle wraps, built and installed in-house.
+          <h1 className="display display-1 hero-title rise rise-1">
+            <span className="block text-mark whitespace-nowrap">
+              <Rotator words={signs.map((s) => s.name)} plain="Signs" />
+            </span>
+            <span className="block">built and installed in-house.</span>
           </h1>
 
           <div className="split-5-8 mt-[var(--s5)]">

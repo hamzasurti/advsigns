@@ -121,6 +121,10 @@ body {
 .display-1 { font-size: clamp(2.35rem, 6.2vw, 5.5rem); }
 /* All-caps titles are wider per letter, so they step down on narrow screens. */
 .display-1.uppercase { font-size: clamp(1.9rem, 6.2vw, 5.5rem); }
+/* Home hero: the rotating sign type must sit on one line, so the size is
+   pinned to what "Construction Signs" needs on a phone, then to two lines
+   of the sentence on a desk. */
+.hero-title { font-size: clamp(1.5rem, min(8.4vw - 4px, max(5.3vw, 2.6rem)), 4.8rem); }
 @media (max-width: 639px) {
   .display.uppercase { font-stretch: 104%; }
 }

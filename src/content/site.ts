@@ -67,7 +67,7 @@ export const heroVideoCaption = "On the flatbed printer in our Chatsworth shop";
 
 export const homeIntro = {
   lead:
-    "A full-service sign shop in Chatsworth, serving general contractors, public agencies, and local businesses across Los Angeles County since 1999.",
+    "A Chatsworth sign shop serving contractors, public agencies and businesses across Los Angeles since 1999.",
   heading: "A family-owned sign shop in Chatsworth since 1999.",
   paragraphs: [
     "Advanced Sign & Banner is a full-service sign company in Chatsworth, California. Since 1999 we have designed, printed, and installed signs for general contractors, public agencies, and local businesses across Los Angeles County.",
