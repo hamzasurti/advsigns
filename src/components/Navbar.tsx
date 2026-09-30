@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "./Logo";
 import Arrow from "./Arrow";
@@ -6,7 +6,26 @@ import { business, navLinks } from "../content/site";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
   const close = () => setOpen(false);
+
+  /* While the menu is open: Escape closes it and puts focus back on the
+     button, and the page behind it stays put. */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      setOpen(false);
+      toggle.current?.focus();
+    };
+    document.addEventListener("keydown", onKey);
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = overflow;
+    };
+  }, [open]);
 
   return (
     <header className="on-paper sticky top-0 z-50 bg-paper text-ink">
@@ -37,6 +56,7 @@ export default function Navbar() {
         </div>
 
         <button
+          ref={toggle}
           type="button"
           className="lg:hidden label flex items-center gap-3 min-h-12 px-1"
           onClick={() => setOpen((o) => !o)}

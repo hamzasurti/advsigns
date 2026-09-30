@@ -55,7 +55,7 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <Navbar />
         <ScrollToTop />
-        <main id="main" className="flex-grow">
+        <main id="main" tabIndex={-1} className="flex-grow outline-none">
           <AnimatedRoutes />
         </main>
         <Footer />

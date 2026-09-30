@@ -99,7 +99,7 @@ export default function About() {
               <li><i /> Cities with our signs</li>
             </ul>
           </div>
-          <div className="map-wrap mt-[var(--s5)] animate-on-scroll">
+          <div className="map-wrap mt-[var(--s5)] animate-on-scroll" tabIndex={0} role="region" aria-label="Install map, scrolls sideways on small screens">
             <DrawnMap />
           </div>
           <ul className="cities mt-8 sm:columns-4" aria-label="Cities where we have installed signs">

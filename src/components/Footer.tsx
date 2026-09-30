@@ -22,26 +22,26 @@ export default function Footer() {
           <div>
             <p className="label text-mark">Signs</p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><Link to="/public-works" className="hover:text-mark">Public Works</Link></li>
-              <li><Link to="/services" className="hover:text-mark">Signs</Link></li>
-              <li><Link to="/portfolio" className="hover:text-mark">Portfolio</Link></li>
+              <li><Link to="/public-works" className="inline-block py-1 -my-1 hover:text-mark">Public Works</Link></li>
+              <li><Link to="/services" className="inline-block py-1 -my-1 hover:text-mark">Signs</Link></li>
+              <li><Link to="/portfolio" className="inline-block py-1 -my-1 hover:text-mark">Portfolio</Link></li>
             </ul>
           </div>
           <div>
             <p className="label text-mark">Company</p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-mark">About Us</Link></li>
-              <li><Link to="/testimonials" className="hover:text-mark">Reviews</Link></li>
-              <li><Link to="/contact" className="hover:text-mark">Contact</Link></li>
+              <li><Link to="/about" className="inline-block py-1 -my-1 hover:text-mark">About Us</Link></li>
+              <li><Link to="/testimonials" className="inline-block py-1 -my-1 hover:text-mark">Reviews</Link></li>
+              <li><Link to="/contact" className="inline-block py-1 -my-1 hover:text-mark">Contact</Link></li>
             </ul>
           </div>
           <div>
             <p className="label text-mark">Shop</p>
             <address className="mt-3 not-italic text-sm space-y-2">
-              <p><a href="tel:818-346-2142" className="hover:text-mark">818-346-2142</a></p>
-              <p><a href="mailto:info@advsigns.net" className="hover:text-mark">info@advsigns.net</a></p>
+              <p><a href="tel:818-346-2142" className="inline-block py-1 -my-1 hover:text-mark">818-346-2142</a></p>
+              <p><a href="mailto:info@advsigns.net" className="inline-block py-1 -my-1 hover:text-mark">info@advsigns.net</a></p>
               <p>
-                <a href={business.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-mark">
+                <a href={business.mapsHref} target="_blank" rel="noopener noreferrer" className="inline-block py-1 -my-1 hover:text-mark">
                   21354 Nordhoff St. Ste 111,<br />Chatsworth, CA 91311
                 </a>
               </p>
