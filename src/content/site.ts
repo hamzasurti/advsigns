@@ -364,7 +364,7 @@ export const portfolioItems: PortfolioItem[] = [
     category: "Building Signs",
     description: "Exterior identification letters for the Superior Court of California, County of Los Angeles.",
     image: "/assets/improved-v2/hero/building-signs.jpg",
-    shape: "tall",
+    shape: "wide",
   },
   {
     id: 2,
