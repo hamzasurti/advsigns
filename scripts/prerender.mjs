@@ -107,6 +107,9 @@ async function prerender() {
     // Small extra delay for structured data scripts to inject
     await new Promise((r) => setTimeout(r, 500));
 
+    // The snapshot must not carry the js-ready flag: it makes scroll-revealed
+    // sections start invisible, and the live page adds it again on load.
+    await page.evaluate(() => document.documentElement.classList.remove("js-ready"));
     const html = await page.content();
     await page.close();
 

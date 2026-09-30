@@ -17,7 +17,8 @@ export default function usePageMeta({ title, description, ogTitle, ogDescription
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const canonicalUrl = `${BASE_URL}${pathname === "/" ? "" : pathname}`;
+    // Match the sitemap: no trailing slash, except on the home page.
+    const canonicalUrl = `${BASE_URL}${pathname.replace(/\/+$/, "") || "/"}`;
 
     // Set document title
     document.title = `${title} | ${BASE_TITLE}`;
