@@ -10,6 +10,8 @@ export const business = {
   name: "Advanced Sign & Banner",
   phone: "818-346-2142",
   phoneHref: "tel:818-346-2142",
+  tollFree: "800-601-7446",
+  tollFreeHref: "tel:800-601-7446",
   email: "info@advsigns.net",
   emailHref: "mailto:info@advsigns.net",
   street: "21354 Nordhoff St. Ste 111",
@@ -123,7 +125,7 @@ export const signTypes: {
     division: "Commercial",
     image: "/assets/improved-v2/services/wall-graphics.jpg",
     alt: "Wall graphics across an office break room",
-    blurb: "Custom wall murals and graphics that transform interior spaces.",
+    blurb: "Wall murals, window graphics and floor graphics for interiors and storefronts.",
   },
   {
     title: "Laser Engraving",
@@ -254,8 +256,8 @@ export const commercial = {
     "Seven kinds of sign, each with its own page. Pick the one you need; if it is none of these, it is probably under the extras.",
   /* Things the shop makes that are not one of the seven sign types. From the owner's earlier site. */
   extras: [
-    { title: "Banners", body: "Printed in-house up to 60 inches wide, hemmed and grommeted, for events, storefronts and job sites." },
-    { title: "Embroidery", body: "Shirts, caps and jackets with your logo, for crews and front desks." },
+    { title: "Banners and A-frames", body: "Vinyl and roll-up banners printed in-house, hemmed and grommeted, plus A-frames and canvas prints." },
+    { title: "Embroidery and screen printing", body: "Shirts, caps, jackets and towels with your logo, for crews and front desks." },
     { title: "Special projects", body: "Convention banner walls, pull-up stands, holiday displays and one-off installations." },
   ],
   services: [
@@ -280,7 +282,7 @@ export const commercial = {
     {
       title: "Wall Graphics",
       heading: "Wall graphics and murals",
-      description: "Custom wall murals and graphics that transform interior spaces.",
+      description: "Wall murals, window graphics and floor graphics for interiors and storefronts.",
       body:
         "Transform any interior space with custom wall graphics and murals. We print in-house on vinyl, canvas, and aluminum panels up to 60 inches wide, and install the finished work. One of our murals is twelve printed aluminum panels, about 27 by 15 feet.",
       image: "/assets/improved-v2/services/wall-graphics.jpg",
