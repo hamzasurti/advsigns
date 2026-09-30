@@ -1,0 +1,227 @@
+{
+  "generated": "2026-09-30",
+  "notes": "Originals untouched. No enlargement or object retouching. All files exported as metadata-free sRGB JPEG at quality 88. Unedited entries retain original framing and tones; JPEG export is the only conversion. MicaBella and tgs have large pixel dimensions but insufficient effective detail. focal gives fractions of output dimensions. Review full crops before applying website object-fit.",
+  "photos": [
+    {
+      "source": "public/assets/hero/building-signs.jpg",
+      "output": "public/assets/improved-v2/hero/building-signs.jpg",
+      "width": 865,
+      "height": 540,
+      "focal": {
+        "x": 0.5,
+        "y": 0.47
+      },
+      "best_use": "wide",
+      "quality": "usable",
+      "edits": [
+        "cropped to all three lines of lettering, retaining margin",
+        "restrained local shadow exposure and blue-cast reduction with a soft boundary"
+      ],
+      "reshoot": true,
+      "note": "Full wall equalisation was tested and rejected: a seam and color blotches looked processed. This conservative alternative retains the diagonal shadow. All letters remain intact; not suitable for further tight cropping."
+    },
+    {
+      "source": "public/assets/hero/construction-signage.jpg",
+      "output": "public/assets/improved-v2/hero/construction-signage.jpg",
+      "width": 1025,
+      "height": 1445,
+      "focal": {
+        "x": 0.51,
+        "y": 0.47
+      },
+      "best_use": "upright",
+      "quality": "good",
+      "edits": [
+        "cropped blurry foreground grass and small edge distractions"
+      ],
+      "reshoot": false,
+      "note": "Original lighting retained. The low camera angle remains; stronger perspective correction would stretch the artwork."
+    },
+    {
+      "source": "public/assets/hero/lobby-signs.jpg",
+      "output": "public/assets/improved-v2/hero/lobby-signs.jpg",
+      "width": 1920,
+      "height": 1440,
+      "focal": {
+        "x": 0.59,
+        "y": 0.45
+      },
+      "best_use": "thumbnail-only",
+      "quality": "weak",
+      "edits": [],
+      "reshoot": true,
+      "note": "left unedited: too small to improve"
+    },
+    {
+      "source": "public/assets/hero/vehicle-wraps.jpg",
+      "output": "public/assets/improved-v2/hero/vehicle-wraps.jpg",
+      "width": 1600,
+      "height": 1100,
+      "focal": {
+        "x": 0.49,
+        "y": 0.48
+      },
+      "best_use": "wide",
+      "quality": "good",
+      "edits": [
+        "trimmed excess pavement below truck",
+        "very small shadow lift"
+      ],
+      "reshoot": false,
+      "note": "Natural overcast sky and printed wrap colors retained. Leaves and surrounding vehicles remain."
+    },
+    {
+      "source": "public/assets/services/banners.jpg",
+      "output": "public/assets/improved-v2/services/banners.jpg",
+      "width": 460,
+      "height": 316,
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "best_use": "thumbnail-only",
+      "quality": "weak",
+      "edits": [],
+      "reshoot": true,
+      "note": "left unedited: too small to improve"
+    },
+    {
+      "source": "public/assets/services/building-signs.jpg",
+      "output": "public/assets/improved-v2/services/building-signs.jpg",
+      "width": 1600,
+      "height": 1200,
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "best_use": "thumbnail-only",
+      "quality": "weak",
+      "edits": [],
+      "reshoot": true,
+      "note": "left unedited: too small to improve"
+    },
+    {
+      "source": "public/assets/services/custom-signs.jpg",
+      "output": "public/assets/improved-v2/services/custom-signs.jpg",
+      "width": 980,
+      "height": 660,
+      "focal": {
+        "x": 0.5,
+        "y": 0.49
+      },
+      "best_use": "wide",
+      "quality": "usable",
+      "edits": [
+        "cropped to both lines of lettering, excluding wall controls and most flowers",
+        "modest brightness lift with highlights protected"
+      ],
+      "reshoot": true,
+      "note": "Mirror reflections stay in the letters. A flower stem still enters at the lower left. Very little original headroom; display the complete crop."
+    },
+    {
+      "source": "public/assets/services/embroidery.png",
+      "output": "public/assets/improved-v2/services/embroidery.jpg",
+      "width": 799,
+      "height": 584,
+      "focal": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "best_use": "thumbnail-only",
+      "quality": "usable",
+      "edits": [],
+      "reshoot": true,
+      "note": "left unedited: too small to improve"
+    },
+    {
+      "source": "public/assets/services/laser-engraving.jpg",
+      "output": "public/assets/improved-v2/services/laser-engraving.jpg",
+      "width": 1530,
+      "height": 370,
+      "focal": {
+        "x": 0.55,
+        "y": 0.5
+      },
+      "best_use": "wide",
+      "quality": "usable",
+      "edits": [
+        "levelled pen by 1 degree",
+        "cropped around the complete imprint, excluding fingers",
+        "small brightness lift"
+      ],
+      "reshoot": true,
+      "note": "A close detail of the imprint, not a whole-pen product photograph. Desk and original pen reflections retained."
+    },
+    {
+      "source": "public/assets/services/lobby-signs.jpg",
+      "output": "public/assets/improved-v2/services/lobby-signs.jpg",
+      "width": 1140,
+      "height": 615,
+      "focal": {
+        "x": 0.49,
+        "y": 0.47
+      },
+      "best_use": "wide",
+      "quality": "usable",
+      "edits": [
+        "cropped to both signs, excluding bright ceiling light and desk clutter",
+        "gently opened dark wall tones"
+      ],
+      "reshoot": false,
+      "note": "Wall remains dark brown. Uneven room lighting and the softer right-hand sign remain; no perspective warp of the circular logo."
+    },
+    {
+      "source": "public/assets/services/special-projects.jpg",
+      "output": "public/assets/improved-v2/services/special-projects.jpg",
+      "width": 1920,
+      "height": 1190,
+      "focal": {
+        "x": 0.5,
+        "y": 0.52
+      },
+      "best_use": "wide",
+      "quality": "good",
+      "edits": [
+        "trimmed a little empty sky"
+      ],
+      "reshoot": false,
+      "note": "Night lighting, brightness and colors left alone."
+    },
+    {
+      "source": "public/assets/services/wall-graphics.jpg",
+      "output": "public/assets/improved-v2/services/wall-graphics.jpg",
+      "width": 1755,
+      "height": 1015,
+      "focal": {
+        "x": 0.5,
+        "y": 0.49
+      },
+      "best_use": "wide",
+      "quality": "good",
+      "edits": [
+        "trimmed most ceiling and some foreground furniture, keeping the complete wall artwork",
+        "very small shadow lift and warm-cast reduction"
+      ],
+      "reshoot": false,
+      "note": "Kept all main wall lettering and the room context. Furniture and uneven room lighting remain; no artificial whitening of the wall."
+    },
+    {
+      "source": "public/assets/services/wraps.png",
+      "output": "public/assets/improved-v2/services/wraps.jpg",
+      "width": 1189,
+      "height": 740,
+      "focal": {
+        "x": 0.51,
+        "y": 0.5
+      },
+      "best_use": "wide",
+      "quality": "usable",
+      "edits": [
+        "trimmed some tree canopy and empty road",
+        "gently brightened shaded truck tones while protecting bright sky"
+      ],
+      "reshoot": true,
+      "note": "Backlighting and tree shade remain. Existing smoothed texture limits detail; no sharpening, saturation boost or sky replacement."
+    }
+  ]
+}
