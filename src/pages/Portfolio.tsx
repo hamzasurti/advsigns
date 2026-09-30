@@ -52,7 +52,7 @@ export default function Portfolio() {
 
       <section className="on-paper">
         <div className="sticky top-[86px] z-30 bg-paper border-b border-ink/15">
-          <div className="wrap py-3 flex gap-2 overflow-x-auto" role="group" aria-label="Filter projects by sign type">
+          <div className="wrap py-3 flex gap-2 overflow-x-auto lg:flex-wrap" role="group" aria-label="Filter projects by sign type">
             {filters.map((f) => (
               <button
                 key={f}
@@ -76,7 +76,7 @@ export default function Portfolio() {
                 <button type="button" onClick={() => setOpen(i)} className="group block text-left max-w-full">
                   <span className="crop block">
                     <span className="sheet-media proof block" style={{ aspectRatio: photoAspect(item.image) }}>
-                      <img src={item.image} alt={item.description} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.04]" />
+                      <img src={item.image} alt={item.description} loading="lazy" decoding="async" className="transition-transform duration-700 group-hover:scale-[1.04]" />
                     </span>
                   </span>
                   <span className="block px-[14px] pt-2 pr-8">
