@@ -11,8 +11,7 @@ import {
   portfolioItems,
   portfolioNotice,
   publicWorks,
-  type PortfolioCategory,
-} from "../content/site";
+  type PortfolioCategory, focusOn } from "../content/site";
 
 type Filter = "All" | PortfolioCategory;
 const filters: Filter[] = ["All", ...portfolioCategories];
@@ -60,7 +59,7 @@ export default function Portfolio() {
                 onClick={() => { setFilter(f); setOpen(null); }}
                 aria-pressed={filter === f}
                 className={`label shrink-0 min-h-11 px-4 border transition-colors ${
-                  filter === f ? "bg-ink text-hivis border-ink" : "border-ink/25 hover:bg-hivis"
+                  filter === f ? "bg-ink text-mark border-ink" : "border-ink/25 hover:bg-mark"
                 }`}
               >
                 {f}
@@ -75,7 +74,7 @@ export default function Portfolio() {
               <li key={item.id} className={item.shape === "tall" ? "is-tall" : i % 5 === 0 ? "is-wide" : ""}>
                 <button type="button" onClick={() => setOpen(i)} className="group crop block w-full h-full text-left">
                   <span className="sheet-media block h-full min-h-0">
-                    <img src={item.image} alt={item.description} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.04]" />
+                    <img src={item.image} alt={item.description} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: focusOn(item.image) }} />
                     <span className="absolute left-0 bottom-0 max-w-[90%] bg-paper px-3 py-2">
                       <span className="label text-green block">
                         {String(item.id).padStart(2, "0")} / {item.category}
@@ -131,7 +130,7 @@ export default function Portfolio() {
         {active && (
           <div className="h-full grid grid-rows-[auto_1fr_auto]">
             <div className="flex items-center justify-between gap-4 p-4">
-              <p className="label text-hivis">
+              <p className="label text-mark">
                 {String((open ?? 0) + 1).padStart(2, "0")} / {String(shown.length).padStart(2, "0")}
               </p>
               <button type="button" onClick={() => setOpen(null)} className="btn btn-line" autoFocus>
@@ -143,7 +142,7 @@ export default function Portfolio() {
             </div>
             <div className="p-4 flex flex-wrap items-end justify-between gap-4">
               <div>
-                <p className="label text-hivis">{active.category}</p>
+                <p className="label text-mark">{active.category}</p>
                 <h2 className="display display-3 mt-1">{active.title}</h2>
                 <p className="text-on-mat mt-1">{active.description}</p>
               </div>

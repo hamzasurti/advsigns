@@ -20,7 +20,7 @@ export default function PageHead({ eyebrow, children, lead, actions, aside, tone
       <div className="wrap pt-[var(--s13)] pb-[var(--s13)]">
         <div className={aside ? "split-8-5 items-end" : ""}>
           <div>
-            <p className={`label rise flex items-center gap-3 ${tone === "mat" ? "text-hivis" : "text-green"}`}>
+            <p className={`label rise flex items-center gap-3 ${tone === "mat" ? "text-mark" : "text-green"}`}>
               <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
               {eyebrow}
             </p>

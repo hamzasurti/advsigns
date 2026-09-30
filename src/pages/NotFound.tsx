@@ -22,7 +22,7 @@ export default function NotFound() {
       <div className="wrap py-[var(--s13)]">
         <div className="split-5-8 items-center">
           <div>
-            <p className="label text-hivis">Error 404</p>
+            <p className="label text-mark">Error 404</p>
             <h1 className="display display-2 mt-5">This sign hasn&rsquo;t been made yet</h1>
             <p className="lead mt-5 text-on-mat">
               The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.

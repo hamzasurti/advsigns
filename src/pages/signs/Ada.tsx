@@ -52,7 +52,7 @@ function TouchRead() {
       <p className="label text-on-mat mt-4 min-h-[1.3em]" aria-live="polite">
         {cell ? (
           <>
-            <span className="text-hivis">{cell.print}</span> / {dotNames(cell.dots)}
+            <span className="text-mark">{cell.print}</span> / {dotNames(cell.dots)}
           </>
         ) : (
           "Run across the cells to read them"
@@ -106,7 +106,7 @@ export default function Ada() {
             </div>
             <div className="animate-on-scroll delay-1">
               <p className="label flex items-center gap-3">
-                <span className="bg-hivis text-ink px-2 py-1">01</span>
+                <span className="bg-mark text-ink px-2 py-1">01</span>
                 What an inspector checks
               </p>
               <h2 className="display display-2 raised-ink mt-5">{ada.heading}</h2>
@@ -138,13 +138,13 @@ export default function Ada() {
       <section className="on-paper bg-paper">
         <div className="wrap py-[var(--s15)]">
           <p className="label flex items-center gap-3">
-            <span className="bg-hivis text-ink px-2 py-1">02</span>
+            <span className="bg-mark text-ink px-2 py-1">02</span>
             Why contractors send us their ADA scope
           </p>
           <ol className="grid md:grid-cols-3 gap-6 mt-[var(--s5)]">
             {ada.points.map((p, i) => (
               <li key={p.title} className={`plate p-7 animate-on-scroll delay-${i + 1}`}>
-                <Braille text={String(i + 1)} size={7} className="text-hivis" />
+                <Braille text={String(i + 1)} size={7} className="text-mark" />
                 <h3 className="display display-3 raised mt-8">{p.title}</h3>
                 <p className="mt-4 text-on-mat">{p.body}</p>
               </li>

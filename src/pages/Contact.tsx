@@ -25,27 +25,27 @@ export default function Contact() {
         <div className="wrap pb-[var(--s13)]">
           <dl className="tblock rule-mat bg-mat grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rise rise-3">
             <div>
-              <dt className="label text-hivis">Phone</dt>
+              <dt className="label text-mark">Phone</dt>
               <dd className="display display-4 mt-3">
-                <a href="tel:818-346-2142" className="hover:text-hivis">818-346-2142</a>
+                <a href="tel:818-346-2142" className="hover:text-mark">818-346-2142</a>
               </dd>
             </div>
             <div>
-              <dt className="label text-hivis">Email</dt>
+              <dt className="label text-mark">Email</dt>
               <dd className="display display-4 mt-3 break-words">
-                <a href={business.emailHref} className="hover:text-hivis">{business.email}</a>
+                <a href={business.emailHref} className="hover:text-mark">{business.email}</a>
               </dd>
             </div>
             <div>
-              <dt className="label text-hivis">Shop</dt>
+              <dt className="label text-mark">Shop</dt>
               <dd className="display display-4 mt-3">
-                <a href={business.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-hivis">
+                <a href={business.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-mark">
                   {business.street}, {business.cityLine}
                 </a>
               </dd>
             </div>
             <div>
-              <dt className="label text-hivis">Hours</dt>
+              <dt className="label text-mark">Hours</dt>
               <dd className="display display-4 mt-3">{business.hours}</dd>
             </div>
           </dl>
@@ -58,7 +58,7 @@ export default function Contact() {
           <div className="split-5-8 items-start">
             <div>
               <p className="label flex items-center gap-3">
-                <span className="bg-hivis text-ink px-2 py-1">01</span>
+                <span className="bg-mark text-ink px-2 py-1">01</span>
                 Job ticket
               </p>
               <h2 className="display display-2 mt-5">{contact.formHeading}</h2>

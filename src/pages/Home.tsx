@@ -17,8 +17,7 @@ import {
   heroVideoCaption,
   heroVideos,
   homeIntro,
-  stats,
-} from "../content/site";
+  stats, focusOn } from "../content/site";
 
 const pulls = testimonials.filter((t) => t.pull);
 
@@ -43,7 +42,7 @@ function HeroReel() {
             type="button"
             onClick={toggle}
             aria-label={playing ? "Pause shop footage" : "Play shop footage"}
-            className="label min-w-12 min-h-12 px-4 hover:bg-hivis hover:text-ink transition-colors"
+            className="label min-w-12 min-h-12 px-4 hover:bg-mark hover:text-ink transition-colors"
           >
             {playing ? "Pause" : "Play"}
           </button>
@@ -55,7 +54,7 @@ function HeroReel() {
               aria-label={`Show clip ${i + 1} of ${heroVideos.length}`}
               aria-current={i === index}
               className={`label min-w-12 min-h-12 border-l border-paper/25 transition-colors ${
-                i === index ? "bg-hivis text-ink" : "hover:bg-paper/15"
+                i === index ? "bg-mark text-ink" : "hover:bg-paper/15"
               }`}
             >
               {String(i + 1).padStart(2, "0")}
@@ -105,7 +104,7 @@ function SignIndex() {
       <div className="hidden lg:block sticky top-28">
         <Sheet ratio="upright" fig={`Fig. ${active + 2}`} caption={current.blurb}>
           {current.image ? (
-            <img key={current.slug} src={current.image} alt={current.alt} className="swap" />
+            <img key={current.slug} src={current.image} alt={current.alt} className="swap" style={{ objectPosition: focusOn(current.image) }} />
           ) : (
             <div key={current.slug} className="swap absolute inset-0 bg-mat text-paper">
               <AdaSign />
@@ -123,11 +122,11 @@ function Proofs() {
   const step = (d: number) => setI((n) => (n + d + pulls.length) % pulls.length);
 
   return (
-    <section className="on-paper bg-hivis text-ink">
+    <section className="on-paper bg-mark text-ink">
       <div className="wrap py-[var(--s15)]">
         <div className="flex items-center justify-between gap-4">
           <p className="label flex items-center gap-3">
-            <span className="bg-ink text-hivis px-2 py-1">03</span>
+            <span className="bg-ink text-mark px-2 py-1">03</span>
             What clients say
           </p>
           <p className="label" aria-live="polite">
@@ -180,7 +179,7 @@ export default function Home() {
           <div className="rise label text-on-mat flex flex-wrap justify-between gap-x-8 gap-y-2 border-b border-paper/25 pb-4">
             <span>Est. 1999, Chatsworth CA</span>
             <span className="hidden md:inline">DBE / SBE / SABE / CBE certified</span>
-            <a href={business.phoneHref} className="hover:text-hivis">818-346-2142</a>
+            <a href={business.phoneHref} className="hover:text-mark">818-346-2142</a>
           </div>
 
           <h1 className="display display-1 rise rise-1 mt-[var(--s5)]">
@@ -247,7 +246,7 @@ export default function Home() {
           <div className="split-5-8 items-start">
             <div className="animate-on-scroll">
               <p className="label flex items-center gap-3">
-                <span className="bg-hivis text-ink px-2 py-1">02</span>
+                <span className="bg-mark text-ink px-2 py-1">02</span>
                 Full-service since 1999
               </p>
               <h2 className="display display-3 mt-5">{homeIntro.heading}</h2>

@@ -12,7 +12,7 @@ export default function SectionHead({ no, label, title, children, className = ""
   return (
     <div className={`animate-on-scroll ${className}`}>
       <p className="label flex items-center gap-3">
-        <span className="bg-hivis text-ink px-2 py-1">{no}</span>
+        <span className="bg-mark text-ink px-2 py-1">{no}</span>
         <span>{label}</span>
       </p>
       <h2 className="display display-2 mt-5">{title}</h2>

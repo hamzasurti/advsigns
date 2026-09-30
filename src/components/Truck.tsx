@@ -31,9 +31,9 @@ export default function Truck({ coverage, className = "" }: { coverage: number; 
         <g clipPath={`url(#${id}-body)`}>
           <g clipPath={`url(#${id}-cover)`}>
             <rect x="20" y="40" width="610" height="190" fill="var(--color-mat)" />
-            <path d="M300 230 490 40h130L430 230z" fill="var(--color-hivis)" />
+            <path d="M300 230 490 40h130L430 230z" fill="var(--color-mark)" />
             <path d="M262 230 452 40h18L280 230z" fill="var(--color-paper)" />
-            <path d="M470 230l122-122h40L510 230z" fill="var(--color-hivis)" />
+            <path d="M470 230l122-122h40L510 230z" fill="var(--color-mark)" />
             <text
               x="42"
               y="150"

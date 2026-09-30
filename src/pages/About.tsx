@@ -5,7 +5,7 @@ import PageHead from "../components/PageHead";
 import SectionHead from "../components/SectionHead";
 import Sheet from "../components/Sheet";
 import Arrow from "../components/Arrow";
-import { about, business, stats } from "../content/site";
+import { about, business, stats, focusOn } from "../content/site";
 
 const team = about.team.filter((m) => m.name.trim() !== "");
 
@@ -30,7 +30,7 @@ export default function About() {
         }
         aside={
           <Sheet ratio="upright" fig="Fig. 1" caption="Large-format banner, installed">
-            <img src={about.image} alt={about.imageAlt} />
+            <img src={about.image} alt={about.imageAlt} style={{ objectPosition: focusOn(about.image) }} />
           </Sheet>
         }
       >
@@ -67,7 +67,7 @@ export default function About() {
             {about.timeline.map((t, i) => (
               <li key={t.year} className={`animate-on-scroll delay-${(i % 3) + 1}`}>
                 <span className="tick" aria-hidden="true" />
-                <p className="display display-3 text-hivis">{t.year}</p>
+                <p className="display display-3 text-mark">{t.year}</p>
                 <p className="mt-3 text-sm text-on-mat">{t.event}</p>
               </li>
             ))}

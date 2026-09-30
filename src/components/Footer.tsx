@@ -20,28 +20,28 @@ export default function Footer() {
             <p className="mt-4 text-sm text-on-mat max-w-xs">{business.blurb}</p>
           </div>
           <div>
-            <p className="label text-hivis">Signs</p>
+            <p className="label text-mark">Signs</p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><Link to="/public-works" className="hover:text-hivis">Public Works</Link></li>
-              <li><Link to="/services" className="hover:text-hivis">Commercial Services</Link></li>
-              <li><Link to="/portfolio" className="hover:text-hivis">Portfolio</Link></li>
+              <li><Link to="/public-works" className="hover:text-mark">Public Works</Link></li>
+              <li><Link to="/services" className="hover:text-mark">Commercial Services</Link></li>
+              <li><Link to="/portfolio" className="hover:text-mark">Portfolio</Link></li>
             </ul>
           </div>
           <div>
-            <p className="label text-hivis">Company</p>
+            <p className="label text-mark">Company</p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-hivis">About Us</Link></li>
-              <li><Link to="/testimonials" className="hover:text-hivis">Reviews</Link></li>
-              <li><Link to="/contact" className="hover:text-hivis">Contact</Link></li>
+              <li><Link to="/about" className="hover:text-mark">About Us</Link></li>
+              <li><Link to="/testimonials" className="hover:text-mark">Reviews</Link></li>
+              <li><Link to="/contact" className="hover:text-mark">Contact</Link></li>
             </ul>
           </div>
           <div>
-            <p className="label text-hivis">Shop</p>
+            <p className="label text-mark">Shop</p>
             <address className="mt-3 not-italic text-sm space-y-2">
-              <p><a href="tel:818-346-2142" className="hover:text-hivis">818-346-2142</a></p>
-              <p><a href="mailto:info@advsigns.net" className="hover:text-hivis">info@advsigns.net</a></p>
+              <p><a href="tel:818-346-2142" className="hover:text-mark">818-346-2142</a></p>
+              <p><a href="mailto:info@advsigns.net" className="hover:text-mark">info@advsigns.net</a></p>
               <p>
-                <a href={business.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-hivis">
+                <a href={business.mapsHref} target="_blank" rel="noopener noreferrer" className="hover:text-mark">
                   21354 Nordhoff St. Ste 111,<br />Chatsworth, CA 91311
                 </a>
               </p>
@@ -49,13 +49,13 @@ export default function Footer() {
             </address>
           </div>
           <div className="sm:col-span-2 lg:col-span-4">
-            <p className="label text-hivis">Certified</p>
+            <p className="label text-mark">Certified</p>
             <p className="mt-2 text-sm text-on-mat">
               {certifications.map((c) => c.code).join(" · ")}
             </p>
           </div>
           <div className="sm:col-span-2 lg:col-span-4">
-            <p className="label text-hivis">Service area</p>
+            <p className="label text-mark">Service area</p>
             <p className="mt-2 text-sm text-on-mat">
               Serving Chatsworth, Northridge, Woodland Hills, Encino, Sherman Oaks, Van Nuys, Burbank,
               Glendale, Pasadena, Downtown LA, West LA, Santa Monica, Thousand Oaks, Simi Valley, Oxnard,

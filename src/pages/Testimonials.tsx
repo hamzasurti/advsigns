@@ -75,7 +75,7 @@ export default function Testimonials() {
         <h1 className="display display-1">Sign company reviews</h1>
       </PageHead>
 
-      <section className="on-paper bg-hivis">
+      <section className="on-paper bg-mark">
         <div className="wrap py-[var(--s13)]">
           <blockquote className="animate-on-scroll">
             <p className="display display-2 !leading-[1.04] max-w-[24ch]">&ldquo;{lead.pull}&rdquo;</p>

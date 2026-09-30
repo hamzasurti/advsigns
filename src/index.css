@@ -5,11 +5,11 @@
   Advanced Sign & Banner — "on the mat"
   The site is laid out like work on a sign shop's cutting table: a deep green
   mat with an inch grid, sheets cut at the 4 x 8 proportion, crop marks,
-  dimension lines, and hi-vis marker for anything that needs attention.
+  dimension lines, and orange marker for anything that needs attention.
 
   Type:   Archivo (expanded cut, for display and labels) +
           Atkinson Hyperlegible Next (body; drawn by the Braille Institute).
-  Color:  mat green, warm paper, hi-vis yellow-green. Violet is reserved for
+  Color:  mat green, warm paper, marker orange. Violet is reserved for
           focus rings only. No red, no pure black or white.
   Shape:  square-cut. No radius anywhere.
   Grid:   8px unit, 96px module, 13 modules wide, split 5 : 8.
@@ -32,9 +32,9 @@
   --color-on-mat:   oklch(0.857 0.034 115);   /* quiet text on the mat */
   --color-green:    oklch(0.443 0.106 144);   /* links + marks on paper */
 
-  /* Hi-vis marker */
-  --color-hivis:    oklch(0.913 0.212 121);
-  --color-hivis-2:  oklch(0.839 0.200 121);
+  /* Marker: the orange of a grease pencil or a rotary cutter, on a green mat */
+  --color-mark:    oklch(0.735 0.165 48);
+  --color-mark-2:  oklch(0.660 0.170 45);
 
   /* Focus only */
   --color-violet:    oklch(0.508 0.212 315);
@@ -76,7 +76,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-::selection { background: var(--color-hivis); color: var(--color-ink); }
+::selection { background: var(--color-mark); color: var(--color-ink); }
 
 :focus-visible {
   outline: 3px solid var(--color-violet);
@@ -147,16 +147,16 @@ body {
   text-underline-offset: 0.2em;
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
 }
-.link:hover { background: var(--color-hivis); color: var(--color-ink); }
-.on-mat .link { color: var(--color-hivis); }
-.on-mat .link:hover { background: var(--color-hivis); color: var(--color-ink); }
+.link:hover { background: var(--color-mark); color: var(--color-ink); }
+.on-mat .link { color: var(--color-mark); }
+.on-mat .link:hover { background: var(--color-mark); color: var(--color-ink); }
 
 /* Marker pass over a phrase, the way a proof gets marked up. */
 .hl {
   background: linear-gradient(
     to top,
-    var(--color-hivis) 0,
-    var(--color-hivis) 0.62em,
+    var(--color-mark) 0,
+    var(--color-mark) 0.62em,
     transparent 0.62em
   );
   color: inherit;
@@ -321,10 +321,10 @@ body {
 .btn:hover .arrow { transform: translateX(5px); }
 .btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
-.btn-mark { background: var(--color-hivis); color: var(--color-ink); border-color: var(--color-hivis); }
+.btn-mark { background: var(--color-mark); color: var(--color-ink); border-color: var(--color-mark); }
 .btn-mark:hover { background: var(--color-paper); border-color: var(--color-paper); }
 .on-paper .btn-mark { border-color: var(--color-ink); }
-.on-paper .btn-mark:hover { background: var(--color-ink); color: var(--color-hivis); }
+.on-paper .btn-mark:hover { background: var(--color-ink); color: var(--color-mark); }
 
 .btn-line { background: transparent; color: inherit; border-color: currentColor; }
 .btn-line:hover { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
@@ -392,7 +392,7 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
 }
 .faq summary .sign::after { transform: rotate(90deg); }
 .faq[open] summary .sign::after { transform: rotate(0deg); }
-.faq summary:hover .q { background: var(--color-hivis); }
+.faq summary:hover .q { background: var(--color-mark); }
 
 /* ------------------------------------------------------------------ */
 /* Navigation                                                          */
@@ -407,7 +407,7 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
   position: absolute;
   inset: auto 0 0.15rem 0;
   height: 6px;
-  background: var(--color-hivis);
+  background: var(--color-mark);
   transform: scaleX(0);
   transform-origin: left center;
   transition: transform 0.35s var(--ease);
@@ -427,11 +427,11 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
   transition: padding 0.4s var(--ease), background-color 0.2s var(--ease);
 }
 .index-row:hover,
-.index-row:focus-visible { background: var(--color-hivis); padding-inline: var(--s3); }
+.index-row:focus-visible { background: var(--color-mark); padding-inline: var(--s3); }
 .index-row .arrow { transition: transform 0.3s var(--ease); }
 .index-row:hover .arrow { transform: translateX(6px); }
 @media (min-width: 1024px) {
-  .index-row.is-active { background: var(--color-hivis); padding-inline: var(--s3); }
+  .index-row.is-active { background: var(--color-mark); padding-inline: var(--s3); }
   .index-row.is-active .arrow { transform: translateX(6px); }
 }
 
@@ -457,7 +457,7 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
   top: 0.9rem;
   width: 14px;
   height: 1px;
-  background: var(--color-hivis);
+  background: var(--color-mark);
 }
 @media (min-width: 1024px) {
   .timeline {

@@ -76,7 +76,7 @@ export default function Lobby() {
           <div className="split-5-8 items-start">
             <div className="animate-on-scroll">
               <p className="label flex items-center gap-3">
-                <span className="bg-hivis text-ink px-2 py-1">01</span>
+                <span className="bg-mark text-ink px-2 py-1">01</span>
                 Materials
               </p>
               <h2 className="display display-3 mt-5">First impressions start in the lobby</h2>

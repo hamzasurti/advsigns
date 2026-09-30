@@ -28,7 +28,7 @@ function Shape({ kind }: { kind: string }) {
             <span className="block h-2 w-2/3 bg-ink" />
             <span className="block h-1.5 w-full bg-ink/30 mt-2" />
             <span className="block h-1.5 w-5/6 bg-ink/30 mt-1.5" />
-            <span className="block h-3 w-1/3 bg-hivis mt-3" />
+            <span className="block h-3 w-1/3 bg-mark mt-3" />
           </div>
           <div className="flex justify-between px-6">
             <span className="block w-1.5 h-6 bg-ink" />
@@ -39,7 +39,7 @@ function Shape({ kind }: { kind: string }) {
     );
   return (
     <div className="h-[120px] grid place-items-center">
-      <div className="relative w-[190px] h-[64px] bg-hivis border border-ink/30 grid place-items-center">
+      <div className="relative w-[190px] h-[64px] bg-mark border border-ink/30 grid place-items-center">
         {["left-1.5 top-1.5", "right-1.5 top-1.5", "left-1.5 bottom-1.5", "right-1.5 bottom-1.5"].map((pos) => (
           <span key={pos} className={`absolute ${pos} w-2 h-2 rounded-full bg-paper border border-ink`} />
         ))}
@@ -87,7 +87,7 @@ export default function Construction() {
       <section className="on-paper bg-paper">
         <div className="wrap py-[var(--s15)]">
           <p className="label flex items-center gap-3">
-            <span className="bg-hivis text-ink px-2 py-1">01</span>
+            <span className="bg-mark text-ink px-2 py-1">01</span>
             What goes up on site
           </p>
           <h2 className="display display-2 uppercase mt-5 max-w-[18ch]">Built for an active jobsite</h2>

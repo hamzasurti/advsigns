@@ -8,7 +8,7 @@ import SectionHead from "../components/SectionHead";
 import Sheet from "../components/Sheet";
 import AdaSign from "../components/AdaSign";
 import Arrow from "../components/Arrow";
-import { business, counties, publicWorks } from "../content/site";
+import { business, counties, publicWorks, focusOn } from "../content/site";
 
 const signLinks = ["/signs/construction", "/signs/building", "/signs/ada"];
 
@@ -80,7 +80,7 @@ export default function GovernmentServices() {
           <dl className="tblock rule-mat bg-mat grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 rise rise-4">
             {publicWorks.credentials.map((c) => (
               <div key={c.label}>
-                <dt className="label text-hivis">{c.label}</dt>
+                <dt className="label text-mark">{c.label}</dt>
                 <dd className="display display-4 mt-3">{c.detail}</dd>
               </div>
             ))}
@@ -97,7 +97,7 @@ export default function GovernmentServices() {
               <Link key={s.title} to={signLinks[i]} className={`group block animate-on-scroll delay-${i + 1}`}>
                 <Sheet ratio="upright">
                   {s.image ? (
-                    <img src={s.image} alt={s.alt} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.03]" />
+                    <img src={s.image} alt={s.alt} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.03]" style={{ objectPosition: focusOn(s.image) }} />
                   ) : (
                     <div className="absolute inset-0 bg-mat text-paper p-3">
                       <AdaSign />
@@ -156,7 +156,7 @@ export default function GovernmentServices() {
                   <p>{c.summary}</p>
                   <ul className="flex flex-wrap gap-2 mt-4">
                     {c.metrics.map((m) => (
-                      <li key={m} className="label bg-hivis px-2.5 py-1.5">{m}</li>
+                      <li key={m} className="label bg-mark px-2.5 py-1.5">{m}</li>
                     ))}
                   </ul>
                 </div>

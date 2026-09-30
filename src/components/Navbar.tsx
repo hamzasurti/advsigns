@@ -71,7 +71,7 @@ export default function Navbar() {
                 className="rise display display-3 py-4 border-b border-paper/20 flex items-baseline gap-4"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
-                <span className="label text-hivis">{String(i + 1).padStart(2, "0")}</span>
+                <span className="label text-mark">{String(i + 1).padStart(2, "0")}</span>
                 {link.label}
               </NavLink>
             ))}

@@ -6,7 +6,7 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 import PageHead from "../components/PageHead";
 import Sheet from "../components/Sheet";
 import Arrow from "../components/Arrow";
-import { business, commercial } from "../content/site";
+import { business, commercial, focusOn } from "../content/site";
 
 const signLinks: Record<string, string> = {
   "Lobby Signs": "/signs/lobby",
@@ -78,7 +78,7 @@ export default function Services() {
                   caption={s.alt}
                   className={flip ? "lg:order-2" : ""}
                 >
-                  <img src={s.image} alt={s.alt} loading={i === 0 ? "eager" : "lazy"} />
+                  <img src={s.image} alt={s.alt} loading={i === 0 ? "eager" : "lazy"} style={{ objectPosition: focusOn(s.image) }} />
                 </Sheet>
                 <div>
                   <p className="label text-green">{String(i + 1).padStart(2, "0")} / {s.title}</p>

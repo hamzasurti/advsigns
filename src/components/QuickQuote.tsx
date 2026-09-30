@@ -11,7 +11,7 @@ export default function QuickQuote() {
     <div className="wrap py-[var(--s13)]">
       <div className="split-5-8 items-start">
         <div>
-          <p className="label text-hivis">{quickQuote.eyebrow}</p>
+          <p className="label text-mark">{quickQuote.eyebrow}</p>
           <h2 className="display display-2 mt-4">{quickQuote.heading}</h2>
           <p className="mt-5 text-on-mat measure">
             {quickQuote.body} Prefer to talk?{" "}
@@ -54,7 +54,7 @@ export default function QuickQuote() {
               <button type="submit" disabled={form.sending} className="btn btn-mark">
                 {form.sending ? "Sending" : "Send request"} <Arrow />
               </button>
-              <p aria-live="polite" className="text-sm font-semibold text-hivis">
+              <p aria-live="polite" className="text-sm font-semibold text-mark">
                 {form.error}
               </p>
             </div>
