@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import usePageMeta from "../../hooks/usePageMeta";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
 import StreetSign from "../../components/StreetSign";
-import { Pager, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
+import { Pager, Photos, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
 import { publicWorks } from "../../content/site";
 
 const [service] = publicWorks.services;
@@ -88,7 +88,8 @@ export default function Street() {
         </p>
       </section>
 
-      <Reference id={2} no="03" />
+      <Photos category="Street Signs" no="03" />
+      <Reference id={2} no="04" />
       <Pager slug="street" />
     </div>
   );

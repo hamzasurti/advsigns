@@ -6,7 +6,7 @@ import SectionHead from "../components/SectionHead";
 import Sheet from "../components/Sheet";
 import Arrow from "../components/Arrow";
 import DrawnMap from "../components/DrawnMap";
-import { about, business, installCities, stats, focusOn } from "../content/site";
+import { about, business, installCities, shopPhotos, stats, focusOn } from "../content/site";
 
 const team = about.team.filter((m) => m.name.trim() !== "");
 
@@ -30,7 +30,7 @@ export default function About() {
           </>
         }
         aside={
-          <Sheet photo={about.image} fig="Fig. 1" caption="Large-format banner, installed">
+          <Sheet photo={about.image} fig="Fig. 1" caption="On the flatbed printer in the Chatsworth shop">
             <img src={about.image} alt={about.imageAlt} style={{ objectPosition: focusOn(about.image) }} />
           </Sheet>
         }
@@ -72,6 +72,22 @@ export default function About() {
         </div>
       </section>
       )}
+
+      {/* The shop */}
+      <section className="on-paper bg-paper-2">
+        <div className="wrap py-[var(--s13)]">
+          <SectionHead no="01" label="The shop" title="One floor: print, cut, build" />
+          <ul className="grid sm:grid-cols-3 gap-6 mt-[var(--s5)]">
+            {shopPhotos.slice(1).map((p, i) => (
+              <li key={p.image} className={`animate-on-scroll delay-${i + 1}`}>
+                <Sheet photo={p.image} fig={`Fig. ${i + 2}`} caption={p.caption}>
+                  <img src={p.image} alt={p.caption} loading="lazy" />
+                </Sheet>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {/* Where the signs are */}
       <section className="on-paper">

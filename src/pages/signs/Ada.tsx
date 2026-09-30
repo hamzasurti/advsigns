@@ -3,7 +3,7 @@ import usePageMeta from "../../hooks/usePageMeta";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
 import AdaSign from "../../components/AdaSign";
 import Braille from "../../components/Braille";
-import { Pager, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
+import { Pager, Reference, SignActions, SignEyebrow, Photos } from "../../components/SignParts";
 import { brailleCells } from "../../content/signs";
 import { publicWorks } from "../../content/site";
 
@@ -159,7 +159,8 @@ export default function Ada() {
         </div>
       </section>
 
-      <Reference id={1} no="03" />
+      <Photos category="ADA Signage" no="03" />
+      <Reference id={1} no="04" />
       <Pager slug="ada" />
     </div>
   );

@@ -69,7 +69,8 @@ export function Facts({ label, title, body, facts, note, tone = "paper" }: Facts
 }
 
 export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: number[]; no?: string }) {
-  const items = portfolioItems.filter((p) => (ids ? ids.includes(p.id) : p.category === category));
+  /* One big print and up to four small ones; the rest are on the portfolio page. */
+  const items = portfolioItems.filter((p) => (ids ? ids.includes(p.id) : p.category === category)).slice(0, 5);
   if (items.length === 0) return null;
   const [first, ...rest] = items;
 
