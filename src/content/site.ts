@@ -64,7 +64,7 @@ export const heroVideos = [
   "/assets/hero/video/banner-2.mp4",
   "/assets/hero/video/banner-3.mp4",
 ];
-export const heroPoster = "/assets/improved/hero/building-signs.jpg";
+export const heroPoster = "/assets/improved-v2/hero/building-signs.jpg";
 export const heroVideoCaption = "On the flatbed printer in our Chatsworth shop";
 
 export const homeIntro = {
@@ -100,7 +100,7 @@ export const signTypes: {
     title: "Construction Signs",
     to: "/public-works",
     division: "Public works",
-    image: "/assets/improved/hero/construction-signage.jpg",
+    image: "/assets/improved-v2/hero/construction-signage.jpg",
     alt: "Large printed banner installed on a parking structure in Los Angeles",
     blurb: "Weather-resistant signage for active construction sites and development projects.",
   },
@@ -108,7 +108,7 @@ export const signTypes: {
     title: "Building Signs",
     to: "/public-works",
     division: "Public works",
-    image: "/assets/improved/hero/building-signs.jpg",
+    image: "/assets/improved-v2/hero/building-signs.jpg",
     alt: "Building identification letters on the Glendale Courthouse",
     blurb: "Exterior and interior building signage that meets municipal codes and accessibility standards.",
   },
@@ -116,7 +116,7 @@ export const signTypes: {
     title: "Lobby Signs",
     to: "/services",
     division: "Commercial",
-    image: "/assets/improved/hero/lobby-signs.jpg",
+    image: "/assets/improved-v2/hero/lobby-signs.jpg",
     alt: "Dimensional lobby sign letters for MicaBella Cosmetics",
     blurb: "Professional dimensional letters and logos for your reception area.",
   },
@@ -124,7 +124,7 @@ export const signTypes: {
     title: "Vehicle Wraps",
     to: "/services",
     division: "Commercial",
-    image: "/assets/improved/hero/vehicle-wraps.jpg",
+    image: "/assets/improved-v2/hero/vehicle-wraps.jpg",
     alt: "Full vehicle wrap on a Black Bear Moving box truck in the San Fernando Valley",
     blurb: "High-impact vehicle graphics and wraps that turn heads on the road.",
   },
@@ -132,7 +132,7 @@ export const signTypes: {
     title: "Wall Graphics",
     to: "/services",
     division: "Commercial",
-    image: "/assets/improved/services/wall-graphics.jpg",
+    image: "/assets/improved-v2/services/wall-graphics.jpg",
     alt: "Wall graphics across an office break room",
     blurb: "Custom wall murals and graphics that transform interior spaces.",
   },
@@ -140,7 +140,7 @@ export const signTypes: {
     title: "Laser Engraving",
     to: "/services",
     division: "Commercial",
-    image: "/assets/improved/services/laser-engraving.jpg",
+    image: "/assets/improved-v2/services/laser-engraving.jpg",
     alt: "Custom-marked pens for Los Angeles City College from the Chatsworth sign shop",
     blurb: "Precision laser engraving for awards, plaques, and custom products.",
   },
@@ -173,13 +173,13 @@ export const publicWorks = {
     {
       title: "Construction Signs",
       description: "Weather-resistant signage for active construction sites and development projects.",
-      image: "/assets/improved/hero/construction-signage.jpg",
+      image: "/assets/improved-v2/hero/construction-signage.jpg",
       alt: "Large printed banner installed on a parking structure in Los Angeles",
     },
     {
       title: "Building Signs",
       description: "Exterior and interior building signage that meets municipal codes and accessibility standards.",
-      image: "/assets/improved/hero/building-signs.jpg",
+      image: "/assets/improved-v2/hero/building-signs.jpg",
       alt: "Building identification letters on the Glendale Courthouse, Superior Court of California",
     },
     {
@@ -284,7 +284,7 @@ export const commercial = {
       description: "Professional dimensional letters and logos for your reception area.",
       body:
         "First impressions start in the lobby. We fabricate dimensional letters, logos, and reception signs using brushed aluminum, acrylic, PVC, and mixed-media materials. Whether you need pin-mounted standoff letters or flush-mounted cut vinyl, we design and install lobby signage for offices, medical buildings, and retail spaces across Los Angeles, the San Fernando Valley, and Ventura County.",
-      image: "/assets/improved/hero/lobby-signs.jpg",
+      image: "/assets/improved-v2/hero/lobby-signs.jpg",
       alt: "Dimensional lobby sign letters for MicaBella Cosmetics in Los Angeles",
     },
     {
@@ -293,7 +293,7 @@ export const commercial = {
       description: "High-impact vehicle graphics and wraps that turn heads on the road.",
       body:
         "Turn every vehicle into a mobile billboard. We provide full wraps, partial wraps, and fleet graphics using 3M and Avery premium cast vinyl with laminate protection. Our wraps are designed, printed, and installed in our Chatsworth facility. We serve businesses throughout Los Angeles County, from single vehicles to full fleet programs of 15+ units.",
-      image: "/assets/improved/hero/vehicle-wraps.jpg",
+      image: "/assets/improved-v2/hero/vehicle-wraps.jpg",
       alt: "Full vehicle wrap on a Black Bear Moving box truck in the San Fernando Valley",
     },
     {
@@ -302,7 +302,7 @@ export const commercial = {
       description: "Custom wall murals and graphics that transform interior spaces.",
       body:
         "Transform any interior space with custom wall graphics, murals, and environmental branding. We print on adhesive vinyl, fabric, and specialty substrates for offices, retail stores, restaurants, and public spaces. From accent walls to full floor-to-ceiling installations, we handle design, production, and installation across Southern California.",
-      image: "/assets/improved/services/wall-graphics.jpg",
+      image: "/assets/improved-v2/services/wall-graphics.jpg",
       alt: "Wall graphics across an office break room",
     },
     {
@@ -311,7 +311,7 @@ export const commercial = {
       description: "Precision laser engraving for awards, plaques, and custom products.",
       body:
         "Precision laser engraving for awards, plaques, nameplates, and custom products. We engrave on wood, acrylic, glass, metal, and leather using our in-house laser equipment. Ideal for corporate awards, donor recognition walls, memorial plaques, and personalized gifts. Fast turnaround from our Chatsworth shop.",
-      image: "/assets/improved/services/laser-engraving.jpg",
+      image: "/assets/improved-v2/services/laser-engraving.jpg",
       alt: "Custom-marked pens for Los Angeles City College from our Chatsworth sign shop",
     },
     {
@@ -320,7 +320,7 @@ export const commercial = {
       description: "Custom solutions for unique signage needs and specialized installations.",
       body:
         "Not every project fits a standard category. We take on custom signage challenges: oversized banners, trade-show displays, wayfinding systems, channel letters, and one-of-a-kind installations.",
-      image: "/assets/improved/services/special-projects.jpg",
+      image: "/assets/improved-v2/services/special-projects.jpg",
       alt: "Holiday snow globe display with custom graphics in Marina del Rey",
     },
   ],
@@ -363,7 +363,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Glendale Courthouse building letters",
     category: "Building Signs",
     description: "Exterior identification letters for the Superior Court of California, County of Los Angeles.",
-    image: "/assets/improved/hero/building-signs.jpg",
+    image: "/assets/improved-v2/hero/building-signs.jpg",
     shape: "tall",
   },
   {
@@ -371,7 +371,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "MicaBella Cosmetics lobby sign",
     category: "Lobby Signs",
     description: "Dimensional letters and logo on a reception wall.",
-    image: "/assets/improved/hero/lobby-signs.jpg",
+    image: "/assets/improved-v2/hero/lobby-signs.jpg",
     shape: "wide",
   },
   {
@@ -379,7 +379,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Black Bear Moving box truck wrap",
     category: "Vehicle Wraps",
     description: "Full-color printed wrap on a box truck.",
-    image: "/assets/improved/hero/vehicle-wraps.jpg",
+    image: "/assets/improved-v2/hero/vehicle-wraps.jpg",
     shape: "wide",
   },
   {
@@ -387,7 +387,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Parking structure banner",
     category: "Banners & Displays",
     description: "Large-format printed banner installed on a parking structure.",
-    image: "/assets/improved/hero/construction-signage.jpg",
+    image: "/assets/improved-v2/hero/construction-signage.jpg",
     shape: "tall",
   },
   {
@@ -395,7 +395,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Golden Bolt reception sign",
     category: "Lobby Signs",
     description: "Dimensional logo and letters behind a reception desk.",
-    image: "/assets/improved/services/lobby-signs.jpg",
+    image: "/assets/improved-v2/services/lobby-signs.jpg",
     shape: "wide",
   },
   {
@@ -403,7 +403,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Break room wall graphics",
     category: "Wall Graphics",
     description: "Wall graphics running the length of an office kitchen.",
-    image: "/assets/improved/services/wall-graphics.jpg",
+    image: "/assets/improved-v2/services/wall-graphics.jpg",
     shape: "wide",
   },
   {
@@ -411,7 +411,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "tgs exterior letters",
     category: "Building Signs",
     description: "Dimensional letters mounted on a building fascia.",
-    image: "/assets/improved/services/building-signs.jpg",
+    image: "/assets/improved-v2/services/building-signs.jpg",
     shape: "wide",
   },
   {
@@ -419,7 +419,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "ROE Creative Display lobby sign",
     category: "Lobby Signs",
     description: "Dimensional letters on a painted feature wall.",
-    image: "/assets/improved/services/custom-signs.jpg",
+    image: "/assets/improved-v2/services/custom-signs.jpg",
     shape: "wide",
   },
   {
@@ -427,7 +427,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Marina del Rey holiday display",
     category: "Banners & Displays",
     description: "Graphics for a seasonal snow globe installation.",
-    image: "/assets/improved/services/special-projects.jpg",
+    image: "/assets/improved-v2/services/special-projects.jpg",
     shape: "wide",
   },
   {
@@ -435,7 +435,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Black Bear Moving fleet graphics",
     category: "Vehicle Wraps",
     description: "Matching wrap on a second truck in the same fleet.",
-    image: "/assets/improved/services/wraps.jpg",
+    image: "/assets/improved-v2/services/wraps.jpg",
     shape: "wide",
   },
   {
@@ -443,7 +443,7 @@ export const portfolioItems: PortfolioItem[] = [
     title: "Los Angeles City College pens",
     category: "Engraving",
     description: "Custom-marked pens for Los Angeles City College.",
-    image: "/assets/improved/services/laser-engraving.jpg",
+    image: "/assets/improved-v2/services/laser-engraving.jpg",
     shape: "wide",
   },
 ];
@@ -465,7 +465,7 @@ export const portfolioNotice =
 /* ------------------------------------------------------------------ */
 
 export const about = {
-  image: "/assets/improved/hero/construction-signage.jpg",
+  image: "/assets/improved-v2/hero/construction-signage.jpg",
   imageAlt: "Advanced Sign & Banner construction site signage project",
   paragraphs: [
     "Advanced Sign & Banner has been the go-to sign subcontractor for general contractors and businesses who demand excellence since 1999. Our portfolio includes LA Metro stations, Burbank Airport terminals, and Los Angeles County courthouses: projects where precision, compliance, and quality are non-negotiable.",
@@ -535,24 +535,24 @@ export const quickQuote = {
 /* ------------------------------------------------------------------ */
 
 /*
-  The photos under /assets/improved/ are straightened, cropped and colour
+  The photos under /assets/improved-v2/ are straightened, cropped and colour
   corrected versions of the originals (see design-lab/photo-report.md).
   `focal` is the point each crop should centre on, as a CSS object-position.
 */
 export const focal: Record<string, string> = {
-  "/assets/improved/hero/building-signs.jpg": "49% 66%",
-  "/assets/improved/hero/construction-signage.jpg": "49% 53%",
-  "/assets/improved/hero/lobby-signs.jpg": "54% 47%",
-  "/assets/improved/hero/vehicle-wraps.jpg": "48% 41%",
-  "/assets/improved/services/banners.jpg": "50% 47%",
-  "/assets/improved/services/building-signs.jpg": "42% 50%",
-  "/assets/improved/services/custom-signs.jpg": "50% 49%",
-  "/assets/improved/services/embroidery.jpg": "58% 44%",
-  "/assets/improved/services/laser-engraving.jpg": "56% 51%",
-  "/assets/improved/services/lobby-signs.jpg": "46% 36%",
-  "/assets/improved/services/special-projects.jpg": "50% 46%",
-  "/assets/improved/services/wall-graphics.jpg": "49% 40%",
-  "/assets/improved/services/wraps.jpg": "62% 40%",
+  "/assets/improved-v2/hero/building-signs.jpg": "50% 47%",
+  "/assets/improved-v2/hero/construction-signage.jpg": "51% 47%",
+  "/assets/improved-v2/hero/lobby-signs.jpg": "59% 45%",
+  "/assets/improved-v2/hero/vehicle-wraps.jpg": "49% 48%",
+  "/assets/improved-v2/services/banners.jpg": "50% 50%",
+  "/assets/improved-v2/services/building-signs.jpg": "50% 50%",
+  "/assets/improved-v2/services/custom-signs.jpg": "50% 49%",
+  "/assets/improved-v2/services/embroidery.jpg": "50% 50%",
+  "/assets/improved-v2/services/laser-engraving.jpg": "55% 50%",
+  "/assets/improved-v2/services/lobby-signs.jpg": "49% 47%",
+  "/assets/improved-v2/services/special-projects.jpg": "50% 52%",
+  "/assets/improved-v2/services/wall-graphics.jpg": "50% 49%",
+  "/assets/improved-v2/services/wraps.jpg": "51% 50%",
 };
 export const focusOn = (image: string | null) => (image && focal[image]) || "50% 50%";
 
