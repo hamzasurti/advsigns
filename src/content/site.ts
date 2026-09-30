@@ -17,10 +17,11 @@ export const business = {
   mapsHref: "https://maps.google.com/?q=21354+Nordhoff+St+Ste+111+Chatsworth+CA+91311",
   mapsEmbed:
     "https://maps.google.com/maps?q=21354+Nordhoff+St+Suite+111,+Chatsworth,+CA+91311&z=15&output=embed",
-  hours: "Monday to Friday, 8 am to 5 pm",
+  /* From the owner's previous site (Wayback Machine, 2019 to 2022). TODO(owner): confirm. */
+  hours: "Monday to Friday, 9 am to 5 pm",
   founded: 1999,
   blurb:
-    "Professional signage for general contractors, public agencies, and businesses across Southern California for over 25 years.",
+    "A family-owned sign shop in Chatsworth, making signs for general contractors, public agencies, and businesses since 1999.",
 };
 
 export const navLinks = [
@@ -31,29 +32,26 @@ export const navLinks = [
   { label: "Reviews", to: "/testimonials" },
 ];
 
+/*
+  The six codes are the ones the first version of this site listed. The owner's
+  own earlier site never listed certifications, so they are unverified.
+  TODO(owner): confirm each code is current, and the issuing agency for each;
+  the full name of SABE is not known, so it is left blank.
+*/
 export const certifications = [
   { code: "DBE", name: "Disadvantaged Business Enterprise" },
   { code: "SBE", name: "Small Business Enterprise" },
-  { code: "SABE", name: "Small and Emerging Business Enterprise" },
+  { code: "SABE", name: "" },
   { code: "CBE", name: "Community Business Enterprise" },
   { code: "Micro-SBE", name: "Micro Small Business Enterprise" },
   { code: "SB-PW", name: "Small Business Public Works" },
 ];
 
-export const counties = [
-  "Los Angeles",
-  "Ventura",
-  "Orange",
-  "San Bernardino",
-  "Riverside",
-  "Santa Barbara (south)",
-];
-
-export const cities = [
-  "Chatsworth", "Northridge", "Woodland Hills", "Encino", "Sherman Oaks", "Van Nuys",
-  "Burbank", "Glendale", "Pasadena", "Downtown LA", "West LA", "Santa Monica",
-  "Thousand Oaks", "Simi Valley", "Oxnard", "Ventura", "Anaheim", "Irvine", "Ontario",
-];
+/*
+  Every city on the owner's install list is in Los Angeles County. Add other
+  counties only when the owner names them.
+*/
+export const counties = ["Los Angeles County"];
 
 /* ------------------------------------------------------------------ */
 /* Home                                                                */
@@ -70,10 +68,10 @@ export const heroVideoCaption = "On the flatbed printer in our Chatsworth shop";
 export const homeIntro = {
   lead:
     "A full-service sign shop serving general contractors, public agencies, and local businesses across Los Angeles and Southern California. Designed, fabricated, and installed in-house since 1999.",
-  heading: "More than 1,000 projects delivered across Southern California.",
+  heading: "A family-owned sign shop in Chatsworth since 1999.",
   paragraphs: [
-    "Advanced Sign & Banner is a full-service sign company in Chatsworth, California serving Los Angeles, the San Fernando Valley, Ventura County, and all of Southern California. Since 1999 we’ve completed over 1,000 projects for general contractors, public agencies, and commercial businesses.",
-    "Our work spans construction signage, ADA-compliant signs, building identification, lobby signs, vehicle wraps, wall graphics, and laser engraving. We are DBE, SBE, SABE, and CBE certified, prequalified for prevailing-wage public works projects.",
+    "Advanced Sign & Banner is a full-service sign company in Chatsworth, California. Since 1999 we have designed, printed, and installed signs for general contractors, public agencies, and local businesses across Los Angeles County.",
+    "Our work spans construction signage, ADA signs, building letters, lobby signs, vehicle wraps, wall graphics, banners, and laser engraving. We are DBE, SBE, SABE, and CBE certified and take on prevailing-wage public works projects.",
   ],
 };
 
@@ -146,14 +144,6 @@ export const signTypes: {
   },
 ];
 
-/* The old site showed "6" twice with no explanation. `detail` says what is counted. */
-export const stats = [
-  { value: "25+", label: "Years in business", detail: "In Chatsworth since 1999" },
-  { value: "1,000+", label: "Projects completed", detail: "For contractors, agencies and businesses" },
-  { value: "6", label: "Active certifications", detail: certifications.map((c) => c.code).join(", ") },
-  { value: "6", label: "Counties served", detail: counties.join(", ") },
-];
-
 /* ------------------------------------------------------------------ */
 /* Public works                                                        */
 /* ------------------------------------------------------------------ */
@@ -161,12 +151,13 @@ export const stats = [
 export const publicWorks = {
   badge: "Certified public works sign contractor",
   lead:
-    "Prequalified for your next bid: certified, prevailing-wage compliant, and experienced with public-agency requirements since 1999.",
+    "Certified, prevailing-wage compliant, and familiar with public-agency bid requirements.",
+  /* TODO(owner): licence class and number, DIR registration, bonding and insurance are not stated anywhere yet. */
   credentials: [
     { label: "Certified", detail: "DBE, SBE, SABE, CBE" },
-    { label: "Prevailing wage", detail: "Certified payroll & DIR compliant" },
-    { label: "Licensed", detail: "CSLB C-45, DIR registered" },
-    { label: "Insured & bonded", detail: "COI available on request" },
+    { label: "Prevailing wage", detail: "Certified payroll handled" },
+    { label: "Licensed & insured", detail: "Details on request" },
+    { label: "Established", detail: "1999, family-owned" },
   ],
   servicesHeading: "What we build for public works",
   services: [
@@ -192,80 +183,72 @@ export const publicWorks = {
     },
   ],
   ada: {
-    heading: "ADA compliance, done right the first time",
+    heading: "ADA signs, made to the standard",
     lead:
-      "ADA compliance is where sign subs get GCs in trouble. Our signs meet ADA 2010 and California Title 24, with tactile characters and Grade 2 braille reviewed against spec before anything is fabricated.",
-    points: [
-      {
-        title: "First-inspection pass rate",
-        body: "Our signs pass ADA inspection on the first review, so there is no re-fabrication or schedule slip.",
-      },
-      {
-        title: "Spec review up front",
-        body: "We flag errors in the architectural specs before fabrication, not after installation.",
-      },
-      {
-        title: "We carry the risk",
-        body: "Non-compliant ADA signs are the GC’s problem. We take that risk off your plate.",
-      },
-    ],
+      "Room and door signs with raised characters and Grade 2 braille, made to the 2010 ADA Standards and California’s Title 24.",
+    /* TODO(owner): add reasons contractors choose us for ADA work, in your own words. Designs skip this list while it is empty. */
+    points: [] as { title: string; body: string }[],
   },
-  caseStudiesHeading: "Selected projects",
+  /*
+    The agencies below were named on the first version of this site, and the
+    courthouse letters are in our photos. Dates, sign counts and outcomes were
+    never supplied, so none are shown. TODO(owner): add the real scope, year
+    and a contact for each, or remove any that should not be named.
+  */
+  caseStudiesHeading: "Selected clients",
   caseStudies: [
     {
       id: 1,
-      title: "LA County Courts, ADA Signage Package",
-      year: "2015",
-      meta: "Los Angeles County Superior Court",
+      title: "Los Angeles County courthouses",
+      year: "",
+      meta: "Superior Court of California, County of Los Angeles",
       summary:
-        "200+ ADA-compliant signs across multiple courthouses, delivered and installed within 90 days with zero defects and a first-review compliance pass.",
-      metrics: ["200+ signs", "90 days", "Zero defects"],
+        "Signs for Los Angeles County courthouses, including the building letters on the Glendale Courthouse. Details and references on request.",
+      metrics: [] as string[],
     },
     {
       id: 2,
-      title: "LA Metro, Transit Station Signage",
-      year: "2010–2012",
-      meta: "Multiple Metro stations",
-      summary:
-        "Wayfinding and identification signage for multiple transit stations using transit-grade materials, installed around active station operations.",
-      metrics: ["Multiple stations", "Transit-grade", "Consistent"],
+      title: "LA Metro stations",
+      year: "",
+      meta: "Los Angeles County Metropolitan Transportation Authority",
+      summary: "Signs for LA Metro stations. Details and references on request.",
+      metrics: [] as string[],
     },
     {
       id: 3,
-      title: "Hollywood Burbank Airport, Terminal Renovation",
-      year: "2015",
-      meta: "Airport terminal",
-      summary:
-        "Interior and exterior signage meeting FAA and airport security requirements, installed during approved windows with zero disruption to operations.",
-      metrics: ["FAA compliant", "Zero disruptions", "On schedule"],
+      title: "Hollywood Burbank Airport terminals",
+      year: "",
+      meta: "Hollywood Burbank Airport",
+      summary: "Signs for terminals at Hollywood Burbank Airport. Details and references on request.",
+      metrics: [] as string[],
     },
   ],
   wage: {
     heading: "Prevailing wage, handled",
     body:
-      "We are fully prevailing-wage compliant and handle certified payroll, DIR reporting, and labor compliance documentation on every public works project, so your team can focus on the schedule.",
+      "We work on prevailing-wage public works projects and handle the certified payroll paperwork, so your team can focus on the schedule.",
   },
   area: {
     heading: "Service area",
-    body: "Based in Chatsworth, serving six Southern California counties:",
+    body: "Based in Chatsworth. We have installed signs across Los Angeles County, from Lancaster to Bellflower and from Chatsworth to Pomona.",
   },
   faqHeading: "Common questions",
   faqs: [
     {
       q: "What certifications do you hold?",
-      a: "DBE, SBE, SABE, CBE, Micro-SBE, and SB-PW, all current and verifiable through the issuing agencies. These prequalify us for public works bids across Southern California.",
+      a: "DBE, SBE, SABE, CBE, Micro-SBE, and SB-PW. Ask us for current certificates when you bid.",
     },
     {
       q: "Do you handle certified payroll for prevailing wage projects?",
-      a: "Yes. We handle all certified payroll reporting, DIR registration requirements, and labor compliance documentation for public works projects.",
+      a: "Yes. We handle the certified payroll paperwork on prevailing-wage public works projects.",
     },
     {
-      q: "What is your ADA inspection pass rate?",
-      a: "We maintain a first-inspection pass rate. Our signs meet ADA 2010 and California Title 24, with tactile characters and Grade 2 braille, and we review specs before fabrication.",
+      q: "Do your ADA signs include braille?",
+      a: "Yes. Room and door signs get raised characters and Grade 2 braille, made to the 2010 ADA Standards and California’s Title 24.",
     },
     {
       q: "What areas do you serve?",
-      a: "General contractors and public agencies across Los Angeles, Ventura, Orange, San Bernardino, Riverside, and southern Santa Barbara counties, from our shop in Chatsworth.",
+      a: "We have installed signs across Los Angeles County, from Lancaster to Bellflower, working from our shop in Chatsworth.",
     },
   ],
 };
@@ -283,7 +266,7 @@ export const commercial = {
       heading: "Lobby signs in Los Angeles",
       description: "Professional dimensional letters and logos for your reception area.",
       body:
-        "First impressions start in the lobby. We fabricate dimensional letters, logos, and reception signs using brushed aluminum, acrylic, PVC, and mixed-media materials. Whether you need pin-mounted standoff letters or flush-mounted cut vinyl, we design and install lobby signage for offices, medical buildings, and retail spaces across Los Angeles, the San Fernando Valley, and Ventura County.",
+        "First impressions start in the lobby. We cut dimensional letters and logos from acrylic, aluminum, and foam on our CNC router, paint them in your company’s colors, and mount them on the wall. We design and install lobby signs for offices and shops across Los Angeles and the San Fernando Valley.",
       image: "/assets/improved-v2/hero/lobby-signs.jpg",
       alt: "Dimensional lobby sign letters for MicaBella Cosmetics in Los Angeles",
     },
@@ -292,7 +275,7 @@ export const commercial = {
       heading: "Vehicle wraps in the San Fernando Valley",
       description: "High-impact vehicle graphics and wraps that turn heads on the road.",
       body:
-        "Turn every vehicle into a mobile billboard. We provide full wraps, partial wraps, and fleet graphics using 3M and Avery premium cast vinyl with laminate protection. Our wraps are designed, printed, and installed in our Chatsworth facility. We serve businesses throughout Los Angeles County, from single vehicles to full fleet programs of 15+ units.",
+        "Turn every vehicle into a mobile billboard. We do full wraps, partial wraps, vinyl lettering, and vehicle magnets on cars, vans, trucks, and trailers, designed and printed in our Chatsworth shop. One vehicle or a whole fleet.",
       image: "/assets/improved-v2/hero/vehicle-wraps.jpg",
       alt: "Full vehicle wrap on a Black Bear Moving box truck in the San Fernando Valley",
     },
@@ -301,7 +284,7 @@ export const commercial = {
       heading: "Wall graphics and murals",
       description: "Custom wall murals and graphics that transform interior spaces.",
       body:
-        "Transform any interior space with custom wall graphics, murals, and environmental branding. We print on adhesive vinyl, fabric, and specialty substrates for offices, retail stores, restaurants, and public spaces. From accent walls to full floor-to-ceiling installations, we handle design, production, and installation across Southern California.",
+        "Transform any interior space with custom wall graphics and murals. We print in-house on vinyl, canvas, and aluminum panels up to 60 inches wide, and install the finished work. One of our murals is twelve printed aluminum panels, about 27 by 15 feet.",
       image: "/assets/improved-v2/services/wall-graphics.jpg",
       alt: "Wall graphics across an office break room",
     },
@@ -310,7 +293,7 @@ export const commercial = {
       heading: "Laser engraving in Chatsworth, CA",
       description: "Precision laser engraving for awards, plaques, and custom products.",
       body:
-        "Precision laser engraving for awards, plaques, nameplates, and custom products. We engrave on wood, acrylic, glass, metal, and leather using our in-house laser equipment. Ideal for corporate awards, donor recognition walls, memorial plaques, and personalized gifts. Fast turnaround from our Chatsworth shop.",
+        "Precision laser engraving for awards, plaques, nameplates, and custom products, such as the custom-marked pens we made for Los Angeles City College.",
       image: "/assets/improved-v2/services/laser-engraving.jpg",
       alt: "Custom-marked pens for Los Angeles City College from our Chatsworth sign shop",
     },
@@ -319,7 +302,7 @@ export const commercial = {
       heading: "Special projects and custom signage",
       description: "Custom solutions for unique signage needs and specialized installations.",
       body:
-        "Not every project fits a standard category. We take on custom signage challenges: oversized banners, trade-show displays, wayfinding systems, channel letters, and one-of-a-kind installations.",
+        "Not every project fits a standard category. We take on custom signage challenges: oversized banners, convention banner walls, pull-up banner stands, LED channel letters, pylon signs, and one-of-a-kind installations.",
       image: "/assets/improved-v2/services/special-projects.jpg",
       alt: "Holiday snow globe display with custom graphics in Marina del Rey",
     },
@@ -471,25 +454,26 @@ export const about = {
     "Advanced Sign & Banner has been the go-to sign subcontractor for general contractors and businesses who demand excellence since 1999. Our portfolio includes LA Metro stations, Burbank Airport terminals, and Los Angeles County courthouses: projects where precision, compliance, and quality are non-negotiable.",
     "From small businesses to large-scale public works projects, we bring the same expertise and craftsmanship to every job. We’re fully certified (DBE, SBE, SABE, CBE) and prevailing wage compliant.",
   ],
+  /*
+    Only what the owner's earlier site says. It gave no dates beyond 1999.
+    TODO(owner): add real milestones (the year of the move to Chatsworth, the
+    first public works job, and so on) with the year for each.
+  */
   timeline: [
-    { year: "1999", event: "Founded in Chatsworth, CA. Commercial and retail signage." },
-    { year: "2005", event: "First public works contracts. Obtained DBE, SBE, and related certifications." },
-    { year: "2010", event: "Completed signage for LA Metro stations." },
-    { year: "2015", event: "Delivered packages for Hollywood Burbank Airport and LA County Courts." },
-    { year: "2020", event: "Expanded into vehicle wraps, wall graphics, and laser engraving." },
-    { year: "2024", event: "Surpassed 1,000 completed sign projects. Added laser engraving and expanded ADA signage services." },
-    { year: "2025", event: "Serving 6 counties across Southern California, a trusted partner for general contractors, public agencies, and commercial properties." },
+    { year: "1999", event: "Started with one small cutting machine and a goal: quality signs at fair prices." },
+    { year: "Today", event: "A family-owned, full-service shop in Chatsworth: design, large-format printing, CNC routing, embroidery, and installation." },
   ],
+  /* Each step matches what the old site and customer reviews describe. */
   process: {
     heading: "How we work",
     steps: [
-      { title: "Consultation", body: "We start with a consultation to understand your needs and site conditions." },
-      { title: "Mockups", body: "Our design team produces mockups for your review." },
-      { title: "Fabrication", body: "Once approved, signs are fabricated in our facility." },
-      { title: "Installation", body: "Finished signs are installed by our professional crews." },
+      { title: "Consultation", body: "Call or email with your idea. For larger signs we come out and measure." },
+      { title: "Proof", body: "We design the sign and send you a proof to approve." },
+      { title: "Fabrication", body: "We print, cut, and build it in our Chatsworth shop." },
+      { title: "Installation", body: "Our crew installs the finished sign." },
     ],
     compliance:
-      "For public works projects, we handle all compliance documentation: certified payroll, prevailing wage reporting, and ADA verification, so you can focus on your timeline and budget.",
+      "On public works projects we also handle the certified payroll paperwork, so you can focus on your timeline and budget.",
   },
   /*
     TODO(owner): add real names, photos and bios, then designs will render this
@@ -505,7 +489,7 @@ export const about = {
 export const contact = {
   lead: "Ready to discuss your signage project? Get in touch for a consultation and a free quote.",
   formHeading: "Request a quote",
-  formLead: "Tell us about your project and we’ll get back to you within one business day.",
+  formLead: "Tell us about your project and we’ll get back to you with a quote.",
   projectTypes: [
     "Construction Signage",
     "Building Signs",
@@ -527,7 +511,7 @@ export const contact = {
 export const quickQuote = {
   eyebrow: "Free estimate",
   heading: "Get a quick quote",
-  body: "Send us the basics and we’ll get back to you within one business day.",
+  body: "Send us the basics and we’ll get back to you with a quote.",
 };
 
 /* ------------------------------------------------------------------ */
@@ -592,4 +576,14 @@ export const installCities: { name: string; lon: number; lat: number }[] = [
   { name: "Bellflower", lon: -118.117, lat: 33.8817 },
   { name: "Santa Clarita", lon: -118.542, lat: 34.3917 },
   { name: "Lancaster", lon: -118.137, lat: 34.6868 },
+];
+
+/*
+  Only numbers that can be sourced: the founding year from the owner's old
+  site, and the count of the owner's install cities. Project counts and
+  certification counts were removed until the owner supplies them.
+*/
+export const stats = [
+  { value: `${new Date().getFullYear() - business.founded}`, label: "Years in business", detail: `Family-owned since ${business.founded}` },
+  { value: `${installCities.length}`, label: "Cities with our signs", detail: "Across Los Angeles County, from Lancaster to Bellflower" },
 ];
