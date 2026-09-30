@@ -58,8 +58,8 @@ export default function Contact() {
           <div className="split-5-8 items-start">
             <div>
               <p className="label flex items-center gap-3">
-                <span className="bg-mark text-ink px-2 py-1">01</span>
-                Job ticket
+                <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              Job ticket
               </p>
               <h2 className="display display-2 mt-5">{contact.formHeading}</h2>
               <p className="lead mt-5 text-ink-soft">
@@ -75,7 +75,7 @@ export default function Contact() {
                   <p className="label text-green">Received</p>
                   <h3 className="display display-3 mt-3">Thank you. Your request is on the bench.</h3>
                   <p className="mt-4 text-ink-soft">
-                    We&rsquo;ve received your quote request and will get back to you within one business day.
+                    We&rsquo;ve received your quote request and will get back to you soon.
                   </p>
                   <button type="button" onClick={form.reset} className="btn btn-line mt-8">
                     Submit another request

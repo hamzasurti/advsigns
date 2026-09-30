@@ -11,8 +11,8 @@ interface SectionHeadProps {
 export default function SectionHead({ no, label, title, children, className = "" }: SectionHeadProps) {
   return (
     <div className={`animate-on-scroll ${className}`}>
-      <p className="label flex items-center gap-3">
-        <span className="bg-mark text-ink px-2 py-1">{no}</span>
+      <p className="label flex items-center gap-3" data-no={no}>
+        <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
         <span>{label}</span>
       </p>
       <h2 className="display display-2 mt-5">{title}</h2>

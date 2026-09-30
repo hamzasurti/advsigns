@@ -17,7 +17,7 @@ const blanks = [
 export default function LaserEngraving() {
   usePageMeta({
     title: "Laser Engraving | Chatsworth, CA",
-    description: "Laser engraving in Chatsworth, CA for awards, plaques, nameplates and custom products, on wood, acrylic, glass, metal and leather. 818-346-2142.",
+    description: "Laser engraving in Chatsworth, CA for awards, plaques, nameplates and custom products. Call 818-346-2142.",
   });
   useScrollAnimation();
 
@@ -63,13 +63,11 @@ export default function LaserEngraving() {
 
       <Facts
         label="What we engrave"
-        title="Cut in our own shop, turned around fast"
+        title="Awards, plaques and custom pieces"
         body={<p>{service.body}</p>}
         facts={[
-          { term: "Materials", detail: "Wood, acrylic, glass, metal and leather." },
           { term: "Pieces", detail: "Awards, plaques, nameplates and custom products." },
-          { term: "Made for", detail: "Corporate awards, donor recognition walls, memorial plaques and personalized gifts." },
-          { term: "Equipment", detail: "In-house laser equipment at our Chatsworth shop." },
+          { term: "Past work", detail: "Custom-marked pens for Los Angeles City College." },
         ]}
       />
 

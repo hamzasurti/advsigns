@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo from "./Logo";
 import QuickQuote from "./QuickQuote";
-import { business, certifications } from "../content/site";
+import { business } from "../content/site";
 
 export default function Footer() {
   const { pathname } = useLocation();
@@ -49,17 +49,9 @@ export default function Footer() {
             </address>
           </div>
           <div className="sm:col-span-2 lg:col-span-4">
-            <p className="label text-mark">Certified</p>
-            <p className="mt-2 text-sm text-on-mat">
-              {certifications.map((c) => c.code).join(" · ")}
-            </p>
-          </div>
-          <div className="sm:col-span-2 lg:col-span-4">
             <p className="label text-mark">Service area</p>
             <p className="mt-2 text-sm text-on-mat">
-              Serving Chatsworth, Northridge, Woodland Hills, Encino, Sherman Oaks, Van Nuys, Burbank,
-              Glendale, Pasadena, Downtown LA, West LA, Santa Monica, Thousand Oaks, Simi Valley, Oxnard,
-              Ventura, Anaheim, Irvine, Ontario, and all of Southern California.
+              Chatsworth, the San Fernando Valley, Burbank, Glendale, Pasadena and across greater Los Angeles.
             </p>
           </div>
         </div>

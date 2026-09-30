@@ -31,10 +31,6 @@ export default function Services() {
     "provider": { "@id": "https://advsigns.net/#business" },
     "areaServed": [
       { "@type": "AdministrativeArea", "name": "Los Angeles County, CA" },
-      { "@type": "AdministrativeArea", "name": "Ventura County, CA" },
-      { "@type": "AdministrativeArea", "name": "Orange County, CA" },
-      { "@type": "AdministrativeArea", "name": "San Bernardino County, CA" },
-      { "@type": "AdministrativeArea", "name": "Riverside County, CA" },
     ],
     "serviceType": ["Lobby Signs", "Vehicle Wraps", "Wall Graphics", "Laser Engraving", "Channel Letters", "Custom Signs"],
   }), []);

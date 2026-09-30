@@ -14,14 +14,14 @@ const mounts = [
 const materials = [
   { name: "Brushed aluminum", cls: "swatch-aluminum" },
   { name: "Acrylic", cls: "swatch-acrylic" },
-  { name: "PVC", cls: "swatch-pvc" },
+  { name: "Painted foam", cls: "swatch-pvc" },
   { name: "Mixed media", cls: "swatch-mixed" },
 ];
 
 export default function Lobby() {
   usePageMeta({
     title: "Lobby Signs | Los Angeles",
-    description: "Dimensional lobby signs in Los Angeles: brushed aluminum, acrylic and PVC letters, pin-mounted or flush. Designed and installed. 818-346-2142.",
+    description: "Dimensional lobby signs in Los Angeles: aluminum, acrylic and foam letters cut on our CNC router. Designed and installed. 818-346-2142.",
   });
   useScrollAnimation();
 
@@ -76,8 +76,8 @@ export default function Lobby() {
           <div className="split-5-8 items-start">
             <div className="animate-on-scroll">
               <p className="label flex items-center gap-3">
-                <span className="bg-mark text-ink px-2 py-1">01</span>
-                Materials
+                <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              Materials
               </p>
               <h2 className="display display-3 mt-5">First impressions start in the lobby</h2>
               <p className="mt-5 text-ink-soft">{service.body}</p>
@@ -100,9 +100,9 @@ export default function Lobby() {
         title="Designed, made and installed by one shop"
         facts={[
           { term: "Sign types", detail: "Dimensional letters, logos and reception signs." },
-          { term: "Mounting", detail: "Pin-mounted standoff letters or flush-mounted cut vinyl." },
-          { term: "Spaces", detail: "Offices, medical buildings and retail spaces." },
-          { term: "Area", detail: "Los Angeles, the San Fernando Valley and Ventura County." },
+          { term: "Materials", detail: "Acrylic, brushed aluminum and foam, cut on our CNC router and painted." },
+          { term: "Mounting", detail: "Straight on the wall or on a backing panel." },
+          { term: "Area", detail: "Los Angeles and the San Fernando Valley." },
         ]}
       />
 

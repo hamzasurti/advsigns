@@ -8,11 +8,11 @@ import { business, focusOn, portfolioItems, publicWorks, type PortfolioCategory 
 /* The parts every sign page shares, so each one stays recognisably the same site. */
 
 export function SignEyebrow({ slug, className = "" }: { slug: string; className?: string }) {
-  const { no, sign } = signAt(slug);
+  const { sign } = signAt(slug);
   return (
     <p className={`label flex flex-wrap items-center gap-x-3 gap-y-2 ${className}`}>
-      <span className="bg-mark text-ink px-2 py-1">{no}</span>
-      <Link to={sign.division === "Public works" ? "/public-works" : "/services"} className="hover:underline underline-offset-4">
+      <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              <Link to={sign.division === "Public works" ? "/public-works" : "/services"} className="hover:underline underline-offset-4">
         {sign.division}
       </Link>
     </p>
@@ -38,14 +38,14 @@ interface FactsProps {
   tone?: "paper" | "paper-2";
 }
 
-export function Facts({ no = "01", label, title, body, facts, note, tone = "paper" }: FactsProps) {
+export function Facts({ label, title, body, facts, note, tone = "paper" }: FactsProps) {
   return (
     <section className={`on-paper ${tone === "paper-2" ? "bg-paper-2" : "bg-paper"}`}>
       <div className="wrap py-[var(--s15)]">
         <div className="split-5-8 items-start">
           <div className="animate-on-scroll">
             <p className="label flex items-center gap-3">
-              <span className="bg-mark text-ink px-2 py-1">{no}</span>
+              <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
               {label}
             </p>
             <h2 className="display display-3 mt-5">{title}</h2>
@@ -68,7 +68,7 @@ export function Facts({ no = "01", label, title, body, facts, note, tone = "pape
   );
 }
 
-export function Photos({ category, ids, no = "03" }: { category?: PortfolioCategory; ids?: number[]; no?: string }) {
+export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: number[]; no?: string }) {
   const items = portfolioItems.filter((p) => (ids ? ids.includes(p.id) : p.category === category));
   if (items.length === 0) return null;
   const [first, ...rest] = items;
@@ -77,8 +77,8 @@ export function Photos({ category, ids, no = "03" }: { category?: PortfolioCateg
     <section className="on-paper bg-paper-2">
       <div className="wrap py-[var(--s15)]">
         <p className="label flex items-center gap-3 animate-on-scroll">
-          <span className="bg-mark text-ink px-2 py-1">{no}</span>
-          The work
+          <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              The work
         </p>
         <div className={`mt-[var(--s5)] ${rest.length ? "split-8-5" : ""} items-start`}>
           <Sheet
@@ -107,29 +107,31 @@ export function Photos({ category, ids, no = "03" }: { category?: PortfolioCateg
   );
 }
 
-export function Reference({ id, no = "04" }: { id: number; no?: string }) {
+export function Reference({ id }: { id: number; no?: string }) {
   const c = publicWorks.caseStudies.find((x) => x.id === id);
   if (!c) return null;
   return (
     <section className="on-paper bg-paper">
       <div className="wrap py-[var(--s13)]">
         <p className="label flex items-center gap-3">
-          <span className="bg-mark text-ink px-2 py-1">{no}</span>
-          Reference project
+          <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              Reference project
         </p>
-        <article className="grid lg:grid-cols-[8rem_5fr_6fr] gap-x-10 gap-y-3 border-y border-ink/20 py-8 mt-8 animate-on-scroll">
-          <p className="display display-4 text-green">{c.year}</p>
+        <article className={`grid gap-x-10 gap-y-3 border-y border-ink/20 py-8 mt-8 animate-on-scroll ${c.year ? "lg:grid-cols-[8rem_5fr_6fr]" : "lg:grid-cols-[5fr_8fr]"}`}>
+          {c.year && <p className="display display-4 text-green">{c.year}</p>}
           <div>
             <h2 className="display display-4">{c.title}</h2>
             <p className="label text-ink-soft mt-2">{c.meta}</p>
           </div>
           <div>
             <p>{c.summary}</p>
-            <ul className="flex flex-wrap gap-2 mt-4">
-              {c.metrics.map((m) => (
-                <li key={m} className="label bg-mark px-2.5 py-1.5">{m}</li>
-              ))}
-            </ul>
+            {c.metrics.length > 0 && (
+              <ul className="flex flex-wrap gap-2 mt-4">
+                {c.metrics.map((m) => (
+                  <li key={m} className="label bg-mark px-2.5 py-1.5">{m}</li>
+                ))}
+              </ul>
+            )}
           </div>
         </article>
       </div>

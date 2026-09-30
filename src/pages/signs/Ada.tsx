@@ -65,12 +65,12 @@ function TouchRead() {
 export default function Ada() {
   usePageMeta({
     title: "ADA Signs & Braille | Los Angeles",
-    description: "ADA signage with tactile characters and Grade 2 braille, reviewed against ADA 2010 and California Title 24 before fabrication. Call 818-346-2142.",
+    description: "ADA room and door signs with raised characters and Grade 2 braille, made to the 2010 ADA Standards and California Title 24. Call 818-346-2142.",
   });
   useScrollAnimation();
 
   const { ada, faqs } = publicWorks;
-  const passRate = faqs[2];
+  const brailleFaq = faqs[2];
 
   return (
     <div>
@@ -106,15 +106,15 @@ export default function Ada() {
             </div>
             <div className="animate-on-scroll delay-1">
               <p className="label flex items-center gap-3">
-                <span className="bg-mark text-ink px-2 py-1">01</span>
-                What an inspector checks
+                <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              What an inspector checks
               </p>
               <h2 className="display display-2 raised-ink mt-5">{ada.heading}</h2>
               <dl className="border-b border-ink/20 mt-8">
                 {[
                   ["Characters", "Raised at least 1/32 in., uppercase, sans serif."],
                   ["Character height", "5/8 in. minimum, 2 in. maximum."],
-                  ["Braille", "Grade 2, with domed dots, placed directly below the text."],
+                  ["Braille", "Grade 2, with domed or rounded dots, below the text and at least 3/8 in. from it."],
                   ["Finish", "Non-glare, with characters that contrast with the field."],
                   ["Mounting height", "48 in. to 60 in. above the floor, measured to the character baseline."],
                   ["Location", "Beside the door, on the latch side."],
@@ -126,8 +126,8 @@ export default function Ada() {
                 ))}
               </dl>
               <p className="text-sm text-ink-soft mt-4 measure">
-                From the 2010 ADA Standards, section 703. California Title 24 applies alongside it, and
-                we review your signs against both before anything is fabricated.
+                From the 2010 ADA Standards, section 703. In California, the Building Code (Title 24,
+                Chapter 11B) applies alongside it.
               </p>
             </div>
           </div>
@@ -138,21 +138,23 @@ export default function Ada() {
       <section className="on-paper bg-paper">
         <div className="wrap py-[var(--s15)]">
           <p className="label flex items-center gap-3">
-            <span className="bg-mark text-ink px-2 py-1">02</span>
-            Why contractors send us their ADA scope
+            <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              {ada.points.length > 0 ? "Why contractors send us their ADA scope" : "A common question"}
           </p>
-          <ol className="grid md:grid-cols-3 gap-6 mt-[var(--s5)]">
-            {ada.points.map((p, i) => (
-              <li key={p.title} className={`plate p-7 animate-on-scroll delay-${i + 1}`}>
-                <Braille text={String(i + 1)} size={7} className="text-mark" />
-                <h3 className="display display-3 raised mt-8">{p.title}</h3>
-                <p className="mt-4 text-on-mat">{p.body}</p>
-              </li>
-            ))}
-          </ol>
+          {ada.points.length > 0 && (
+            <ol className="grid md:grid-cols-3 gap-6 mt-[var(--s5)]">
+              {ada.points.map((p, i) => (
+                <li key={p.title} className={`plate p-7 animate-on-scroll delay-${i + 1}`}>
+                  <Braille text={String(i + 1)} size={7} className="text-mark" />
+                  <h3 className="display display-3 raised mt-8">{p.title}</h3>
+                  <p className="mt-4 text-on-mat">{p.body}</p>
+                </li>
+              ))}
+            </ol>
+          )}
           <div className="mt-[var(--s5)] border-t-2 border-ink pt-6 split-5-8 items-start">
-            <h3 className="display display-4">{passRate.q}</h3>
-            <p className="text-ink-soft measure">{passRate.a}</p>
+            <h3 className="display display-4">{brailleFaq.q}</h3>
+            <p className="text-ink-soft measure">{brailleFaq.a}</p>
           </div>
         </div>
       </section>

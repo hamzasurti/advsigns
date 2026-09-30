@@ -82,7 +82,7 @@ export default function Building() {
         facts={[
           { term: "Identification", detail: "Building names, addresses and department letters on the facade." },
           { term: "Channel letters", detail: "Channel letter and illuminated sign fabrication and installation." },
-          { term: "Wayfinding", detail: "Wayfinding and directional signs, inside and out." },
+          { term: "Pylon signs", detail: "Routed aluminum pylon signs, lit from behind." },
           { term: "Compliance", detail: "Meets municipal codes and accessibility standards." },
         ]}
       />

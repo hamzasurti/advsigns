@@ -12,7 +12,7 @@ const team = about.team.filter((m) => m.name.trim() !== "");
 export default function About() {
   usePageMeta({
     title: "About Us | Sign Company Since 1999",
-    description: "Family-owned sign company in Chatsworth, CA since 1999. Serving LA and Southern California. DBE/SBE certified, 1,000+ projects completed.",
+    description: "Family-owned sign company in Chatsworth, CA since 1999. Design, printing, fabrication and installation across Los Angeles County. DBE/SBE certified.",
   });
   useScrollAnimation();
 

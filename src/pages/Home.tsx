@@ -10,14 +10,7 @@ import Arrow from "../components/Arrow";
 import AdaSign from "../components/AdaSign";
 import Braille from "../components/Braille";
 import { signs } from "../content/signs";
-import {
-  business,
-  clients,
-  heroPoster,
-  heroVideoCaption,
-  heroVideos,
-  homeIntro,
-  stats, focusOn } from "../content/site";
+import { clients, heroPoster, heroVideoCaption, heroVideos, homeIntro, focusOn } from "../content/site";
 
 const pulls = testimonials.filter((t) => t.pull);
 
@@ -126,7 +119,7 @@ function Proofs() {
       <div className="wrap py-[var(--s15)]">
         <div className="flex items-center justify-between gap-4">
           <p className="label flex items-center gap-3">
-            <span className="bg-ink text-mark px-2 py-1">03</span>
+            <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
             What clients say
           </p>
           <p className="label" aria-live="polite">
@@ -176,13 +169,7 @@ export default function Home() {
       {/* ============================ HERO ============================ */}
       <section className="mat on-mat overflow-hidden">
         <div className="wrap pt-8 pb-[var(--s13)]">
-          <div className="rise label text-on-mat flex flex-wrap justify-between gap-x-8 gap-y-2 border-b border-paper/25 pb-4">
-            <span>Est. 1999, Chatsworth CA</span>
-            <span className="hidden md:inline">DBE / SBE / SABE / CBE certified</span>
-            <a href={business.phoneHref} className="hover:text-mark">818-346-2142</a>
-          </div>
-
-          <h1 className="display display-1 rise rise-1 mt-[var(--s5)]">
+          <h1 className="display display-1 rise rise-1">
             Sign company in Chatsworth, California
           </h1>
 
@@ -210,12 +197,9 @@ export default function Home() {
             <p id="clients-label" className="label max-w-[22ch] pt-1">
               Trusted by public agencies and leading builders
             </p>
-            <ul className="grid sm:grid-cols-2 gap-x-10">
+            <ul className="flex flex-wrap gap-x-10 gap-y-2 border-t border-ink/20 pt-3">
               {clients.map((c) => (
-                <li key={c.name} className="flex items-baseline justify-between gap-4 border-t border-ink/20 py-3">
-                  <span className="display display-4">{c.name}</span>
-                  <span className="label opacity-60 shrink-0">{c.kind}</span>
-                </li>
+                <li key={c.name} className="display display-4">{c.name}</li>
               ))}
             </ul>
           </div>
@@ -225,55 +209,11 @@ export default function Home() {
       {/* ======================== WHAT WE MAKE ======================== */}
       <section className="on-paper">
         <div className="wrap py-[var(--s15)]">
-          <SectionHead no="01" label="What we make" title="Signs for every job.">
-            <p>
-              Two divisions, one shop:{" "}
-              <Link to="/public-works" className="link">public works signage</Link> for general
-              contractors and agencies, and{" "}
-              <Link to="/services" className="link">commercial signs</Link> for local businesses.
-            </p>
-          </SectionHead>
+          <SectionHead no="01" label="What we make" title="Signs for every job." />
           <SignIndex />
           <Link to="/portfolio" className="label inline-flex items-center gap-3 mt-10 border-b-2 border-ink pb-1 hover:gap-5 transition-[gap]">
             See the work <Arrow />
           </Link>
-        </div>
-      </section>
-
-      {/* ========================= SPEC SHEET ========================= */}
-      <section className="on-paper bg-paper-2">
-        <div className="wrap py-[var(--s15)]">
-          <div className="split-5-8 items-start">
-            <div className="animate-on-scroll">
-              <p className="label flex items-center gap-3">
-                <span className="bg-mark text-ink px-2 py-1">02</span>
-                Full-service since 1999
-              </p>
-              <h2 className="display display-3 mt-5">{homeIntro.heading}</h2>
-            </div>
-            <div className="animate-on-scroll delay-1">
-              <div className="space-y-4 measure">
-                {homeIntro.paragraphs.map((p) => (
-                  <p key={p}>{p}</p>
-                ))}
-              </div>
-              <dl className="mt-10 border-b border-ink/20">
-                {stats.map((s) => (
-                  <div
-                    key={s.label}
-                    className="grid grid-cols-[1fr_auto] sm:grid-cols-[10rem_12rem_1fr] gap-x-6 gap-y-1 items-baseline border-t border-ink/20 py-4"
-                  >
-                    <dt className="label">{s.label}</dt>
-                    <dd className="display display-3 text-green text-right sm:text-left">{s.value}</dd>
-                    <dd className="col-span-2 sm:col-span-1 text-sm text-ink-soft">{s.detail}</dd>
-                  </div>
-                ))}
-              </dl>
-              <Link to="/about" className="label inline-flex items-center gap-3 mt-8 border-b-2 border-ink pb-1 hover:gap-5 transition-[gap]">
-                Learn more about us <Arrow />
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 

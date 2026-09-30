@@ -16,7 +16,7 @@ const options = [
 export default function VehicleWraps() {
   usePageMeta({
     title: "Vehicle Wraps | San Fernando Valley",
-    description: "Full wraps, partial wraps and fleet graphics in the San Fernando Valley. 3M and Avery cast vinyl, installed in Chatsworth. Call 818-346-2142.",
+    description: "Full wraps, partial wraps, lettering and fleet graphics in the San Fernando Valley, for cars, vans, trucks and trailers. Call 818-346-2142.",
   });
   useScrollAnimation();
 
@@ -70,11 +70,10 @@ export default function VehicleWraps() {
         title="Every vehicle, a mobile billboard"
         body={<p>{service.body}</p>}
         facts={[
-          { term: "Coverage", detail: "Full wraps, partial wraps and fleet graphics." },
-          { term: "Vinyl", detail: "3M and Avery premium cast vinyl." },
-          { term: "Protection", detail: "Laminated to protect the print." },
-          { term: "Where", detail: "Designed, printed and installed in our Chatsworth facility." },
-          { term: "Fleet size", detail: "From single vehicles to full fleet programs of 15+ units." },
+          { term: "Coverage", detail: "Full wraps, partial wraps, vinyl lettering and vehicle magnets." },
+          { term: "Vehicles", detail: "Cars, vans, trucks and trailers." },
+          { term: "Where", detail: "Designed and printed in our Chatsworth shop." },
+          { term: "Fleets", detail: "One vehicle or a matching set across a fleet." },
         ]}
       />
 

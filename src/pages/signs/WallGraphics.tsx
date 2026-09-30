@@ -14,7 +14,7 @@ const sizes = [
 export default function WallGraphics() {
   usePageMeta({
     title: "Wall Graphics & Murals | Los Angeles",
-    description: "Custom wall graphics, murals and environmental branding across Southern California, from accent walls to floor-to-ceiling installs. 818-346-2142.",
+    description: "Custom wall graphics and murals printed in our Chatsworth shop on vinyl, canvas and aluminum panels, and installed. Call 818-346-2142.",
   });
   useScrollAnimation();
 
@@ -60,11 +60,10 @@ export default function WallGraphics() {
         title="From one accent wall to the whole room"
         body={<p>{service.body}</p>}
         facts={[
-          { term: "Work", detail: "Custom wall graphics, murals and environmental branding." },
-          { term: "Substrates", detail: "Adhesive vinyl, fabric and specialty substrates." },
-          { term: "Spaces", detail: "Offices, retail stores, restaurants and public spaces." },
-          { term: "Scale", detail: "From accent walls to full floor-to-ceiling installations." },
-          { term: "Service", detail: "Design, production and installation across Southern California." },
+          { term: "Work", detail: "Custom wall graphics and murals." },
+          { term: "Printed on", detail: "Vinyl, canvas and aluminum panels, up to 60 in. wide." },
+          { term: "Scale", detail: "One mural we made is twelve aluminum panels, about 27 by 15 ft." },
+          { term: "Service", detail: "Design, printing and installation." },
         ]}
       />
 

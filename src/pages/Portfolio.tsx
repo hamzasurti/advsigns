@@ -98,8 +98,8 @@ export default function Portfolio() {
             <div>
               <ul className="border-b border-ink/20">
                 {publicWorks.caseStudies.map((c) => (
-                  <li key={c.id} className="grid sm:grid-cols-[7rem_1fr] gap-x-6 border-t border-ink/20 py-5">
-                    <span className="label text-green pt-1">{c.year}</span>
+                  <li key={c.id} className={`grid gap-x-6 border-t border-ink/20 py-5 ${c.year ? "sm:grid-cols-[7rem_1fr]" : ""}`}>
+                    {c.year && <span className="label text-green pt-1">{c.year}</span>}
                     <span>
                       <span className="display display-4 block">{c.title}</span>
                       <span className="text-ink-soft text-sm block mt-1">{c.summary}</span>

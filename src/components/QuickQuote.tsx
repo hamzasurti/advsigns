@@ -23,7 +23,7 @@ export default function QuickQuote() {
 
         {form.sent ? (
           <div role="status" className="border border-paper/30 p-8">
-            <p className="display display-3">Got it. We&rsquo;ll be in touch within one business day.</p>
+            <p className="display display-3">Got it. We&rsquo;ll be in touch soon.</p>
             <button type="button" onClick={form.reset} className="link mt-4">
               Send another
             </button>

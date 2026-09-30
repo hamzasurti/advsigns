@@ -87,8 +87,8 @@ export default function Construction() {
       <section className="on-paper bg-paper">
         <div className="wrap py-[var(--s15)]">
           <p className="label flex items-center gap-3">
-            <span className="bg-mark text-ink px-2 py-1">01</span>
-            What goes up on site
+            <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+              What goes up on site
           </p>
           <h2 className="display display-2 uppercase mt-5 max-w-[18ch]">Built for an active jobsite</h2>
           <ul className="grid md:grid-cols-3 mt-[var(--s5)] border-l-2 border-ink">
@@ -113,7 +113,7 @@ export default function Construction() {
         body={<p>{publicWorks.wage.body}</p>}
         facts={[
           ...publicWorks.credentials.map((c) => ({ term: c.label, detail: c.detail })),
-          { term: "Service area", detail: "Los Angeles, Ventura, Orange, San Bernardino, Riverside and southern Santa Barbara counties." },
+          { term: "Service area", detail: "Los Angeles County, from Lancaster to Bellflower." },
         ]}
         note={
           <Link to="/public-works" className="link inline-flex items-center gap-2">
