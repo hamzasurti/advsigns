@@ -114,10 +114,13 @@ function Proofs() {
           </p>
         </div>
 
-        <blockquote key={t.id} className="swap mt-[var(--s5)]">
-          <p className="display display-2 !leading-[1.04] max-w-[22ch]">&ldquo;{t.pull}&rdquo;</p>
+        {/* Only the quote re-mounts on a step, so the buttons keep keyboard focus. */}
+        <blockquote className="mt-[var(--s5)]">
+          <div key={t.id} className="swap">
+            <p className="display display-2 !leading-[1.04] max-w-[22ch]">&ldquo;{t.pull}&rdquo;</p>
+          </div>
           <footer className="mt-8 flex flex-wrap items-end justify-between gap-6 border-t border-ink/30 pt-5">
-            <p>
+            <p key={t.id} className="swap">
               <span className="font-bold">{t.name}</span>
               <span className="block text-sm">
                 {t.title}
