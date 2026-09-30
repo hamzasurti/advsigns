@@ -23,7 +23,7 @@ export default function Footer() {
             <p className="label text-mark">Signs</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li><Link to="/public-works" className="hover:text-mark">Public Works</Link></li>
-              <li><Link to="/services" className="hover:text-mark">Commercial Services</Link></li>
+              <li><Link to="/services" className="hover:text-mark">Signs</Link></li>
               <li><Link to="/portfolio" className="hover:text-mark">Portfolio</Link></li>
             </ul>
           </div>

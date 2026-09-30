@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
 import usePageMeta from "../../hooks/usePageMeta";
 import useScrollAnimation from "../../hooks/useScrollAnimation";
-import Arrow from "../../components/Arrow";
 import StreetSign from "../../components/StreetSign";
-import { Facts, Pager, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
+import { Pager, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
 import { publicWorks } from "../../content/site";
 
 const [service] = publicWorks.services;
@@ -82,22 +81,12 @@ export default function Street() {
         </div>
       </section>
 
-      <Facts
-        no="02"
-        tone="paper-2"
-        label="Paperwork"
-        title={publicWorks.wage.heading}
-        body={<p>{publicWorks.wage.body}</p>}
-        facts={[
-          ...publicWorks.credentials.map((c) => ({ term: c.label, detail: c.detail })),
-          { term: "Service area", detail: "Los Angeles County, from Lancaster to Bellflower." },
-        ]}
-        note={
-          <Link to="/public-works" className="link inline-flex items-center gap-2">
-            Full public works qualifications <Arrow />
-          </Link>
-        }
-      />
+      <section className="on-paper bg-paper-2 border-y border-ink/15">
+        <p className="wrap py-6 max-w-none">
+          Bidding this as public works? SBE, prevailing wage and references are on the{" "}
+          <Link to="/public-works" className="link">public works page</Link>.
+        </p>
+      </section>
 
       <Reference id={2} no="03" />
       <Pager slug="street" />

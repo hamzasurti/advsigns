@@ -26,7 +26,7 @@ export const business = {
 
 export const navLinks = [
   { label: "Public Works", to: "/public-works" },
-  { label: "Services", to: "/services" },
+  { label: "Signs", to: "/services" },
   { label: "Portfolio", to: "/portfolio" },
   { label: "About", to: "/about" },
   { label: "Reviews", to: "/testimonials" },
@@ -251,7 +251,13 @@ export const publicWorks = {
 
 export const commercial = {
   lead:
-    "Professional signage for businesses, retail spaces, and commercial properties, from elegant lobby signs to eye-catching vehicle wraps.",
+    "Seven kinds of sign, each with its own page. Pick the one you need; if it is none of these, it is probably under the extras.",
+  /* Things the shop makes that are not one of the seven sign types. From the owner's earlier site. */
+  extras: [
+    { title: "Banners", body: "Printed in-house up to 60 inches wide, hemmed and grommeted, for events, storefronts and job sites." },
+    { title: "Embroidery", body: "Shirts, caps and jackets with your logo, for crews and front desks." },
+    { title: "Special projects", body: "Convention banner walls, pull-up stands, holiday displays and one-off installations." },
+  ],
   services: [
     {
       title: "Lobby Signs",
@@ -444,7 +450,7 @@ export const about = {
   imageAlt: "Advanced Sign & Banner street signage project",
   paragraphs: [
     "Advanced Sign & Banner has been the go-to sign subcontractor for general contractors and businesses who demand excellence since 1999. Our portfolio includes LA Metro stations, Burbank Airport terminals, and Los Angeles County courthouses: projects where precision, compliance, and quality are non-negotiable.",
-    "From small businesses to large-scale public works projects, we bring the same expertise and craftsmanship to every job. We’re SBE certified and prevailing wage compliant.",
+    "Everything is designed, printed, cut and installed by our own people from one shop on Nordhoff Street: a CNC router, printing up to 60 inches wide, and an embroidery line for the shirts and caps that go out with the signs.",
   ],
   /*
     Only what the owner's earlier site says. It gave no dates beyond 1999.

@@ -6,40 +6,36 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 import PageHead from "../components/PageHead";
 import Sheet from "../components/Sheet";
 import Arrow from "../components/Arrow";
-import { business, commercial, focusOn } from "../content/site";
+import SignFigure from "../components/SignFigure";
+import { signs } from "../content/signs";
+import { business, commercial } from "../content/site";
 
-const signLinks: Record<string, string> = {
-  "Lobby Signs": "/signs/lobby",
-  "Vehicle Wraps": "/signs/vehicle-wraps",
-  "Wall Graphics": "/signs/wall-graphics",
-  "Laser Engraving": "/signs/laser-engraving",
-};
-
+/* The directory: every sign type, one drawing and one line each. Detail lives on the sign pages. */
 export default function Services() {
   usePageMeta({
-    title: "Commercial Sign Services",
+    title: "Sign Types We Make | Los Angeles",
     description:
-      "Lobby signs, vehicle wraps, wall graphics & laser engraving in Los Angeles and San Fernando Valley. Serving Southern California from Chatsworth, CA.",
+      "Street, building, ADA, lobby signs, vehicle wraps, wall graphics and laser engraving, plus banners and embroidery. Made in Chatsworth for Los Angeles.",
   });
   useScrollAnimation();
 
   const serviceData = useMemo(() => ({
     "@type": "Service",
-    "name": "Commercial Signage Services",
-    "description": "Lobby signs, vehicle wraps, wall graphics, laser engraving, and custom signage for businesses in Los Angeles and Southern California.",
+    "name": "Sign Services",
+    "description": "Street signs, building signs, ADA signage, lobby signs, vehicle wraps, wall graphics, laser engraving, banners and embroidery for businesses and agencies in Los Angeles County.",
     "url": "https://advsigns.net/services",
     "provider": { "@id": "https://advsigns.net/#business" },
     "areaServed": [
       { "@type": "AdministrativeArea", "name": "Los Angeles County, CA" },
     ],
-    "serviceType": ["Lobby Signs", "Vehicle Wraps", "Wall Graphics", "Laser Engraving", "Channel Letters", "Custom Signs"],
+    "serviceType": ["Street Signs", "Building Signs", "ADA Signage", "Lobby Signs", "Vehicle Wraps", "Wall Graphics", "Laser Engraving", "Banners", "Embroidery"],
   }), []);
   useStructuredData("commercial-service", serviceData);
 
   return (
     <div>
       <PageHead
-        eyebrow="Commercial division"
+        eyebrow="Signs"
         lead={commercial.lead}
         actions={
           <>
@@ -48,51 +44,55 @@ export default function Services() {
           </>
         }
       >
-        <h1 className="display display-1">Commercial sign services in Los Angeles</h1>
+        <h1 className="display display-1">Every sign we make</h1>
       </PageHead>
 
-      <div className="on-paper bg-paper-2 border-y border-ink/15">
-        <p className="wrap py-5">
-          Bidding a public project?{" "}
-          <Link to="/public-works" className="link">See our public works division</Link>.
-        </p>
-      </div>
-
       <section className="on-paper">
-        <div className="wrap pb-[var(--s15)]">
-          {commercial.services.map((s, i) => {
-            const to = signLinks[s.title];
-            const flip = i % 2 === 1;
-            return (
-              <article
-                key={s.title}
-                className={`${flip ? "split-5-8" : "split-8-5"} items-center pt-[var(--s13)] animate-on-scroll`}
-              >
-                <Sheet
-                  ratio="wide"
-                  fig={`Fig. ${i + 1}`}
-                  caption={s.alt}
-                  className={flip ? "lg:order-2" : ""}
-                >
-                  <img src={s.image} alt={s.alt} loading={i === 0 ? "eager" : "lazy"} style={{ objectPosition: focusOn(s.image) }} />
-                </Sheet>
-                <div>
-                  <p className="label text-green">{String(i + 1).padStart(2, "0")} / {s.title}</p>
-                  <h2 className="display display-3 mt-4">{s.heading}</h2>
-                  <p className="mt-5 text-ink-soft">{s.body}</p>
-                  {to ? (
-                    <Link to={to} className="label inline-flex items-center gap-3 mt-6 border-b-2 border-ink pb-1 hover:gap-5 transition-[gap]">
-                      More on {s.title.toLowerCase()} <Arrow />
-                    </Link>
-                  ) : (
-                    <Link to="/contact" className="label inline-flex items-center gap-3 mt-6 border-b-2 border-ink pb-1 hover:gap-5 transition-[gap]">
-                      Tell us what you have in mind <Arrow />
-                    </Link>
-                  )}
+        <div className="wrap py-[var(--s15)]">
+          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+            {signs.map((s, i) => (
+              <li key={s.slug} className={`animate-on-scroll delay-${(i % 4) + 1}`}>
+                <Link to={`/signs/${s.slug}`} className="group block">
+                  <Sheet ratio="upright" fig={`Fig. ${i + 1}`} caption={s.division}>
+                    <SignFigure slug={s.slug} className="transition-transform duration-700 group-hover:scale-[1.02]" />
+                  </Sheet>
+                  <div className="px-[14px] mt-3">
+                    <h2 className="display display-3 flex items-center justify-between gap-4">
+                      <span className="group-hover:underline underline-offset-4">{s.name}</span>
+                      <Arrow />
+                    </h2>
+                    <p className="mt-2 text-ink-soft">{s.blurb}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="on-paper bg-paper-2">
+        <div className="wrap py-[var(--s13)]">
+          <div className="split-5-8 items-start">
+            <div>
+              <p className="label flex items-center gap-3">
+                <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
+                Also from the shop
+              </p>
+              <h2 className="display display-3 mt-5">Not a sign, same bench</h2>
+            </div>
+            <dl className="border-b border-ink/20">
+              {commercial.extras.map((x) => (
+                <div key={x.title} className="grid sm:grid-cols-[12rem_1fr] gap-x-8 gap-y-1 border-t border-ink/20 py-4">
+                  <dt className="display display-4">{x.title}</dt>
+                  <dd className="text-ink-soft">{x.body}</dd>
                 </div>
-              </article>
-            );
-          })}
+              ))}
+            </dl>
+          </div>
+          <p className="mt-10">
+            Bidding a public project? Qualifications, prevailing wage and references are on the{" "}
+            <Link to="/public-works" className="link">public works page</Link>.
+          </p>
         </div>
       </section>
     </div>

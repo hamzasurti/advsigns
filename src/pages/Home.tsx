@@ -171,7 +171,7 @@ export default function Home() {
                   Get a quote <Arrow />
                 </Link>
                 <Link to="/public-works" className="btn btn-line">
-                  For contractors
+                  Contractors &amp; agencies
                 </Link>
               </div>
             </div>

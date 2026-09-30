@@ -5,7 +5,8 @@ import PageHead from "../components/PageHead";
 import SectionHead from "../components/SectionHead";
 import Sheet from "../components/Sheet";
 import Arrow from "../components/Arrow";
-import { about, business, stats, focusOn } from "../content/site";
+import DrawnMap from "../components/DrawnMap";
+import { about, business, installCities, stats, focusOn } from "../content/site";
 
 const team = about.team.filter((m) => m.name.trim() !== "");
 
@@ -40,12 +41,7 @@ export default function About() {
       <section className="on-paper">
         <div className="wrap py-[var(--s13)]">
           <div className="split-5-8 items-start">
-            <p className="lead animate-on-scroll">
-              From small businesses to large-scale{" "}
-              <Link to="/public-works" className="link">public works projects</Link>, we bring the same
-              expertise and craftsmanship to every job. We&rsquo;re SBE certified and prevailing
-              wage compliant.
-            </p>
+            <p className="lead animate-on-scroll">{about.paragraphs[1]}</p>
             <dl className="border-b border-ink/20 animate-on-scroll delay-1">
               {stats.map((s) => (
                 <div key={s.label} className="grid grid-cols-[1fr_auto] sm:grid-cols-[10rem_12rem_1fr] gap-x-6 gap-y-1 items-baseline border-t border-ink/20 py-4">
@@ -59,7 +55,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* History, read along a ruler */}
+      {/* History, read along a ruler. Two ticks are not a history; shown once the owner adds milestones. */}
+      {about.timeline.length >= 3 && (
       <section className="mat on-mat overflow-hidden">
         <div className="wrap py-[var(--s15)]">
           <SectionHead no="01" label="1999 to today" title="Our history" />
@@ -74,22 +71,27 @@ export default function About() {
           </ol>
         </div>
       </section>
+      )}
 
-      {/* Process */}
+      {/* Where the signs are */}
       <section className="on-paper">
         <div className="wrap py-[var(--s15)]">
-          <SectionHead no="02" label="Process" title={about.process.heading} />
-          <ol className="grid sm:grid-cols-2 lg:grid-cols-4 mt-[var(--s5)] border-l border-ink/20">
-            {about.process.steps.map((s, i) => (
-              <li key={s.title} className={`relative border-r border-y border-ink/20 -mt-px p-6 animate-on-scroll delay-${(i % 3) + 1}`}>
-                <span className="label text-green">Step {i + 1}</span>
-                <h3 className="display display-4 mt-10">{s.title}</h3>
-                <p className="mt-3 text-ink-soft">{s.body}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="lead measure mt-10">
-            <span className="hl">{about.process.compliance}</span>
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <SectionHead no="02" label="Where the signs are" title={`Installed in ${installCities.length} cities, from one shop in Chatsworth`} />
+            <ul className="legend" aria-label="Map key">
+              <li><i className="shop" /> Our shop</li>
+              <li><i /> Cities with our signs</li>
+            </ul>
+          </div>
+          <div className="map-wrap mt-[var(--s5)] animate-on-scroll">
+            <DrawnMap />
+          </div>
+          <ul className="cities mt-8 sm:columns-4" aria-label="Cities where we have installed signs">
+            {installCities.map((c) => <li key={c.name}>{c.name}</li>)}
+          </ul>
+          <p className="text-sm text-ink-soft mt-6 measure">
+            Drawn, not plotted: freeways and hills are simplified. Agency clients are listed on the{" "}
+            <Link to="/public-works" className="link">public works page</Link>.
           </p>
         </div>
       </section>

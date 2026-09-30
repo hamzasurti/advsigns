@@ -65,6 +65,37 @@
 }
 
 /* ================================================================== */
+/* The drawn map (About page)                                          */
+/* ================================================================== */
+
+.map { display: block; width: 100%; min-width: 720px; height: auto; }
+.map text { font-family: var(--font-display); fill: var(--color-ink-soft); }
+.map .place { font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.map .range { font-size: 9.5px; font-weight: 500; letter-spacing: .3em; text-transform: uppercase; font-style: italic; opacity: .8; }
+.map .route { font-size: 9.5px; font-weight: 800; fill: var(--color-ink); text-anchor: middle; }
+.map .shield { fill: var(--color-paper); stroke: var(--color-ink); stroke-width: 1.1; }
+.map .job { font-size: 12px; font-weight: 800; fill: var(--color-ink); letter-spacing: 0; }
+.map .job-sub { font-size: 10px; font-weight: 500; fill: var(--color-ink-soft); }
+.map .fwy { fill: none; stroke: var(--color-ink); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.map .street { fill: none; stroke: var(--color-ink-soft); stroke-width: .9; stroke-dasharray: 1 5; stroke-linecap: round; }
+.map .coast { fill: none; stroke: var(--color-ink-soft); stroke-width: 1.4; }
+.map .coast-2 { fill: none; stroke: var(--color-ink-soft); stroke-width: .8; opacity: .45; transform: translate(-4px, 4px); }
+.map .hach { fill: none; stroke: var(--color-ink-soft); stroke-width: .7; stroke-linecap: round; opacity: .38; }
+.map .rule-line { fill: none; stroke: var(--color-ink); stroke-width: 1.2; stroke-linejoin: round; }
+.map .pin { fill: var(--color-green); stroke: var(--color-paper); stroke-width: 2.2; }
+.map .pin-ring { fill: none; stroke: var(--color-green); stroke-width: 1.2; opacity: .55; transform-box: fill-box; transform-origin: center; animation: ping 3.2s ease-out infinite; }
+.map .shop { fill: var(--color-ink); stroke: var(--color-paper); stroke-width: 2.5; }
+@keyframes ping { 0% { transform: scale(.6); opacity: .7; } 70%, 100% { transform: scale(2.3); opacity: 0; } }
+@keyframes draw { from { stroke-dashoffset: var(--len); } to { stroke-dashoffset: 0; } }
+
+.map-wrap { overflow-x: auto; border-block: 1px solid color-mix(in oklch, var(--color-ink) 22%, transparent); padding-block: 8px; }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: .875rem; color: var(--color-ink-soft); }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.legend i { width: 10px; height: 10px; background: var(--color-green); display: block; }
+.legend i.shop { border-radius: 0; background: var(--color-ink); }
+.cities { columns: 2; column-gap: 32px; font-size: .9375rem; }
+
+/* ================================================================== */
 /* Street: a blade and a regulatory panel, lettered in Overpass        */
 /* (the open cut of Highway Gothic, the alphabet on the real signs)    */
 /* ================================================================== */

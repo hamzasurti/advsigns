@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import usePageMeta from "../hooks/usePageMeta";
 import useQuoteForm from "../hooks/useQuoteForm";
 import PageHead from "../components/PageHead";
 import Arrow from "../components/Arrow";
-import { business, contact } from "../content/site";
+import { about, business, contact } from "../content/site";
 
 const empty = { name: "", email: "", phone: "", company: "", projectType: "", timeline: "", message: "" };
 
@@ -59,14 +58,21 @@ export default function Contact() {
             <div>
               <p className="label flex items-center gap-3">
                 <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
-              Job ticket
+              What happens next
               </p>
               <h2 className="display display-2 mt-5">{contact.formHeading}</h2>
-              <p className="lead mt-5 text-ink-soft">
-                {contact.formLead} Looking for{" "}
-                <Link to="/public-works" className="link">public works signage</Link>? See our
-                qualifications and certifications.
-              </p>
+              <p className="lead mt-5 text-ink-soft">{contact.formLead}</p>
+              <ol className="mt-8 border-t border-ink/20">
+                {about.process.steps.map((st, i) => (
+                  <li key={st.title} className="grid grid-cols-[3rem_1fr] gap-x-4 border-b border-ink/20 py-4">
+                    <span className="label text-green pt-1">{String(i + 1).padStart(2, "0")}</span>
+                    <span>
+                      <span className="display display-4 block">{st.title}</span>
+                      <span className="block text-ink-soft mt-1">{st.body}</span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
             </div>
 
             {form.sent ? (
