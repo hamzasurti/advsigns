@@ -10,6 +10,7 @@ export default function useReel(count: number) {
   const [index, setIndex] = useState(0);
   const [playing, setPlaying] = useState(false);
   const wantsPlay = useRef(true);
+  const loaded = useRef(0);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -27,7 +28,12 @@ export default function useReel(count: number) {
     video.addEventListener("ended", onEnded);
     video.addEventListener("play", onPlay);
     video.addEventListener("pause", onPause);
-    video.load();
+    // The browser fetches the first <source> on its own; reload only when the
+    // clip changes, so the initial request is not aborted and started again.
+    if (loaded.current !== index) {
+      loaded.current = index;
+      video.load();
+    }
     if (wantsPlay.current) video.play().catch(() => {});
     return () => {
       video.removeEventListener("ended", onEnded);

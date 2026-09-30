@@ -88,13 +88,13 @@ export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: 
             caption={first.title}
             className={`animate-on-scroll ${rest.length ? "" : first.shape === "tall" ? "max-w-xl" : "max-w-4xl"}`}
           >
-            <img src={first.image} alt={first.description} loading="lazy" style={{ objectPosition: focusOn(first.image) }} />
+            <img src={first.image} alt={first.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(first.image) }} />
           </Sheet>
           {rest.length > 0 && (
             <div className="grid gap-8">
               {rest.map((p, i) => (
                 <Sheet key={p.id} photo={p.image} fig={`Fig. ${i + 2}`} caption={p.title} className={`animate-on-scroll delay-${i + 1}`}>
-                  <img src={p.image} alt={p.description} loading="lazy" style={{ objectPosition: focusOn(p.image) }} />
+                  <img src={p.image} alt={p.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(p.image) }} />
                 </Sheet>
               ))}
             </div>
