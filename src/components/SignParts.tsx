@@ -82,7 +82,7 @@ export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: 
         </p>
         <div className={`mt-[var(--s5)] ${rest.length ? "split-8-5" : ""} items-start`}>
           <Sheet
-            ratio={first.shape === "tall" ? "upright" : "wide"}
+            photo={first.image}
             fig="Fig. 1"
             caption={first.title}
             className={`animate-on-scroll ${rest.length ? "" : first.shape === "tall" ? "max-w-xl" : "max-w-4xl"}`}
@@ -92,7 +92,7 @@ export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: 
           {rest.length > 0 && (
             <div className="grid gap-8">
               {rest.map((p, i) => (
-                <Sheet key={p.id} ratio="board" fig={`Fig. ${i + 2}`} caption={p.title} className={`animate-on-scroll delay-${i + 1}`}>
+                <Sheet key={p.id} photo={p.image} fig={`Fig. ${i + 2}`} caption={p.title} className={`animate-on-scroll delay-${i + 1}`}>
                   <img src={p.image} alt={p.description} loading="lazy" style={{ objectPosition: focusOn(p.image) }} />
                 </Sheet>
               ))}

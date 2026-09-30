@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { photoAspect } from "../content/photoDims";
 import usePageMeta from "../hooks/usePageMeta";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 import PageHead from "../components/PageHead";
@@ -11,7 +12,7 @@ import {
   portfolioItems,
   portfolioNotice,
   publicWorks,
-  type PortfolioCategory, focusOn } from "../content/site";
+  type PortfolioCategory } from "../content/site";
 
 type Filter = "All" | PortfolioCategory;
 const filters: Filter[] = ["All", ...portfolioCategories];
@@ -71,16 +72,18 @@ export default function Portfolio() {
         <div className="wrap pt-[var(--s5)] pb-[var(--s15)]">
           <ul className="proofs">
             {shown.map((item, i) => (
-              <li key={item.id} className={item.shape === "tall" ? "is-tall" : i % 5 === 0 ? "is-wide" : ""}>
-                <button type="button" onClick={() => setOpen(i)} className="group crop block w-full h-full text-left">
-                  <span className="sheet-media block h-full min-h-0">
-                    <img src={item.image} alt={item.description} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.04]" style={{ objectPosition: focusOn(item.image) }} />
-                    <span className="absolute left-0 bottom-0 max-w-[90%] bg-paper px-3 py-2">
-                      <span className="label text-green block">
-                        {String(item.id).padStart(2, "0")} / {item.category}
-                      </span>
-                      <span className="display display-4 block mt-1">{item.title}</span>
+              <li key={item.id}>
+                <button type="button" onClick={() => setOpen(i)} className="group block text-left max-w-full">
+                  <span className="crop block">
+                    <span className="sheet-media proof block" style={{ aspectRatio: photoAspect(item.image) }}>
+                      <img src={item.image} alt={item.description} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.04]" />
                     </span>
+                  </span>
+                  <span className="block px-[14px] pt-2 pr-8">
+                    <span className="label text-green block">
+                      {String(item.id).padStart(2, "0")} / {item.category}
+                    </span>
+                    <span className="display display-4 block mt-1 group-hover:underline underline-offset-4">{item.title}</span>
                   </span>
                 </button>
               </li>

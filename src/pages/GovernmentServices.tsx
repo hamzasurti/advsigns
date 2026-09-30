@@ -8,7 +8,7 @@ import SectionHead from "../components/SectionHead";
 import Sheet from "../components/Sheet";
 import SignFigure from "../components/SignFigure";
 import Arrow from "../components/Arrow";
-import { business, publicWorks, focusOn } from "../content/site";
+import { business, publicWorks } from "../content/site";
 
 const signLinks = ["/signs/street", "/signs/building", "/signs/ada"];
 
@@ -88,11 +88,7 @@ export default function GovernmentServices() {
             {publicWorks.services.map((s, i) => (
               <Link key={s.title} to={signLinks[i]} className={`group block animate-on-scroll delay-${i + 1}`}>
                 <Sheet ratio="upright">
-                  {s.image ? (
-                    <img src={s.image} alt={s.alt} loading="lazy" className="transition-transform duration-700 group-hover:scale-[1.03]" style={{ objectPosition: focusOn(s.image) }} />
-                  ) : (
-                    <SignFigure slug={signLinks[i].split("/").pop()!} />
-                  )}
+                  <SignFigure slug={signLinks[i].split("/").pop()!} />
                 </Sheet>
                 <div className="px-[14px] mt-3">
                   <h3 className="display display-3 flex items-center justify-between gap-4">

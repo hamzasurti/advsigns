@@ -8,10 +8,9 @@ import Sheet from "../components/Sheet";
 import SectionHead from "../components/SectionHead";
 import Arrow from "../components/Arrow";
 import SignFigure from "../components/SignFigure";
-import Braille from "../components/Braille";
 import Rotator from "../components/Rotator";
 import { signs } from "../content/signs";
-import { clients, heroPoster, heroVideoCaption, heroVideos, homeIntro, focusOn } from "../content/site";
+import { clients, heroPoster, heroVideoCaption, heroVideos, homeIntro } from "../content/site";
 
 const pulls = testimonials.filter((t) => t.pull);
 
@@ -77,13 +76,6 @@ function SignIndex() {
             >
               <span className="label w-8 opacity-70">{String(i + 1).padStart(2, "0")}</span>
               <span className="flex items-center gap-4 min-w-0">
-                {s.image ? (
-                  <img src={s.image} alt="" loading="lazy" className="lg:hidden w-20 h-10 object-cover shrink-0" />
-                ) : (
-                  <span className="lg:hidden w-20 h-10 shrink-0 bg-mat text-paper grid place-items-center">
-                    {s.slug === "ada" ? <Braille text="ada" size={5} /> : <span className="mini-blade !w-16 !h-6 !px-1.5 !text-[9px]">Nordhoff</span>}
-                  </span>
-                )}
                 <span className="min-w-0">
                   <span className="display display-3 block">{s.name}</span>
                   <span className="label opacity-70 mt-1 block">{s.division}</span>
@@ -97,11 +89,7 @@ function SignIndex() {
 
       <div className="hidden lg:block sticky top-28">
         <Sheet ratio="upright" fig={`Fig. ${active + 2}`} caption={current.blurb}>
-          {current.image ? (
-            <img key={current.slug} src={current.image} alt={current.alt} className="swap" style={{ objectPosition: focusOn(current.image) }} />
-          ) : (
-            <SignFigure key={current.slug} slug={current.slug} className="swap" />
-          )}
+          <SignFigure key={current.slug} slug={current.slug} className="swap" />
         </Sheet>
       </div>
     </div>

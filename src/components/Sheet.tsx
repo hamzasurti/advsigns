@@ -1,8 +1,11 @@
 import type { ReactNode } from "react";
+import { photoAspect } from "../content/photoDims";
 
 interface SheetProps {
   children: ReactNode;
   ratio?: "wide" | "tall" | "upright" | "board";
+  /* A photo path: the sheet takes that photo's own proportion, so nothing is cropped. */
+  photo?: string | null;
   fig?: string;
   caption?: ReactNode;
   /* Dimension callouts drawn along the top and right edges. */
@@ -16,6 +19,7 @@ interface SheetProps {
 export default function Sheet({
   children,
   ratio = "wide",
+  photo,
   fig,
   caption,
   width,
@@ -34,7 +38,7 @@ export default function Sheet({
         )}
         {width && <span />}
         <div className="crop min-w-0">
-          <div className={`sheet-media ratio-${ratio}`}>{children}</div>
+          <div className={`sheet-media ratio-${ratio}`} style={photo ? { aspectRatio: photoAspect(photo) } : undefined}>{children}</div>
         </div>
         {height ? (
           <div className={`dim-v label py-[14px] ${drawn}`} aria-hidden="true">

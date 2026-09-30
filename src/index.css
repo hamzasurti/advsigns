@@ -473,23 +473,14 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
   .timeline > li { padding: var(--s5) var(--s3) 0 0; }
   .timeline .tick { left: 0; top: 0; width: 1px; height: 22px; }
 }
-/* Portfolio: a proof sheet. Tall photos stand two rows high. */
-.proofs { display: grid; gap: var(--u); grid-template-columns: 1fr; }
-.proofs > li { aspect-ratio: 4 / 3; }
-.proofs > li.is-tall { aspect-ratio: 3 / 4; }
-@media (min-width: 640px) {
-  .proofs {
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: clamp(200px, 27vw, 300px);
-    grid-auto-flow: dense;
-  }
-  .proofs > li,
-  .proofs > li.is-tall { aspect-ratio: auto; }
-  .proofs > li.is-tall { grid-row: span 2; }
-}
-@media (min-width: 1024px) {
-  .proofs { grid-template-columns: repeat(3, 1fr); grid-auto-rows: clamp(220px, 21vw, 300px); }
-  .proofs > li.is-wide { grid-column: span 2; }
+/* Portfolio: a proof sheet. Every print keeps its own proportion; prints in a
+   row share one height and the row runs ragged on the right, so nothing is cropped. */
+.proofs { --row: clamp(180px, 24vw, 280px); display: flex; flex-wrap: wrap; gap: var(--s3) var(--u); align-items: flex-start; }
+.proofs > li { flex: 0 0 auto; max-width: 100%; }
+.proofs .proof { height: var(--row); max-width: calc(100vw - 2 * var(--gutter)); }
+@media (max-width: 639px) {
+  .proofs > li { width: 100%; }
+  .proofs .proof { height: auto; width: 100%; }
 }
 
 .viewer {

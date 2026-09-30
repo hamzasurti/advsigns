@@ -29,7 +29,7 @@ export default function About() {
           </>
         }
         aside={
-          <Sheet ratio="upright" fig="Fig. 1" caption="Large-format banner, installed">
+          <Sheet photo={about.image} fig="Fig. 1" caption="Large-format banner, installed">
             <img src={about.image} alt={about.imageAlt} style={{ objectPosition: focusOn(about.image) }} />
           </Sheet>
         }
