@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About, { meta } from "../views/About";
+---
+
+<Layout meta={meta}>
+  <About client:idle />
+</Layout>

@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "../lib/router";
 import Logo from "./Logo";
 import Arrow from "./Arrow";
 import { business, navLinks } from "../content/site";
 
-export default function Navbar() {
+export default function Navbar({ pathname = "/" }: { pathname?: string }) {
   const [open, setOpen] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const close = () => setOpen(false);
@@ -36,13 +36,14 @@ export default function Navbar() {
 
         <nav aria-label="Main" className="hidden lg:flex items-center gap-7 xl:gap-9 isolate">
           {navLinks.map((link) => (
-            <NavLink
+            <a
               key={link.to}
-              to={link.to}
-              className={({ isActive }) => `label nav-link ${isActive ? "is-active" : ""}`}
+              href={link.to}
+              aria-current={pathname === link.to ? "page" : undefined}
+              className={`label nav-link ${pathname === link.to ? "is-active" : ""}`}
             >
               {link.label}
-            </NavLink>
+            </a>
           ))}
         </nav>
 
@@ -84,16 +85,17 @@ export default function Navbar() {
         <div id="mobile-menu" className="lg:hidden mat on-mat absolute inset-x-0 top-full h-[calc(100dvh-86px)] overflow-y-auto">
           <nav aria-label="Mobile" className="wrap py-8 flex flex-col">
             {navLinks.map((link, i) => (
-              <NavLink
+              <a
                 key={link.to}
-                to={link.to}
+                href={link.to}
                 onClick={close}
+                aria-current={pathname === link.to ? "page" : undefined}
                 className="rise display display-3 py-4 border-b border-paper/20 flex items-baseline gap-4"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
                 <span className="label text-mark">{String(i + 1).padStart(2, "0")}</span>
                 {link.label}
-              </NavLink>
+              </a>
             ))}
             <div className="mt-8 flex flex-col gap-4">
               <Link to="/contact" onClick={close} className="btn btn-mark">

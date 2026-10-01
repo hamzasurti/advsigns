@@ -2,16 +2,16 @@ export type QuoteStatus = "idle" | "sending" | "success" | "error" | "unconfigur
 
 /*
   Posts a quote request to Web3Forms. Returns "unconfigured" when the site was
-  built without VITE_WEB3FORMS_KEY, so the form can tell the visitor to call
+  built without PUBLIC_WEB3FORMS_KEY, so the form can tell the visitor to call
   instead of failing with a generic error after they have typed everything.
 */
 export async function submitQuote(
   subject: string,
   fields: Record<string, string>
 ): Promise<QuoteStatus> {
-  const apiKey = import.meta.env.VITE_WEB3FORMS_KEY;
+  const apiKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
   if (!apiKey || apiKey === "YOUR_ACCESS_KEY") {
-    console.error("Web3Forms API key not configured. Add VITE_WEB3FORMS_KEY to your .env file.");
+    console.error("Web3Forms API key not configured. Add PUBLIC_WEB3FORMS_KEY to your .env file.");
     return "unconfigured";
   }
   try {

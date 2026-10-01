@@ -1,0 +1,96 @@
+---
+import "../index.css";
+import type { PageMeta } from "../lib/meta";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import QuickQuote from "../components/QuickQuote";
+import localBusiness from "../content/localBusiness.json";
+
+interface Props {
+  meta: PageMeta;
+  structuredData?: { id: string; data: Record<string, unknown> }[];
+}
+
+const { meta, structuredData = [] } = Astro.props;
+const BASE_TITLE = "Advanced Sign & Banner";
+const SITE = "https://advsigns.net";
+/* Built as files (about.html), but the public URL is /about. */
+const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "").replace(/\/+$/, "") || "/";
+const canonical = `${SITE}${pathname}`;
+const title = `${meta.title} | ${BASE_TITLE}`;
+const image = meta.ogImage ?? `${SITE}/assets/improved-v2/hero/building-signs.jpg`;
+const scripts = [{ id: "business", data: localBusiness }, ...structuredData.map((s) => ({ id: s.id, data: { "@context": "https://schema.org", ...s.data } }))];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1b375b" />
+    <title>{title}</title>
+    <meta name="description" content={meta.description} />
+    {meta.noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="Chatsworth, CA" />
+    <meta name="geo.position" content="34.2384;-118.5944" />
+    <meta name="ICBM" content="34.2384, -118.5944" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={BASE_TITLE} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={meta.description} />
+    <meta name="twitter:image" content={image} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Overpass:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    {scripts.map((s) => <script type="application/ld+json" data-sd={s.id} set:html={JSON.stringify(s.data)} />)}
+  </head>
+  <body>
+    <a href="#main" class="btn btn-mark sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[60]">Skip to content</a>
+    <div class="flex flex-col min-h-screen">
+      <Navbar client:idle pathname={pathname} />
+      <main id="main" tabindex="-1" class="flex-grow outline-none page-enter">
+        <slot />
+      </main>
+      {pathname !== "/contact" && (
+        <div class="mat on-mat">
+          <QuickQuote client:visible />
+        </div>
+      )}
+      <Footer />
+    </div>
+
+    <script is:inline>
+      /* Reveal-on-scroll. A data attribute, not a class, so React hydration never sees a mismatch. */
+      (function () {
+        document.documentElement.classList.add("js-ready");
+        var els = document.querySelectorAll(".animate-on-scroll");
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) {
+          els.forEach(function (el) { el.setAttribute("data-visible", ""); });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.setAttribute("data-visible", ""); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
+        els.forEach(function (el) { io.observe(el); });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Home, { meta } from "../views/Home";
+---
+
+<Layout meta={meta}>
+  <Home client:load />
+</Layout>

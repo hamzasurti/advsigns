@@ -1,16 +1,13 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "../lib/router";
 import Logo from "./Logo";
-import QuickQuote from "./QuickQuote";
 import { business } from "../content/site";
 
 export default function Footer() {
-  const { pathname } = useLocation();
   const year = new Date().getFullYear();
 
   return (
     <footer className="mat on-mat">
       <div className="ruler text-paper" aria-hidden="true" />
-      {pathname !== "/contact" && <QuickQuote />}
 
       <div className="wrap pb-10 pt-[var(--s5)]">
         {/* Title block */}

@@ -1,0 +1,8 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Lobby, { meta } from "../../views/signs/Lobby";
+---
+
+<Layout meta={meta}>
+  <Lobby client:idle />
+</Layout>

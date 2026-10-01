@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "../lib/router";
 import Arrow from "./Arrow";
 import Sheet from "./Sheet";
 import { signAt } from "../content/signs";

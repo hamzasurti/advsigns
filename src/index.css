@@ -521,11 +521,11 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
   to   { opacity: 1; transform: none; }
 }
 .animate-on-scroll { opacity: 1; }
-.js-ready .animate-on-scroll:not(.is-visible) { opacity: 0; }
-.js-ready .animate-on-scroll.is-visible { animation: fadeUp 0.7s var(--ease) both; }
-.animate-on-scroll.delay-1.is-visible { animation-delay: 0.08s; }
-.animate-on-scroll.delay-2.is-visible { animation-delay: 0.16s; }
-.animate-on-scroll.delay-3.is-visible { animation-delay: 0.24s; }
+.js-ready .animate-on-scroll:not([data-visible]) { opacity: 0; }
+.js-ready .animate-on-scroll[data-visible] { animation: fadeUp 0.7s var(--ease) both; }
+.animate-on-scroll.delay-1[data-visible] { animation-delay: 0.08s; }
+.animate-on-scroll.delay-2[data-visible] { animation-delay: 0.16s; }
+.animate-on-scroll.delay-3[data-visible] { animation-delay: 0.24s; }
 
 @keyframes pageEnter { from { opacity: 0; } to { opacity: 1; } }
 .page-enter { animation: pageEnter 0.3s var(--ease); }
@@ -543,5 +543,5 @@ select.field { appearance: none; background-image: none; padding-right: 2.5rem; 
     transition-duration: 0.001ms !important;
   }
   .animate-on-scroll,
-  .js-ready .animate-on-scroll:not(.is-visible) { opacity: 1 !important; }
+  .js-ready .animate-on-scroll:not([data-visible]) { opacity: 1 !important; }
 }

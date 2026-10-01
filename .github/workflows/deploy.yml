@@ -21,7 +21,7 @@ jobs:
       # Skip Chromium download; the subpath build skips the Puppeteer prerender.
       PUPPETEER_SKIP_DOWNLOAD: "1"
       # Optional: set this repo secret so the contact forms can send.
-      VITE_WEB3FORMS_KEY: ${{ secrets.VITE_WEB3FORMS_KEY }}
+      PUBLIC_WEB3FORMS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_KEY }}
     steps:
       - uses: actions/checkout@v4
 
