@@ -55,7 +55,7 @@ export const heroVideos = [
   "/assets/hero/video/banner-2.mp4",
   "/assets/hero/video/banner-3.mp4",
 ];
-export const heroPoster = "/assets/improved-v2/hero/building-signs.jpg";
+export const heroPoster = "/assets/hero/building-signs.jpg";
 export const heroVideoCaption = "On the flatbed printer in our Chatsworth shop";
 
 export const homeIntro = {

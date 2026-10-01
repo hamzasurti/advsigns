@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import Truck from "../../components/Truck";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
@@ -17,7 +18,7 @@ export const meta: PageMeta = {
     description: "Full wraps, partial wraps, lettering and fleet graphics in the San Fernando Valley, for cars, vans, trucks and trailers. Call 818-346-2142.",
 };
 
-export default function VehicleWraps() {
+function VehicleWrapsView() {
 
   const [choice, setChoice] = useState(options[0]);
   /* Start bare, then lay the vinyl on once the page has painted. */
@@ -79,5 +80,13 @@ export default function VehicleWraps() {
       <Photos category="Vehicle Wraps" no="02" />
       <Pager slug="vehicle-wraps" />
     </div>
+  );
+}
+
+export default function VehicleWraps({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <VehicleWrapsView />
+    </PhotosProvider>
   );
 }

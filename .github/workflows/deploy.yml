@@ -18,30 +18,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # Skip Chromium download; the subpath build skips the Puppeteer prerender.
-      PUPPETEER_SKIP_DOWNLOAD: "1"
-      # Optional: set this repo secret so the contact forms can send.
+      # Repo secret. Without it the quote forms show the call-us message instead of sending.
       PUBLIC_WEB3FORMS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_KEY }}
+      PUPPETEER_SKIP_DOWNLOAD: "1"
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
-
       - run: npm ci
-
-      - name: Build for /advsigns/ subpath
-        run: |
-          npx vite build --base=/advsigns/
-          node scripts/fix-base-assets.mjs /advsigns/
-          cp dist/index.html dist/404.html
-
+      # Builds for the root of www.advsigns.net (public/CNAME). The SEO lint
+      # runs the build itself and fails the job on any regression.
+      - run: node scripts/seo-lint.mjs
       - uses: actions/configure-pages@v5
         with:
           enablement: true
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

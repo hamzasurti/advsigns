@@ -18,7 +18,7 @@ const SITE = "https://advsigns.net";
 const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "").replace(/\/+$/, "") || "/";
 const canonical = `${SITE}${pathname}`;
 const title = `${meta.title} | ${BASE_TITLE}`;
-const image = meta.ogImage ?? `${SITE}/assets/improved-v2/hero/building-signs.jpg`;
+const image = meta.ogImage ?? `${SITE}/assets/hero/building-signs.jpg`;
 const scripts = [{ id: "business", data: localBusiness }, ...structuredData.map((s) => ({ id: s.id, data: { "@context": "https://schema.org", ...s.data } }))];
 ---
 

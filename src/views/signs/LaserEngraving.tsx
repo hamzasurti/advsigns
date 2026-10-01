@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
@@ -18,7 +19,7 @@ export const meta: PageMeta = {
     description: "Laser engraving in Chatsworth, CA for awards, plaques, nameplates and custom products. Call 818-346-2142.",
 };
 
-export default function LaserEngraving() {
+function LaserEngravingView() {
 
   const [blank, setBlank] = useState(blanks[0]);
   const dark = blank.id === "leather";
@@ -73,5 +74,13 @@ export default function LaserEngraving() {
       <Photos category="Engraving" no="02" />
       <Pager slug="laser-engraving" />
     </div>
+  );
+}
+
+export default function LaserEngraving({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <LaserEngravingView />
+    </PhotosProvider>
   );
 }

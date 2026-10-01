@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
@@ -15,7 +16,7 @@ export const meta: PageMeta = {
     description: "Custom wall graphics and murals printed in our Chatsworth shop on vinyl, canvas and aluminum panels, and installed. Call 818-346-2142.",
 };
 
-export default function WallGraphics() {
+function WallGraphicsView() {
 
   const [size, setSize] = useState(sizes[0]);
   const accent = size.id === "accent";
@@ -69,5 +70,13 @@ export default function WallGraphics() {
       <Photos category="Wall Graphics" no="02" />
       <Pager slug="wall-graphics" />
     </div>
+  );
+}
+
+export default function WallGraphics({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <WallGraphicsView />
+    </PhotosProvider>
   );
 }

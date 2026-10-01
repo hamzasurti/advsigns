@@ -1,4 +1,5 @@
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
@@ -22,7 +23,7 @@ export const meta: PageMeta = {
     description: "Dimensional lobby signs in Los Angeles: aluminum, acrylic and foam letters cut on our CNC router. Designed and installed. 818-346-2142.",
 };
 
-export default function Lobby() {
+function LobbyView() {
 
   const wall = useRef<HTMLElement>(null);
   const [mount, setMount] = useState(mounts[0]);
@@ -108,5 +109,13 @@ export default function Lobby() {
       <Photos category="Lobby Signs" no="03" />
       <Pager slug="lobby" />
     </div>
+  );
+}
+
+export default function Lobby({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <LobbyView />
+    </PhotosProvider>
   );
 }

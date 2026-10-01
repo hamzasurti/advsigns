@@ -1,4 +1,6 @@
 import { Link } from "../lib/router";
+import { PhotosProvider, type ViewProps } from "../components/Photo";
+import Photo from "../components/Photo";
 import type { PageMeta } from "../lib/meta";
 import PageHead from "../components/PageHead";
 import SectionHead from "../components/SectionHead";
@@ -14,7 +16,7 @@ export const meta: PageMeta = {
     description: "Family-owned sign company in Chatsworth, CA since 1999. Design, printing, fabrication and installation across Los Angeles County. SBE certified.",
 };
 
-export default function About() {
+function AboutView() {
 
   return (
     <div>
@@ -30,7 +32,7 @@ export default function About() {
         }
         aside={
           <Sheet photo={about.image} fig="Fig. 1" caption="On the flatbed printer in the Chatsworth shop">
-            <img src={about.image} alt={about.imageAlt} style={{ objectPosition: focusOn(about.image) }} />
+            <Photo src={about.image} alt={about.imageAlt} style={{ objectPosition: focusOn(about.image) }} />
           </Sheet>
         }
       >
@@ -80,7 +82,7 @@ export default function About() {
             {shopPhotos.slice(1).map((p, i) => (
               <li key={p.image} className={`animate-on-scroll delay-${i + 1}`}>
                 <Sheet photo={p.image} fig={`Fig. ${i + 2}`} caption={p.caption}>
-                  <img src={p.image} alt={p.caption} loading="lazy" />
+                  <Photo src={p.image} alt={p.caption} loading="lazy" />
                 </Sheet>
               </li>
             ))}
@@ -120,7 +122,7 @@ export default function About() {
                 <li key={m.name}>
                   {m.image && (
                     <Sheet ratio="board">
-                      <img src={m.image} alt={m.name} loading="lazy" />
+                      <Photo src={m.image} alt={m.name} loading="lazy" />
                     </Sheet>
                   )}
                   <h3 className="display display-4 mt-4">{m.name}</h3>
@@ -133,5 +135,13 @@ export default function About() {
         </section>
       )}
     </div>
+  );
+}
+
+export default function About({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <AboutView />
+    </PhotosProvider>
   );
 }

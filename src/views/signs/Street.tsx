@@ -1,4 +1,5 @@
 import { Link } from "../../lib/router";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import StreetSign from "../../components/StreetSign";
 import { Pager, Photos, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
@@ -38,7 +39,7 @@ export const meta: PageMeta = {
     description: "Street name signs, regulatory and parking signs, wayfinding and work-zone signs for public works in Los Angeles. SBE certified. Call 818-346-2142.",
 };
 
-export default function Street() {
+function StreetView() {
 
   return (
     <div>
@@ -91,5 +92,13 @@ export default function Street() {
       <Reference id={2} no="04" />
       <Pager slug="street" />
     </div>
+  );
+}
+
+export default function Street({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <StreetView />
+    </PhotosProvider>
   );
 }

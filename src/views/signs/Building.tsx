@@ -1,4 +1,5 @@
 import { useState, type CSSProperties } from "react";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import { Facts, Pager, Photos, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
 import { publicWorks } from "../../content/site";
@@ -19,7 +20,7 @@ export const meta: PageMeta = {
     description: "Exterior and interior building signs in Los Angeles: identification letters, channel letters and illuminated signs. Call 818-346-2142.",
 };
 
-export default function Building() {
+function BuildingView() {
 
   /* The facade faces south: the sun crosses from the right of the page to the left. */
   const [hour, setHour] = useState(15);
@@ -90,5 +91,13 @@ export default function Building() {
       <Reference id={3} no="03" />
       <Pager slug="building" />
     </div>
+  );
+}
+
+export default function Building({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <BuildingView />
+    </PhotosProvider>
   );
 }

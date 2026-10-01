@@ -1,8 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import LaserEngraving, { meta } from "../../views/signs/LaserEngraving";
+import { photoSources } from "../../lib/photos";
+import { workFor } from "../../components/SignParts";
+
+const photos = await photoSources(workFor("Engraving").map((p) => p.image));
 ---
 
 <Layout meta={meta}>
-  <LaserEngraving client:idle />
+  <LaserEngraving client:idle photos={photos} />
 </Layout>

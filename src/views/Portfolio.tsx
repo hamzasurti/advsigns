@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState } from "react";
+import { PhotosProvider, type ViewProps } from "../components/Photo";
+import Photo from "../components/Photo";
 import { Link } from "../lib/router";
 import { photoAspect } from "../content/photoDims";
 import type { PageMeta } from "../lib/meta";
@@ -21,7 +23,7 @@ export const meta: PageMeta = {
     description: "Signage projects by Advanced Sign & Banner: street signs, ADA signage, vehicle wraps and lobby signs. LA Metro, Burbank Airport & more.",
 };
 
-export default function Portfolio() {
+function PortfolioView() {
 
   const [filter, setFilter] = useState<Filter>("All");
   const [open, setOpen] = useState<number | null>(null);
@@ -75,7 +77,7 @@ export default function Portfolio() {
                 <button type="button" onClick={() => setOpen(i)} className="group block text-left max-w-full">
                   <span className="crop block">
                     <span className="sheet-media proof block" style={{ aspectRatio: photoAspect(item.image) }}>
-                      <img src={item.image} alt={item.description} loading="lazy" decoding="async" className="transition-transform duration-700 group-hover:scale-[1.04]" />
+                      <Photo src={item.image} alt={item.description} loading="lazy" decoding="async" className="transition-transform duration-700 group-hover:scale-[1.04]" />
                     </span>
                   </span>
                   <span className="block px-[14px] pt-2 pr-8">
@@ -140,7 +142,7 @@ export default function Portfolio() {
               </button>
             </div>
             <div className="min-h-0 px-4 flex items-center justify-center">
-              <img key={active.id} src={active.image} alt={active.description} className="swap max-w-full max-h-full object-contain" />
+              <Photo key={active.id} src={active.image} alt={active.description} className="swap max-w-full max-h-full object-contain" />
             </div>
             <div className="p-4 flex flex-wrap items-end justify-between gap-4">
               <div>
@@ -161,5 +163,13 @@ export default function Portfolio() {
         )}
       </dialog>
     </div>
+  );
+}
+
+export default function Portfolio({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <PortfolioView />
+    </PhotosProvider>
   );
 }

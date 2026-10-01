@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
 import AdaSign from "../../components/AdaSign";
 import Braille from "../../components/Braille";
@@ -66,7 +67,7 @@ export const meta: PageMeta = {
     description: "ADA room and door signs with raised characters and Grade 2 braille, made to the 2010 ADA Standards and California Title 24. Call 818-346-2142.",
 };
 
-export default function Ada() {
+function AdaView() {
 
   const { ada, faqs } = publicWorks;
   const brailleFaq = faqs[2];
@@ -165,3 +166,10 @@ export default function Ada() {
   );
 }
 
+export default function Ada({ photos = {} }: ViewProps) {
+  return (
+    <PhotosProvider value={photos}>
+      <AdaView />
+    </PhotosProvider>
+  );
+}

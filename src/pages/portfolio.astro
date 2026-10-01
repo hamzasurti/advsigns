@@ -1,8 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Portfolio, { meta } from "../views/Portfolio";
+import { photoSources } from "../lib/photos";
+
+const photos = await photoSources();
 ---
 
 <Layout meta={meta}>
-  <Portfolio client:idle />
+  <Portfolio client:idle photos={photos} />
 </Layout>

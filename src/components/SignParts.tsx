@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Photo from "./Photo";
 import { Link } from "../lib/router";
 import Arrow from "./Arrow";
 import Sheet from "./Sheet";
@@ -68,9 +69,11 @@ export function Facts({ label, title, body, facts, note, tone = "paper" }: Facts
   );
 }
 
+/* One big print and up to four small ones; the rest are on the portfolio page. */
+export const workFor = (category: PortfolioCategory) => portfolioItems.filter((p) => p.category === category).slice(0, 5);
+
 export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: number[]; no?: string }) {
-  /* One big print and up to four small ones; the rest are on the portfolio page. */
-  const items = portfolioItems.filter((p) => (ids ? ids.includes(p.id) : p.category === category)).slice(0, 5);
+  const items = ids ? portfolioItems.filter((p) => ids.includes(p.id)) : category ? workFor(category) : [];
   if (items.length === 0) return null;
   const [first, ...rest] = items;
 
@@ -88,13 +91,13 @@ export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: 
             caption={first.title}
             className={`animate-on-scroll ${rest.length ? "" : first.shape === "tall" ? "max-w-xl" : "max-w-4xl"}`}
           >
-            <img src={first.image} alt={first.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(first.image) }} />
+            <Photo src={first.image} alt={first.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(first.image) }} />
           </Sheet>
           {rest.length > 0 && (
             <div className="grid gap-8">
               {rest.map((p, i) => (
                 <Sheet key={p.id} photo={p.image} fig={`Fig. ${i + 2}`} caption={p.title} className={`animate-on-scroll delay-${i + 1}`}>
-                  <img src={p.image} alt={p.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(p.image) }} />
+                  <Photo src={p.image} alt={p.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(p.image) }} />
                 </Sheet>
               ))}
             </div>

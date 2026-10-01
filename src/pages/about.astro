@@ -1,8 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import About, { meta } from "../views/About";
+import { photoSources } from "../lib/photos";
+import { about, shopPhotos } from "../content/site";
+
+const photos = await photoSources([about.image, ...shopPhotos.map((p) => p.image)]);
 ---
 
 <Layout meta={meta}>
-  <About client:idle />
+  <About client:idle photos={photos} />
 </Layout>

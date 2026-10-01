@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 5183",
-    "build": "astro build",
+    "build": "astro build && node scripts/prune-originals.mjs",
     "preview": "astro preview",
     "lint": "eslint .",
     "seo-lint": "node scripts/seo-lint.mjs",

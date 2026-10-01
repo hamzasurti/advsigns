@@ -20,7 +20,7 @@ const warn = (m) => warnings.push(m);
 const ok = (m) => pass.push(m);
 
 /* Always lint a fresh build; it takes about a second. */
-try { execSync("npx astro build", { cwd: ROOT, stdio: "ignore" }); } catch { console.error("astro build failed"); process.exit(1); }
+try { execSync("npm run build", { cwd: ROOT, stdio: "ignore" }); } catch { console.error("astro build failed"); process.exit(1); }
 if (!existsSync(DIST)) { console.error("dist/ is missing after the build"); process.exit(1); }
 
 /* Every page that should be public, with the ceilings for its title and description. */

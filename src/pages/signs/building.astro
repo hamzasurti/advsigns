@@ -1,8 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import Building, { meta } from "../../views/signs/Building";
+import { photoSources } from "../../lib/photos";
+import { workFor } from "../../components/SignParts";
+
+const photos = await photoSources(workFor("Building Signs").map((p) => p.image));
 ---
 
 <Layout meta={meta}>
-  <Building client:idle />
+  <Building client:idle photos={photos} />
 </Layout>
