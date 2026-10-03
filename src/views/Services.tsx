@@ -47,7 +47,7 @@ export default function Services() {
       </PageHead>
 
       <section className="on-paper">
-        <div className="wrap py-[var(--s15)]">
+        <div className="wrap pt-[var(--s5)] pb-[var(--s15)]">
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
             {signs.map((s, i) => (
               <li key={s.slug} className={`animate-on-scroll delay-${(i % 4) + 1}`}>
