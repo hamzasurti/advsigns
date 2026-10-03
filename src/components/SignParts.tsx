@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 import Photo from "./Photo";
 import { Link } from "../lib/router";
 import Arrow from "./Arrow";
-import Sheet from "./Sheet";
 import { signAt } from "../content/signs";
-import { business, focusOn, portfolioItems, publicWorks, type PortfolioCategory } from "../content/site";
+import { business, portfolioItems, publicWorks, type PortfolioCategory } from "../content/site";
+import { photoAspect } from "../content/photoDims";
 
 /* The parts every sign page shares, so each one stays recognisably the same site. */
 
@@ -75,7 +75,6 @@ export const workFor = (category: PortfolioCategory) => portfolioItems.filter((p
 export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: number[]; no?: string }) {
   const items = ids ? portfolioItems.filter((p) => ids.includes(p.id)) : category ? workFor(category) : [];
   if (items.length === 0) return null;
-  const [first, ...rest] = items;
 
   return (
     <section className="on-paper bg-paper-2">
@@ -84,25 +83,24 @@ export function Photos({ category, ids }: { category?: PortfolioCategory; ids?: 
           <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
               The work
         </p>
-        <div className={`mt-[var(--s5)] ${rest.length ? "split-8-5" : ""} items-start`}>
-          <Sheet
-            photo={first.image}
-            fig="Fig. 1"
-            caption={first.title}
-            className={`animate-on-scroll ${rest.length ? "" : first.shape === "tall" ? "max-w-xl" : "max-w-4xl"}`}
-          >
-            <Photo src={first.image} alt={first.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(first.image) }} />
-          </Sheet>
-          {rest.length > 0 && (
-            <div className="grid gap-8">
-              {rest.map((p, i) => (
-                <Sheet key={p.id} photo={p.image} fig={`Fig. ${i + 2}`} caption={p.title} className={`animate-on-scroll delay-${i + 1}`}>
-                  <Photo src={p.image} alt={p.description} loading="lazy" decoding="async" style={{ objectPosition: focusOn(p.image) }} />
-                </Sheet>
-              ))}
-            </div>
-          )}
-        </div>
+        {/* Same proof sheet as the portfolio: one row height, each print at its own proportion. */}
+        <ul className="proofs mt-[var(--s5)]">
+          {items.map((p, i) => (
+            <li key={p.id} className={`animate-on-scroll delay-${(i % 3) + 1}`}>
+              <figure>
+                <div className="crop">
+                  <div className="sheet-media proof" style={{ aspectRatio: photoAspect(p.image) }}>
+                    <Photo src={p.image} alt={p.description} loading="lazy" decoding="async" />
+                  </div>
+                </div>
+                <figcaption className="mt-2 px-[14px] flex items-baseline gap-3 text-sm">
+                  <span className="label shrink-0">Fig. {i + 1}</span>
+                  <span className="opacity-80">{p.title}</span>
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
         <Link to="/portfolio" className="label inline-flex items-center gap-3 mt-10 border-b-2 border-ink pb-1 hover:gap-5 transition-[gap]">
           See the full portfolio <Arrow />
         </Link>
