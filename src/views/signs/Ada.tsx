@@ -4,7 +4,7 @@ import type { PageMeta } from "../../lib/meta";
 import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import AdaSign from "../../components/AdaSign";
 import Braille from "../../components/Braille";
-import { Pager, Reference, SignActions, SignEyebrow, Photos } from "../../components/SignParts";
+import { Pager, SignActions, SignEyebrow, Photos } from "../../components/SignParts";
 import { brailleCells } from "../../content/signs";
 import { publicWorks } from "../../content/site";
 
@@ -164,7 +164,6 @@ function AdaView() {
       </section>
 
       <Photos category="ADA Signage" no="03" />
-      <Reference id={1} no="04" />
       <Pager slug="ada" />
     </div>
   );
