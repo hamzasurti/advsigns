@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Ada, { meta } from "../../views/signs/Ada";
+import Ada, { meta, structuredData } from "../../views/signs/Ada";
 import { photoSources } from "../../lib/photos";
 import { workFor } from "../../components/SignParts";
 
 const photos = await photoSources(workFor("ADA Signage").map((p) => p.image));
 ---
 
-<Layout meta={meta}>
+<Layout meta={meta} structuredData={structuredData}>
   <Ada client:idle photos={photos} />
 </Layout>

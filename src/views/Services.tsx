@@ -77,7 +77,7 @@ export default function Services() {
                 <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
                 Also from the shop
               </p>
-              <h2 className="display display-3 mt-5">Not a sign, same bench</h2>
+              <h2 className="display display-3 mt-5">Banners, embroidery and special projects</h2>
             </div>
             <dl className="border-b border-ink/20">
               {commercial.extras.map((x) => (
@@ -89,7 +89,7 @@ export default function Services() {
             </dl>
           </div>
           <p className="mt-10">
-            Bidding a public project? Qualifications, prevailing wage and references are on the{" "}
+            Bidding a public project? Our qualifications and references are on the{" "}
             <Link to="/public-works" className="link">public works page</Link>.
           </p>
         </div>

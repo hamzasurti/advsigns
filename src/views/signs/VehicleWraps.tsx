@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import Truck from "../../components/Truck";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
@@ -16,7 +17,10 @@ const options = [
 export const meta: PageMeta = {
     title: "Vehicle Wraps | San Fernando Valley",
     description: "Full wraps, partial wraps, lettering and fleet graphics in the San Fernando Valley, for cars, vans, trucks and trailers. Call 818-346-2142.",
+    ogImage: signOgImage("vehicle-wraps"),
 };
+
+export const structuredData = signStructuredData("vehicle-wraps");
 
 function VehicleWrapsView() {
 
@@ -67,7 +71,7 @@ function VehicleWrapsView() {
 
       <Facts
         label="How we wrap"
-        title="Every vehicle, a mobile billboard"
+        title="Full wraps, partial wraps and fleet lettering"
         body={<p>{service.body}</p>}
         facts={[
           { term: "Coverage", detail: "Full wraps, partial wraps, vinyl lettering and vehicle magnets." },

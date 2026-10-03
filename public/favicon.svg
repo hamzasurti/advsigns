@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" fill="#1d3a20"/>
-  <path d="M0 16h64M0 32h64M0 48h64M16 0v64M32 0v64M48 0v64" stroke="#3a5f3b" stroke-width="1"/>
-  <rect x="10" y="20" width="44" height="24" fill="#cff623"/>
-  <path d="M10 12v5M5 20h5M54 12v5M59 20h-5M10 52v-5M5 44h5M54 52v-5M59 44h-5" stroke="#f5f6ee" stroke-width="1.5"/>
+  <!-- A sign on a post: brass panel, navy letter, on the blueprint mat. -->
+  <rect width="64" height="64" fill="#1b375b"/>
+  <path d="M0 16h64M0 32h64M0 48h64M16 0v64M32 0v64M48 0v64" stroke="#2a4a74" stroke-width="1"/>
+  <rect x="29" y="40" width="6" height="22" fill="#f5f4ec"/>
+  <rect x="8" y="8" width="48" height="34" fill="#d7b46a"/>
+  <rect x="10.5" y="10.5" width="43" height="29" fill="none" stroke="#1b375b" stroke-width="2"/>
+  <path d="M32 14 L22 36 h5.2 l2-4.8 h5.6 l2 4.8 H42 Z M30.6 27.4 L32 23.6 l1.4 3.8 Z" fill="#1b375b"/>
 </svg>

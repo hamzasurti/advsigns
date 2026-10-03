@@ -1,6 +1,7 @@
 import { Link } from "../../lib/router";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import StreetSign from "../../components/StreetSign";
 import { Pager, Photos, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
 import { publicWorks } from "../../content/site";
@@ -37,7 +38,10 @@ function Shape({ kind }: { kind: string }) {
 export const meta: PageMeta = {
     title: "Street Signs | Los Angeles",
     description: "Street name signs, regulatory and parking signs, wayfinding and work-zone signs for public works in Los Angeles. SBE certified. Call 818-346-2142.",
+    ogImage: signOgImage("street"),
 };
+
+export const structuredData = signStructuredData("street");
 
 function StreetView() {
 
@@ -55,7 +59,7 @@ function StreetView() {
             </div>
             <div className="street-figure max-w-[24rem] mx-auto w-full text-on-mat">
               <StreetSign />
-              <p className="label mt-3 text-center opacity-70">Fig. 1 &nbsp; Blade and panel on one post, the City of Los Angeles way</p>
+              <p className="label mt-3 text-center opacity-70">Fig. 1 &nbsp; Street-name blade and regulatory panel on one post</p>
             </div>
           </div>
         </div>
@@ -68,7 +72,7 @@ function StreetView() {
             <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
             What we make
           </p>
-          <h2 className="display display-2 mt-5 max-w-[18ch]">Four kinds of sign on a street</h2>
+          <h2 className="display display-2 mt-5 max-w-[22ch]">Street name, regulatory, wayfinding and work-zone signs</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-4 mt-[var(--s5)] border-l-2 border-ink">
             {kinds.map((o, i) => (
               <li key={o.title} className={`border-r-2 border-y-2 border-ink p-6 animate-on-scroll delay-${i + 1}`}>
@@ -83,7 +87,7 @@ function StreetView() {
 
       <section className="on-paper bg-paper-2 border-y border-ink/15">
         <p className="wrap py-6 max-w-none">
-          Bidding this as public works? SBE, prevailing wage and references are on the{" "}
+          Bidding this as public works? Our SBE certification, prevailing-wage experience and references are on the{" "}
           <Link to="/public-works" className="link">public works page</Link>.
         </p>
       </section>

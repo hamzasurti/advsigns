@@ -33,7 +33,7 @@ export default function Contact() {
             </div>
             <div>
               <dt className="label text-mark">Email</dt>
-              <dd className="display display-4 mt-3 break-words">
+              <dd className="display text-lg font-bold mt-3 [overflow-wrap:anywhere]">
                 <a href={business.emailHref} className="hover:text-mark">{business.email}</a>
               </dd>
             </div>
@@ -81,7 +81,7 @@ export default function Contact() {
               <div role="status" className="crop bg-paper">
                 <div className="p-8 sm:p-12">
                   <p className="label text-green">Received</p>
-                  <h3 className="display display-3 mt-3">Thank you. Your request is on the bench.</h3>
+                  <h3 className="display display-3 mt-3">Thanks. We have your request.</h3>
                   <p className="mt-4 text-ink-soft">
                     We&rsquo;ve received your quote request and will get back to you soon.
                   </p>

@@ -1,6 +1,7 @@
 import { useRef, useState, type CSSProperties, type PointerEvent } from "react";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
 
@@ -21,7 +22,10 @@ const materials = [
 export const meta: PageMeta = {
     title: "Lobby Signs | Los Angeles",
     description: "Dimensional lobby signs in Los Angeles: aluminum, acrylic and foam letters cut on our CNC router. Designed and installed. 818-346-2142.",
+    ogImage: signOgImage("lobby"),
 };
+
+export const structuredData = signStructuredData("lobby");
 
 function LobbyView() {
 
@@ -79,7 +83,7 @@ function LobbyView() {
                 <span className="inline-block w-8 h-[2px] bg-current" aria-hidden="true" />
               Materials
               </p>
-              <h2 className="display display-3 mt-5">First impressions start in the lobby</h2>
+              <h2 className="display display-3 mt-5">Dimensional letters and logos for reception areas</h2>
               <p className="mt-5 text-ink-soft">{service.body}</p>
             </div>
             <ul className="grid grid-cols-2 gap-4 animate-on-scroll delay-1">

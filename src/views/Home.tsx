@@ -149,6 +149,7 @@ export const meta: PageMeta = {
     title: "Sign Company in Chatsworth, CA",
     description:
       "Sign company in Chatsworth, CA since 1999. Street signs, ADA signage, vehicle wraps & lobby signs. SBE certified. Call 818-346-2142.",
+    ogImage: "https://advsigns.net/assets/og/home.jpg",
 };
 
 export default function Home() {

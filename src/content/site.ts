@@ -253,7 +253,7 @@ export const publicWorks = {
 
 export const commercial = {
   lead:
-    "Seven kinds of sign, each with its own page. Pick the one you need; if it is none of these, it is probably under the extras.",
+    "Street, building and ADA signs for public works. Lobby signs, vehicle wraps, wall graphics and engraving for businesses. Banners, embroidery and special projects too.",
   /* Things the shop makes that are not one of the seven sign types. From the owner's earlier site. */
   extras: [
     { title: "Banners and A-frames", body: "Vinyl and roll-up banners printed in-house, hemmed and grommeted, plus A-frames and canvas prints." },
@@ -266,7 +266,7 @@ export const commercial = {
       heading: "Lobby signs in Los Angeles",
       description: "Professional dimensional letters and logos for your reception area.",
       body:
-        "First impressions start in the lobby. We cut dimensional letters and logos from acrylic, aluminum, and foam on our CNC router, paint them in your company’s colors, and mount them on the wall. We design and install lobby signs for offices and shops across Los Angeles and the San Fernando Valley.",
+        "We cut dimensional letters and logos from acrylic, aluminum, and foam on our CNC router, paint them in your company’s colors, and mount them on the wall. We design and install lobby signs for offices and shops across Los Angeles and the San Fernando Valley.",
       image: "/assets/improved-v2/hero/lobby-signs.jpg",
       alt: "Dimensional lobby sign letters for MicaBella Cosmetics in Los Angeles",
     },
@@ -275,7 +275,7 @@ export const commercial = {
       heading: "Vehicle wraps in the San Fernando Valley",
       description: "High-impact vehicle graphics and wraps that turn heads on the road.",
       body:
-        "Turn every vehicle into a mobile billboard. We do full wraps, partial wraps, vinyl lettering, and vehicle magnets on cars, vans, trucks, and trailers, designed and printed in our Chatsworth shop. One vehicle or a whole fleet.",
+        "We do full wraps, partial wraps, vinyl lettering, and vehicle magnets on cars, vans, trucks, and trailers, designed and printed in our Chatsworth shop. One vehicle or a whole fleet.",
       image: "/assets/improved-v2/hero/vehicle-wraps.jpg",
       alt: "Full vehicle wrap on a Black Bear Moving box truck in the San Fernando Valley",
     },
@@ -284,7 +284,7 @@ export const commercial = {
       heading: "Wall graphics and murals",
       description: "Wall murals, window graphics and floor graphics for interiors and storefronts.",
       body:
-        "Transform any interior space with custom wall graphics and murals. We print in-house on vinyl, canvas, and aluminum panels up to 60 inches wide, and install the finished work. One of our murals is twelve printed aluminum panels, about 27 by 15 feet.",
+        "Custom wall graphics and murals, printed in-house on vinyl, canvas, and aluminum panels up to 60 inches wide, and install the finished work. One of our murals is twelve printed aluminum panels, about 27 by 15 feet.",
       image: "/assets/improved-v2/services/wall-graphics.jpg",
       alt: "Wall graphics across an office break room",
     },
@@ -1034,7 +1034,7 @@ export const about = {
   image: "/assets/live/shop-flatbed-printer.jpg",
   imageAlt: "Checking a print on the UV flatbed in the Chatsworth shop",
   paragraphs: [
-    "Advanced Sign & Banner has been the go-to sign subcontractor for general contractors and businesses who demand excellence since 1999. Our portfolio includes LA Metro stations, Burbank Airport terminals, and Los Angeles County courthouses: projects where precision, compliance, and quality are non-negotiable.",
+    "Advanced Sign & Banner is a family-owned sign shop in Chatsworth. Since 1999 we have made and installed signs for general contractors, public agencies and local businesses across Los Angeles County, including work for LA Metro, Hollywood Burbank Airport and Los Angeles County courthouses.",
     "Everything is designed, printed, cut and installed by our own people from one shop on Nordhoff Street: a CNC router, printing up to 60 inches wide, and an embroidery line for the shirts and caps that go out with the signs.",
   ],
   /*

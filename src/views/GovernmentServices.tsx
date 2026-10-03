@@ -12,6 +12,7 @@ const signLinks = ["/signs/street", "/signs/building", "/signs/ada"];
 export const meta: PageMeta = {
     title: "Public Works Signs | Chatsworth",
     description: "SBE certified public works sign contractor in Chatsworth, CA. Street signs, ADA signage & building signs. Prevailing wage. 818-346-2142.",
+    ogImage: "https://advsigns.net/assets/og/public-works.jpg",
 };
 
 /* JSON-LD for the page head; the layout renders one script per entry. */

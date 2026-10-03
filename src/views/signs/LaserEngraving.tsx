@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
 
@@ -17,7 +18,10 @@ const blanks = [
 export const meta: PageMeta = {
     title: "Laser Engraving | Chatsworth, CA",
     description: "Laser engraving in Chatsworth, CA for awards, plaques, nameplates and custom products. Call 818-346-2142.",
+    ogImage: signOgImage("laser-engraving"),
 };
+
+export const structuredData = signStructuredData("laser-engraving");
 
 function LaserEngravingView() {
 
@@ -27,7 +31,7 @@ function LaserEngravingView() {
   return (
     <div>
       <section className={`m-laser blank-${blank.id} ${dark ? "on-mat" : "on-paper"}`}>
-        <div className="wrap pt-[var(--s13)] pb-[var(--s13)]">
+        <div className="wrap pt-[var(--s5)] lg:pt-16 pb-[var(--s13)]">
           <SignEyebrow slug="laser-engraving" className="rise" />
 
           {/* Re-keyed on material so the beam makes a fresh pass. */}

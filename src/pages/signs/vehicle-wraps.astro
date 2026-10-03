@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import VehicleWraps, { meta } from "../../views/signs/VehicleWraps";
+import VehicleWraps, { meta, structuredData } from "../../views/signs/VehicleWraps";
 import { photoSources } from "../../lib/photos";
 import { workFor } from "../../components/SignParts";
 
 const photos = await photoSources(workFor("Vehicle Wraps").map((p) => p.image));
 ---
 
-<Layout meta={meta}>
+<Layout meta={meta} structuredData={structuredData}>
   <VehicleWraps client:idle photos={photos} />
 </Layout>

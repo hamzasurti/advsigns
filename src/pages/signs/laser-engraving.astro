@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import LaserEngraving, { meta } from "../../views/signs/LaserEngraving";
+import LaserEngraving, { meta, structuredData } from "../../views/signs/LaserEngraving";
 import { photoSources } from "../../lib/photos";
 import { workFor } from "../../components/SignParts";
 
 const photos = await photoSources(workFor("Engraving").map((p) => p.image));
 ---
 
-<Layout meta={meta}>
+<Layout meta={meta} structuredData={structuredData}>
   <LaserEngraving client:idle photos={photos} />
 </Layout>

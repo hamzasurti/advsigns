@@ -1,6 +1,7 @@
 import { useState, type CSSProperties } from "react";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import { Facts, Pager, Photos, Reference, SignActions, SignEyebrow } from "../../components/SignParts";
 import { publicWorks } from "../../content/site";
 
@@ -18,7 +19,10 @@ function clock(hour: number) {
 export const meta: PageMeta = {
     title: "Building Signs | Los Angeles",
     description: "Exterior and interior building signs in Los Angeles: identification letters, channel letters and illuminated signs. Call 818-346-2142.",
+    ogImage: signOgImage("building"),
 };
+
+export const structuredData = signStructuredData("building");
 
 function BuildingView() {
 
@@ -72,7 +76,7 @@ function BuildingView() {
 
       <Facts
         label="What we make"
-        title="Signs that belong to the building"
+        title="Exterior and interior building signs"
         body={
           <p>
             Exterior and interior signage, fabricated and installed by our own crews, and built to meet

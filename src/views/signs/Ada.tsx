@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import AdaSign from "../../components/AdaSign";
 import Braille from "../../components/Braille";
 import { Pager, Reference, SignActions, SignEyebrow, Photos } from "../../components/SignParts";
@@ -65,7 +66,10 @@ function TouchRead() {
 export const meta: PageMeta = {
     title: "ADA Signs & Braille | Los Angeles",
     description: "ADA room and door signs with raised characters and Grade 2 braille, made to the 2010 ADA Standards and California Title 24. Call 818-346-2142.",
+    ogImage: signOgImage("ada"),
 };
+
+export const structuredData = signStructuredData("ada");
 
 function AdaView() {
 

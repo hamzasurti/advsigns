@@ -1,6 +1,7 @@
 import { Link } from "../lib/router";
 import Logo from "./Logo";
 import { business } from "../content/site";
+import { signs } from "../content/signs";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -19,14 +20,16 @@ export default function Footer() {
           <div>
             <p className="label text-mark">Signs</p>
             <ul className="mt-3 space-y-2 text-sm">
-              <li><Link to="/public-works" className="inline-block py-1 -my-1 hover:text-mark">Public Works</Link></li>
-              <li><Link to="/services" className="inline-block py-1 -my-1 hover:text-mark">Signs</Link></li>
-              <li><Link to="/portfolio" className="inline-block py-1 -my-1 hover:text-mark">Portfolio</Link></li>
+              {signs.map((s) => (
+                <li key={s.slug}><Link to={`/signs/${s.slug}`} className="inline-block py-1 -my-1 hover:text-mark">{s.name}</Link></li>
+              ))}
             </ul>
           </div>
           <div>
             <p className="label text-mark">Company</p>
             <ul className="mt-3 space-y-2 text-sm">
+              <li><Link to="/public-works" className="inline-block py-1 -my-1 hover:text-mark">Public Works</Link></li>
+              <li><Link to="/portfolio" className="inline-block py-1 -my-1 hover:text-mark">Portfolio</Link></li>
               <li><Link to="/about" className="inline-block py-1 -my-1 hover:text-mark">About Us</Link></li>
               <li><Link to="/testimonials" className="inline-block py-1 -my-1 hover:text-mark">Reviews</Link></li>
               <li><Link to="/contact" className="inline-block py-1 -my-1 hover:text-mark">Contact</Link></li>

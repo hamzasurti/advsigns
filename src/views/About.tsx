@@ -14,6 +14,7 @@ const team = about.team.filter((m) => m.name.trim() !== "");
 export const meta: PageMeta = {
     title: "About Us | Sign Company Since 1999",
     description: "Family-owned sign company in Chatsworth, CA since 1999. Design, printing, fabrication and installation across Los Angeles County. SBE certified.",
+    ogImage: "https://advsigns.net/assets/og/about.jpg",
 };
 
 function AboutView() {
@@ -77,7 +78,7 @@ function AboutView() {
       {/* The shop */}
       <section className="on-paper bg-paper-2">
         <div className="wrap py-[var(--s13)]">
-          <SectionHead no="01" label="The shop" title="One floor: print, cut, build" />
+          <SectionHead no="01" label="The shop" title="Printing, cutting and fabrication under one roof" />
           <ul className="grid sm:grid-cols-3 gap-6 mt-[var(--s5)]">
             {shopPhotos.slice(1).map((p, i) => (
               <li key={p.image} className={`animate-on-scroll delay-${i + 1}`}>
@@ -107,7 +108,7 @@ function AboutView() {
             {installCities.map((c) => <li key={c.name}>{c.name}</li>)}
           </ul>
           <p className="text-sm text-ink-soft mt-6 measure">
-            Drawn, not plotted: freeways and hills are simplified. Agency clients are listed on the{" "}
+            Freeways and hills are simplified. Agency clients are listed on the{" "}
             <Link to="/public-works" className="link">public works page</Link>.
           </p>
         </div>

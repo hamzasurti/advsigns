@@ -19,7 +19,22 @@ const pathname = Astro.url.pathname.replace(/\.html$/, "").replace(/\/index$/, "
 const canonical = `${SITE}${pathname}`;
 const title = `${meta.title} | ${BASE_TITLE}`;
 const image = meta.ogImage ?? `${SITE}/assets/hero/building-signs.jpg`;
-const scripts = [{ id: "business", data: localBusiness }, ...structuredData.map((s) => ({ id: s.id, data: { "@context": "https://schema.org", ...s.data } }))];
+const crumbNames: Record<string, string> = { "public-works": "Public Works", services: "Signs", about: "About", contact: "Contact", portfolio: "Portfolio", testimonials: "Reviews", signs: "Signs" };
+const crumbs = pathname === "/" || meta.noindex ? null : {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: ["Home", ...pathname.slice(1).split("/")].map((seg, i, all) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: i === 0 ? "Home" : i === all.length - 1 ? meta.title.split(" | ")[0].split(", ")[0] : crumbNames[seg] ?? seg,
+    item: i === 0 ? `${SITE}/` : seg === "signs" ? `${SITE}/services` : `${SITE}/${all.slice(1, i + 1).join("/")}`,
+  })),
+};
+const scripts = [
+  { id: "business", data: localBusiness },
+  ...(crumbs ? [{ id: "breadcrumbs", data: crumbs }] : []),
+  ...structuredData.map((s) => ({ id: s.id, data: { "@context": "https://schema.org", ...s.data } })),
+];
 ---
 
 <!doctype html>
@@ -28,10 +43,13 @@ const scripts = [{ id: "business", data: localBusiness }, ...structuredData.map(
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#1b375b" />
     <title>{title}</title>
     <meta name="description" content={meta.description} />
-    {meta.noindex ? <meta name="robots" content="noindex" /> : <link rel="canonical" href={canonical} />}
+    {meta.noindex ? <meta name="robots" content="noindex" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+    {!meta.noindex && <link rel="canonical" href={canonical} />}
 
     <meta name="geo.region" content="US-CA" />
     <meta name="geo.placename" content="Chatsworth, CA" />

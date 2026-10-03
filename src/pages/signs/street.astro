@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Street, { meta } from "../../views/signs/Street";
+import Street, { meta, structuredData } from "../../views/signs/Street";
 import { photoSources } from "../../lib/photos";
 import { workFor } from "../../components/SignParts";
 
 const photos = await photoSources(workFor("Street Signs").map((p) => p.image));
 ---
 
-<Layout meta={meta}>
+<Layout meta={meta} structuredData={structuredData}>
   <Street photos={photos} />
 </Layout>

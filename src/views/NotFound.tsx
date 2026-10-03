@@ -16,7 +16,7 @@ export default function NotFound() {
         <div className="split-5-8 items-center">
           <div>
             <p className="label text-mark">Error 404</p>
-            <h1 className="display display-2 mt-5">This sign hasn&rsquo;t been made yet</h1>
+            <h1 className="display display-2 mt-5">Page not found</h1>
             <p className="lead mt-5 text-on-mat">
               The page you&rsquo;re looking for doesn&rsquo;t exist or has been moved.
             </p>
@@ -27,7 +27,7 @@ export default function NotFound() {
           </div>
           <div className="crop text-on-mat" aria-hidden="true">
             <div className="ratio-wide bg-paper grid place-items-center">
-              <span className="label text-ink-soft">Blank, 4 ft x 8 ft</span>
+              <span className="label text-ink-soft">404</span>
             </div>
           </div>
         </div>

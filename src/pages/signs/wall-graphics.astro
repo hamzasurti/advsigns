@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import WallGraphics, { meta } from "../../views/signs/WallGraphics";
+import WallGraphics, { meta, structuredData } from "../../views/signs/WallGraphics";
 import { photoSources } from "../../lib/photos";
 import { workFor } from "../../components/SignParts";
 
 const photos = await photoSources(workFor("Wall Graphics").map((p) => p.image));
 ---
 
-<Layout meta={meta}>
+<Layout meta={meta} structuredData={structuredData}>
   <WallGraphics client:idle photos={photos} />
 </Layout>

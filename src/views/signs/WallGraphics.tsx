@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PhotosProvider, type ViewProps } from "../../components/Photo";
 import type { PageMeta } from "../../lib/meta";
+import { signOgImage, signStructuredData } from "../../lib/signSchema";
 import { Facts, Pager, Photos, SignActions, SignEyebrow } from "../../components/SignParts";
 import { commercial } from "../../content/site";
 
@@ -14,7 +15,10 @@ const sizes = [
 export const meta: PageMeta = {
     title: "Wall Graphics & Murals, Los Angeles",
     description: "Custom wall graphics and murals printed in our Chatsworth shop on vinyl, canvas and aluminum panels, and installed. Call 818-346-2142.",
+    ogImage: signOgImage("wall-graphics"),
 };
+
+export const structuredData = signStructuredData("wall-graphics");
 
 function WallGraphicsView() {
 
@@ -57,7 +61,7 @@ function WallGraphicsView() {
 
       <Facts
         label="What we print on"
-        title="From one accent wall to the whole room"
+        title="Murals and graphics, printed and installed"
         body={<p>{service.body}</p>}
         facts={[
           { term: "Work", detail: "Custom wall graphics and murals." },

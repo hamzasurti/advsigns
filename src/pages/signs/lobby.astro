@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Lobby, { meta } from "../../views/signs/Lobby";
+import Lobby, { meta, structuredData } from "../../views/signs/Lobby";
 import { photoSources } from "../../lib/photos";
 import { workFor } from "../../components/SignParts";
 
 const photos = await photoSources(workFor("Lobby Signs").map((p) => p.image));
 ---
 
-<Layout meta={meta}>
+<Layout meta={meta} structuredData={structuredData}>
   <Lobby client:idle photos={photos} />
 </Layout>
