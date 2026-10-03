@@ -46,7 +46,7 @@ function PortfolioView() {
       <PageHead
         tone="paper-2"
         eyebrow="Our work"
-        lead="Signs we have made and installed across Los Angeles County, by type."
+        lead="From public works projects to commercial spaces, see the quality and craftsmanship we bring to every job."
       >
         <h1 className="display display-1">Sign projects in Los Angeles</h1>
       </PageHead>

@@ -275,7 +275,7 @@ export const commercial = {
       heading: "Vehicle wraps in the San Fernando Valley",
       description: "High-impact vehicle graphics and wraps that turn heads on the road.",
       body:
-        "We do full wraps, partial wraps, vinyl lettering, and vehicle magnets on cars, vans, trucks, and trailers, designed and printed in our Chatsworth shop. One vehicle or a whole fleet.",
+        "We do full wraps, partial wraps, vinyl lettering, and vehicle magnets on cars, vans, trucks, and trailers, designed and printed in our Chatsworth shop.",
       image: "/assets/improved-v2/hero/vehicle-wraps.jpg",
       alt: "Full vehicle wrap on a Black Bear Moving box truck in the San Fernando Valley",
     },
